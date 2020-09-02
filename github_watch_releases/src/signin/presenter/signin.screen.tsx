@@ -6,7 +6,7 @@ import styles from './signin.style';
 import githubicon from '../../assets/images/github.png';
 import githubAnimation from '../../assets/lottiefiles/octocat-animated.json';
 
-const SignInScreen: React.FC = () => {
+export const SignInScreen: React.FC = () => {
   return (
     <View style={styles.main}>
       <LottieView source={githubAnimation} autoPlay loop />
@@ -20,5 +20,3 @@ const SignInScreen: React.FC = () => {
     </View>
   );
 };
-
-export default SignInScreen;
