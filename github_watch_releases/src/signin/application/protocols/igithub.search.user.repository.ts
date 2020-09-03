@@ -1,5 +1,5 @@
-import {GitHubAccount} from '../../bussiness/entities/github.account';
+import {GithubUserAccountEntity} from '../../bussiness/entities/github.account.entity';
 
 export interface IGithubSearchUserRepository {
-  search: (gitUser: string) => Promise<GitHubAccount>;
+  search: (gitUser: string) => Promise<GithubUserAccountEntity>;
 }

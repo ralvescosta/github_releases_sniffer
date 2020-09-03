@@ -1,5 +1,5 @@
-import {GitHubAccount} from '../entities/github.account';
+import {GithubUserAccountEntity} from '../entities/github.account.entity';
 
 export interface ISignInUsecases {
-  signin: (githubUser: string) => Promise<GitHubAccount>;
+  signin: (githubUser: string) => Promise<GithubUserAccountEntity>;
 }

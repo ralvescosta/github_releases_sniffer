@@ -15,6 +15,6 @@ module.exports = {
     "react-native/no-inline-styles": "off",
     "no-redeclare": "off",
     "import/export": "off",
-
+    "react-hooks/rules-of-hooks": "off"
   }
 };

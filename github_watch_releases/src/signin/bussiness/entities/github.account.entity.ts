@@ -1,4 +1,4 @@
-export class GitHubAccount {
+export class GithubUserAccountEntity {
   constructor(
     public id: number,
     public login: string,

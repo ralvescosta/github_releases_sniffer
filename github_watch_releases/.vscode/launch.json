@@ -1,0 +1,11 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+		{
+      "name": "RN Debbuger",
+      "cwd": "${workspaceFolder}",
+      "type": "reactnative",
+      "request": "attach"
+    },
+  ],
+}

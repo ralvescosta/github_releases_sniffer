@@ -1,4 +1,4 @@
-export interface GitHubApiSearchUserResult {
+export interface GithubSearchUserDataSource {
   login: string;
   id: number;
   node_id: string;
