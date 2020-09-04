@@ -1,13 +1,16 @@
 import {useState} from 'react';
-import {ISignInUsecases} from '../bussiness/usecases/isignin.usecases';
+import {ISignInUsecase} from '../bussiness/usecases/isignin.usecase';
+import {useNavigation} from '@react-navigation/native';
 
 export class SingInViewController {
   public inputValue: string;
   public isLoading: boolean;
   public setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  public navigation: any;
 
-  constructor(private readonly signInUsecases: ISignInUsecases) {
+  constructor(private readonly signInUsecases: ISignInUsecase) {
     this.inputValue = '';
+    this.navigation = useNavigation();
     [this.isLoading, this.setIsLoading] = useState<boolean>(false);
   }
 
@@ -17,8 +20,8 @@ export class SingInViewController {
     }
     this.setIsLoading(true);
     try {
-      const result = await this.signInUsecases.signin(this.inputValue);
-      console.log(result);
+      await this.signInUsecases.signin(this.inputValue);
+      this.navigation.navigate('dashboard');
     } catch (err) {
       this.setIsLoading(false);
       throw new Error();

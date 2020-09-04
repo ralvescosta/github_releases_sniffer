@@ -1,12 +1,12 @@
 import {GithubUserAccountEntity} from '../../bussiness/entities/github.account.entity';
-import {ISignInUsecases} from '../../bussiness/usecases/isignin.usecases';
+import {ISignInUsecase} from '../../bussiness/usecases/isignin.usecase';
 import {IGithubSearchUserRepository} from '../protocols/igithub.search.user.repository';
-import {ILocalDatabaseRepository} from '../protocols/ilocal.database.repository';
+import {ISaveLocallyUserAccountRepository} from '../protocols/isave.locally.user.account.repository';
 
-export class SignInUsecases implements ISignInUsecases {
+export class SignInUsecases implements ISignInUsecase {
   constructor(
     private readonly githubFindUserRepository: IGithubSearchUserRepository,
-    private readonly localDatabaseRepository: ILocalDatabaseRepository,
+    private readonly localDatabaseRepository: ISaveLocallyUserAccountRepository,
   ) {}
 
   public async signin(githubUser: string): Promise<GithubUserAccountEntity> {

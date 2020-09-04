@@ -1,5 +1,5 @@
 import {GithubUserAccountEntity} from '../../bussiness/entities/github.account.entity';
 
-export interface ILocalDatabaseRepository {
+export interface ISaveLocallyUserAccountRepository {
   registerUser(userAccount: GithubUserAccountEntity): Promise<boolean>;
 }
