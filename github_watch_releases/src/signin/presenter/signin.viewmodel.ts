@@ -10,6 +10,6 @@ export class SingInViewModel {
   }
 
   public onPressSignIn() {
-    console.log(this.githubUserInputRef.current);
+    console.log(this.githubUserInputRef);
   }
 }

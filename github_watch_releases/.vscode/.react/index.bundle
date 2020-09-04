@@ -98875,7 +98875,9 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
         columnNumber: 7
       }
     }, _react.default.createElement(_reactNative.TextInput, {
-      ref: singInViewModel.githubUserInputRef,
+      ref: function ref(_ref2) {
+        singInViewModel.githubUserInputRef[0] = _ref2;
+      },
       style: _signin.default.signInInput,
       placeholder: "Github user",
       __self: _this,
@@ -98892,7 +98894,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22,
+        lineNumber: 24,
         columnNumber: 9
       }
     }, _react.default.createElement(_reactNative.Text, {
@@ -98900,7 +98902,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25,
+        lineNumber: 27,
         columnNumber: 11
       }
     }, "SignIn With"), _react.default.createElement(_reactNative.Image, {
@@ -98909,7 +98911,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26,
+        lineNumber: 28,
         columnNumber: 11
       }
     }))));
@@ -99778,7 +99780,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   var SingInViewModel = function () {
     function SingInViewModel() {
       (0, _classCallCheck2.default)(this, SingInViewModel);
-      this.githubUserInputRef = (0, _react.useRef)(null);
+      this.githubUserInputRef = (0, _react.useRef)([]);
 
       var _useState = (0, _react.useState)(false);
 
@@ -99791,7 +99793,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
     (0, _createClass2.default)(SingInViewModel, [{
       key: "onPressSignIn",
       value: function onPressSignIn() {
-        console.log(this.githubUserInputRef.current);
+        console.log(this.githubUserInputRef.current[0]);
       }
     }]);
     return SingInViewModel;
