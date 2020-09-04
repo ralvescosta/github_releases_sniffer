@@ -5,23 +5,25 @@ import LottieView from 'lottie-react-native';
 import styles from './signin.style';
 import githubicon from '../../assets/images/github.png';
 import githubAnimation from '../../assets/lottiefiles/octocat-animated.json';
-import {SingInViewModel} from './signin.viewmodel';
+import {SingInViewController} from './signin.view.controller';
 
 export const SignInScreen: React.FC = ({}) => {
-  const singInViewModel = new SingInViewModel();
+  const singInViewController = new SingInViewController();
 
   return (
     <View style={styles.main}>
       <LottieView source={githubAnimation} autoPlay loop />
       <View style={styles.form}>
         <TextInput
-          ref={singInViewModel.githubUserInputRef}
           style={styles.signInInput}
           placeholder="Github user"
+          onChangeText={(value) => {
+            singInViewController.inputValue = value;
+          }}
         />
         <TouchableOpacity
           style={styles.signInSubmit}
-          onPress={() => singInViewModel.onPressSignIn()}>
+          onPress={() => singInViewController.onPressSignIn()}>
           <Text style={styles.signInText}>SignIn With</Text>
           <Image style={styles.github} source={githubicon} />
         </TouchableOpacity>

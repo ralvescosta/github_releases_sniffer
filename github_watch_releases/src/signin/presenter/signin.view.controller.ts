@@ -1,7 +1,7 @@
-import {useRef, useState} from 'react';
+import {useState} from 'react';
 
-export class SingInViewModel {
-  public githubUserInputRef = useRef(null);
+export class SingInViewController {
+  public inputValue = '';
   public isLoading: boolean;
   public setIsLoading: React.Dispatch<React.SetStateAction<false>>;
 
@@ -10,6 +10,9 @@ export class SingInViewModel {
   }
 
   public onPressSignIn() {
-    console.log(this.githubUserInputRef);
+    if (!this.inputValue) {
+      return false;
+    }
+    console.log(this.inputValue);
   }
 }
