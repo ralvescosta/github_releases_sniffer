@@ -6,12 +6,10 @@ const Stack = createStackNavigator();
 type Props = {
   isLogged: boolean;
   signInScreen: React.FC<any>;
-  dashboardScreen: React.FC<any>;
+  bottomTabNavigation: any;
 };
 
-import {BottomTabNavigation} from './bottom.tab.navigation';
-
-export const AppNavigation: React.FC<Props> = ({isLogged = false, signInScreen}) => {
+export const StackNavigation: React.FC<Props> = ({isLogged = false, signInScreen, bottomTabNavigation}) => {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -20,7 +18,7 @@ export const AppNavigation: React.FC<Props> = ({isLogged = false, signInScreen})
       }}
       initialRouteName={isLogged ? 'dashboard' : 'signin'}>
       <Stack.Screen name="signin" component={signInScreen} />
-      <Stack.Screen name="dashboard" component={BottomTabNavigation} />
+      <Stack.Screen name="dashboard" component={bottomTabNavigation} />
     </Stack.Navigator>
   );
 };

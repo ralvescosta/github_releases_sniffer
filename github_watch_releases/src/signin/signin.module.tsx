@@ -7,7 +7,7 @@ import {LocalDatabaseRepository} from './infrastructure/repositories/local.datab
 import {SignInUsecases} from './application/usecases/signin.usecases';
 import {CheckUserIsLoggedUsecase} from './application/usecases/check.user.is.logged.usecase';
 
-export const WarperSignInScreen: React.FC = () => {
+export const SignInScreenModule: React.FC = () => {
   const githubFindUserRepository = new GithubSearchUserRepository();
   const localDatabaseRepository = new LocalDatabaseRepository();
   const signInUsecases = new SignInUsecases(githubFindUserRepository, localDatabaseRepository);

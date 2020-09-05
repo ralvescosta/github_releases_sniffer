@@ -1,7 +1,5 @@
 import React from 'react';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
-import {Dashboard} from '../../../dashboard/presenter/dashboard.screen';
-import {SearchScreen} from '../../../search/presenter/search.screen';
 
 const BottomTab = createMaterialBottomTabNavigator();
 
@@ -9,6 +7,9 @@ const BottomTab = createMaterialBottomTabNavigator();
 //   dashboardScreen: React.FC<any>;
 //   searchScreen: React.FC<any>;
 // };
+
+import {Dashboard} from '../../dashboard/presenter/dashboard.screen';
+import {SearchScreen} from '../../search/presenter/search.screen';
 
 export const BottomTabNavigation: React.FC = () => {
   return (
