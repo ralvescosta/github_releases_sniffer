@@ -5,7 +5,6 @@ export class CheckUserIsLoggedUsecase implements ICheckUserIsLoggedUsecase {
   constructor(private readonly localDatabaseRepository: IGetLocallyUserAccountRepository) {}
   public async check(): Promise<boolean> {
     const account = await this.localDatabaseRepository.getAccount();
-
     if (account) {
       return true;
     }

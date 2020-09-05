@@ -6,13 +6,14 @@ const BottomTab = createMaterialBottomTabNavigator();
 
 import {Dashboard} from '../../dashboard/presenter/dashboard.screen';
 import {SearchScreen} from '../../search/presenter/search.screen';
-import {primary} from '../../core/themes/colors';
+import {SettingsScreen} from '../../settings/presenter/settings.screen';
 
 export const BottomTabNavigation: React.FC = () => {
   return (
     <BottomTab.Navigator
       barStyle={{
-        backgroundColor: primary,
+        backgroundColor: '#fff',
+        elevation: 5,
       }}>
       <BottomTab.Screen
         name="dashboard"
@@ -28,6 +29,15 @@ export const BottomTabNavigation: React.FC = () => {
         options={{
           tabBarLabel: 'Search',
           tabBarIcon: ({color}) => <MaterialIcons name="search" color={color} size={24} />,
+        }}
+      />
+
+      <BottomTab.Screen
+        name="settings"
+        component={SettingsScreen}
+        options={{
+          tabBarLabel: 'Settings',
+          tabBarIcon: ({color}) => <MaterialIcons name="unfold-more" color={color} size={24} />,
         }}
       />
     </BottomTab.Navigator>
