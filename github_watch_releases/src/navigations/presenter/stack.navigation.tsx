@@ -3,13 +3,14 @@ import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
+import {SignInScreenModule} from '../../signin/signin.module';
+import {BottomTabNavigation} from './bottom.tab.navigation';
+
 type Props = {
   isLogged: boolean;
-  signInScreen: React.FC<any>;
-  bottomTabNavigation: any;
 };
 
-export const StackNavigation: React.FC<Props> = ({isLogged = false, signInScreen, bottomTabNavigation}) => {
+export const StackNavigation: React.FC<Props> = ({isLogged = false}) => {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -17,8 +18,8 @@ export const StackNavigation: React.FC<Props> = ({isLogged = false, signInScreen
         headerShown: false,
       }}
       initialRouteName={isLogged ? 'dashboard' : 'signin'}>
-      <Stack.Screen name="signin" component={signInScreen} />
-      <Stack.Screen name="dashboard" component={bottomTabNavigation} />
+      <Stack.Screen name="signin" component={SignInScreenModule} />
+      <Stack.Screen name="dashboard" component={BottomTabNavigation} />
     </Stack.Navigator>
   );
 };

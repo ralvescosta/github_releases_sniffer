@@ -1,26 +1,25 @@
 import React from 'react';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const BottomTab = createMaterialBottomTabNavigator();
 
-// type Props = {
-//   dashboardScreen: React.FC<any>;
-//   searchScreen: React.FC<any>;
-// };
-
 import {Dashboard} from '../../dashboard/presenter/dashboard.screen';
 import {SearchScreen} from '../../search/presenter/search.screen';
+import {primary} from '../../core/themes/colors';
 
 export const BottomTabNavigation: React.FC = () => {
   return (
-    <BottomTab.Navigator>
+    <BottomTab.Navigator
+      barStyle={{
+        backgroundColor: primary,
+      }}>
       <BottomTab.Screen
         name="dashboard"
         component={Dashboard}
         options={{
           tabBarLabel: 'Dashboard',
-          tabBarIcon: ({color}) => <MaterialCommunityIcons name="page-next" color={color} size={26} />,
+          tabBarIcon: ({color}) => <MaterialIcons name="dashboard" color={color} size={24} />,
         }}
       />
       <BottomTab.Screen
@@ -28,7 +27,7 @@ export const BottomTabNavigation: React.FC = () => {
         component={SearchScreen}
         options={{
           tabBarLabel: 'Search',
-          tabBarIcon: ({color}) => <MaterialCommunityIcons name="page-next" color={color} size={26} />,
+          tabBarIcon: ({color}) => <MaterialIcons name="search" color={color} size={24} />,
         }}
       />
     </BottomTab.Navigator>
