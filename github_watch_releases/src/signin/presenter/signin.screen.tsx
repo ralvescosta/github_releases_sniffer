@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Image,
-  TextInput,
-  TouchableOpacity,
-  Text,
-  ActivityIndicator,
-  Alert,
-} from 'react-native';
+import {View, Image, TextInput, TouchableOpacity, Text, ActivityIndicator, Alert} from 'react-native';
 import LottieView from 'lottie-react-native';
 
 import styles from './signin.style';

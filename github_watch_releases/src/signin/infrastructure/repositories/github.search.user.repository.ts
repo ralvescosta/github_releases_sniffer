@@ -8,12 +8,9 @@ export class GithubSearchUserRepository implements IGithubSearchUserRepository {
   public async search(gitUser: string): Promise<GithubUserAccountEntity> {
     let httpBody: GithubSearchUserDataSource;
     try {
-      const httpResponse = await fetch(
-        `${this.githubSearchUrlBase}${gitUser}`,
-        {
-          method: 'GET',
-        },
-      );
+      const httpResponse = await fetch(`${this.githubSearchUrlBase}${gitUser}`, {
+        method: 'GET',
+      });
       if (httpResponse.status >= 400) {
         throw new Error(`${httpResponse.status}`);
       }
