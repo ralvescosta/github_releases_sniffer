@@ -5,5 +5,5 @@
 - SignIn 
 
 <div align="center">
-<image src="./docs/assets/signin-gif.gif" >
+<image width="300" src="./docs/assets/signin-gif.gif" >
 </div>
