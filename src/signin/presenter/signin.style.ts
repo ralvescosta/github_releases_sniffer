@@ -24,15 +24,18 @@ export default StyleSheet.create({
     marginTop: 20,
     width: '100%',
     backgroundColor: secondary,
-    padding: 10,
+    padding: 5,
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     borderRadius: 16,
     elevation: 5,
   },
   signInText: {
-    position: 'absolute',
-    left: '40%',
+    marginVertical: 10,
   },
-  github: {},
+  github: {
+    position: 'absolute',
+    left: 15,
+  },
 });
