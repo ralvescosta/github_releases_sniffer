@@ -8,7 +8,6 @@ module.exports = {
     '!<rootDir>/src/index.tsx',
     '!<rootDir>/src/**/*.module.tsx',
     '!<rootDir>/src/dashboard/**',
-    '!<rootDir>/src/navigations/**',
     '!<rootDir>/src/search/**',
     '!<rootDir>/src/settings/**',
   ],

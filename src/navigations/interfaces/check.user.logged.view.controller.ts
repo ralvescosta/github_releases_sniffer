@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useRef} from 'react';
 import {ICheckUserIsLoggedUsecase} from '../bussiness/usecases/icheck.user.is.logged.usecase';
 
 export class CheckUserLoggedViewController {
@@ -10,9 +10,7 @@ export class CheckUserLoggedViewController {
     [this.isLoading, this.setIsLoading] = useState<boolean>(true);
     this.isLogged = useRef(false);
 
-    useEffect(() => {
-      this.checkUserIsLogged();
-    }, []);
+    this.checkUserIsLogged();
   }
 
   private async checkUserIsLogged() {
