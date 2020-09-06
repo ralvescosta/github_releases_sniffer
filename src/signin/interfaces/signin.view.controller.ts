@@ -14,7 +14,7 @@ export class SingInViewController {
     [this.isLoading, this.setIsLoading] = useState<boolean>(false);
   }
 
-  public async onPressSignIn() {
+  public async onPressSignIn(): Promise<void> {
     if (!this.inputValue) {
       throw new Error();
     }
