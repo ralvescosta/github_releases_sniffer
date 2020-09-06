@@ -21,6 +21,7 @@ module.exports = {
     //   '<rootDir>/node_modules/react-native/jest/preprocessor.js',
     '.+\\.(ts|tsx)$': 'babel-jest',
   },
+  setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
   setupFiles: ['./node_modules/react-native-gesture-handler/jestSetup.js', '<rootDir>/jest/jest.setup.js'],
   verbose: true,
 };

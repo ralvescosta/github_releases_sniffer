@@ -1,5 +1,5 @@
 import React from 'react';
-import {create, ReactTestRenderer} from 'react-test-renderer';
+import {cleanup, render, RenderAPI, fireEvent} from '@testing-library/react-native';
 
 import {TextInput, TouchableOpacity, ActivityIndicator} from 'react-native';
 
@@ -7,7 +7,7 @@ import {SignInScreen} from './signin.screen';
 import {SingInViewControllerSpy} from './__test__/signin.view.controller.spy';
 
 type SutTypes = {
-  sut: ReactTestRenderer;
+  sut: RenderAPI;
   singInViewControllerSpy: SingInViewControllerSpy;
 };
 
@@ -19,7 +19,7 @@ function makeSut(): SutTypes {
     return <SignInScreen viewController={singInViewControllerSpy} />;
   };
 
-  const sut = create(<SignInScreenWarper />);
+  const sut = render(<SignInScreenWarper />);
 
   return {
     sut,
@@ -30,6 +30,7 @@ function makeSut(): SutTypes {
 describe('SignIn Screen', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    cleanup();
   });
 
   it('Should render correctly', () => {
@@ -40,15 +41,24 @@ describe('SignIn Screen', () => {
   it('Should render TextInput and TouchableOpacity', () => {
     const {sut} = makeSut();
 
-    expect(sut.root.findByType(TextInput).props.placeholder).toBe('Github user');
-    expect(sut.root.findByType(TouchableOpacity).props.testID).toBe('signin-button');
+    expect(sut.UNSAFE_getByType(TextInput).props.placeholder).toBe('Github user');
+    expect(sut.UNSAFE_getByType(TouchableOpacity).props.testID).toBe('signin-button');
   });
 
   it('Should render ActivityIndicator into a TouchableOpacity if onPressed', () => {
     const {sut} = makeSut();
 
-    sut.root.findByType(TouchableOpacity).props.onPress();
-    expect(sut.root.findByType(ActivityIndicator).props.testID).toBe('signin-indicator');
+    sut.UNSAFE_getByType(TouchableOpacity).props.onPress();
+    expect(sut.UNSAFE_getByType(ActivityIndicator).props.testID).toBe('signin-indicator');
+  });
+
+  it('Should ', () => {
+    const {sut, singInViewControllerSpy} = makeSut();
+
+    const textInput = sut.UNSAFE_getByType(TextInput);
+    fireEvent.changeText(textInput, 'some_text');
+
+    expect(singInViewControllerSpy.inputValue).toBe('some_text');
   });
 
   // it('Should render Alert if onPressSignIn throws', () => {

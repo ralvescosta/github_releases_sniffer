@@ -24,8 +24,8 @@ function makeSut(): SutTypes {
 describe('Signin Usecases', () => {
   it('signin()', async () => {
     const {sut, githubSearchUserRepositorySpy, saveLocallyUserAccountRepositorySpy} = makeSut();
-    jest.spyOn(githubSearchUserRepositorySpy, 'search').mockResolvedValueOnce(githubSearchUserRepositorySpy.entity);
-    jest.spyOn(saveLocallyUserAccountRepositorySpy, 'registerUser').mockResolvedValueOnce({} as never);
+    jest.spyOn(githubSearchUserRepositorySpy, 'search');
+    jest.spyOn(saveLocallyUserAccountRepositorySpy, 'registerUser');
 
     await sut.signin('some_user');
 
