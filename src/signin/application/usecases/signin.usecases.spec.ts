@@ -46,6 +46,6 @@ describe('Signin Usecases', () => {
 
     promisse = sut.signin('some_user');
 
-    expect(promisse).rejects.toThrow(new Error());
+    await expect(promisse).rejects.toThrow(new Error());
   });
 });

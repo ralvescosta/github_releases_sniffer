@@ -2,7 +2,16 @@ module.exports = {
   preset: 'react-native',
   roots: ['<rootDir>/src'],
   coverageDirectory: 'coverage',
-  collectCoverageFrom: ['<rootDir>/src/**/*.{ts,tsx}', '!<rootDir>/src/index.tsx', '!<rootDir>/src/**/*.module.tsx'],
+  collectCoverageFrom: [
+    '<rootDir>/src/**/*.{ts,tsx}',
+    '!<rootDir>/**/*.d.ts',
+    '!<rootDir>/src/index.tsx',
+    '!<rootDir>/src/**/*.module.tsx',
+    '!<rootDir>/src/dashboard/**',
+    '!<rootDir>/src/navigations/**',
+    '!<rootDir>/src/search/**',
+    '!<rootDir>/src/settings/**',
+  ],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   moduleNameMapper: {
     '.+\\.(png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',

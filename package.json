@@ -44,6 +44,7 @@
     "git-commit-msg-linter": "^2.5.3",
     "husky": "^4.2.5",
     "jest": "^25.1.0",
+    "jest-fetch-mock": "^3.0.3",
     "jest-transform-stub": "^2.0.0",
     "lint-staged": "^10.2.13",
     "metro-react-native-babel-preset": "^0.59.0",

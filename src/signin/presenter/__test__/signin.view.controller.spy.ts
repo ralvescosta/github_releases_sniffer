@@ -7,11 +7,14 @@ export class SingInViewControllerSpy {
   public navigation: any;
 
   constructor() {
-    this.inputValue = '';
+    this.inputValue = 'some';
     [this.isLoading, this.setIsLoading] = useState<boolean>(false);
   }
 
   public async onPressSignIn(): Promise<void> {
+    if (!this.inputValue) {
+      throw new Error();
+    }
     this.setIsLoading(true);
   }
 }

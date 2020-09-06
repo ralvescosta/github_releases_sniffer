@@ -8,10 +8,11 @@ import {SingInViewControllerSpy} from './__test__/signin.view.controller.spy';
 
 type SutTypes = {
   sut: ReactTestRenderer;
+  singInViewControllerSpy: SingInViewControllerSpy;
 };
 
 function makeSut(): SutTypes {
-  let singInViewControllerSpy: SingInViewControllerSpy;
+  let singInViewControllerSpy: any;
 
   const SignInScreenWarper: React.FC = () => {
     singInViewControllerSpy = new SingInViewControllerSpy();
@@ -22,6 +23,7 @@ function makeSut(): SutTypes {
 
   return {
     sut,
+    singInViewControllerSpy,
   };
 }
 
@@ -48,4 +50,11 @@ describe('SignIn Screen', () => {
     sut.root.findByType(TouchableOpacity).props.onPress();
     expect(sut.root.findByType(ActivityIndicator).props.testID).toBe('signin-indicator');
   });
+
+  // it('Should render Alert if onPressSignIn throws', () => {
+  //   const {sut, singInViewControllerSpy} = makeSut();
+  //   singInViewControllerSpy.inputValue = '';
+
+  //   sut.root.findByType(TouchableOpacity).props.onPress();
+  // });
 });
