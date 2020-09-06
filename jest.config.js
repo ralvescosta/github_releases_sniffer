@@ -8,6 +8,7 @@ module.exports = {
     '!<rootDir>/src/index.tsx',
     '!<rootDir>/src/**/*.module.tsx',
     '!<rootDir>/src/dashboard/**',
+    '!<rootDir>/src/navigations/presenter/**',
     '!<rootDir>/src/search/**',
     '!<rootDir>/src/settings/**',
   ],
@@ -20,7 +21,6 @@ module.exports = {
     //   '<rootDir>/node_modules/react-native/jest/preprocessor.js',
     '.+\\.(ts|tsx)$': 'babel-jest',
   },
-  setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
   setupFiles: ['./node_modules/react-native-gesture-handler/jestSetup.js', '<rootDir>/jest/jest.setup.js'],
   verbose: true,
 };
