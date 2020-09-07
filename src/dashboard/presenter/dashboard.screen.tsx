@@ -10,7 +10,7 @@ export const Dashboard: React.FC = () => {
   return (
     <View style={styles.container}>
       <Header />
-      <ScrollView style={{width: '100%', marginBottom: 30}} contentContainerStyle={{alignItems: 'center'}}>
+      <ScrollView style={{width: '100%'}} contentContainerStyle={{paddingBottom: 35, alignItems: 'center'}}>
         <RepoCard />
         <RepoCard />
         <RepoCard />
