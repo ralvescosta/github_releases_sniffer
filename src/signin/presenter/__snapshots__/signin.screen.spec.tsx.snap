@@ -93,32 +93,37 @@ exports[`SignIn Screen Should render correctly 1`] = `
           "borderRadius": 16,
           "elevation": 5,
           "flexDirection": "row",
+          "justifyContent": "center",
           "marginTop": 20,
           "opacity": 1,
-          "padding": 10,
+          "padding": 5,
           "width": "100%",
         }
       }
       testID="signin-button"
     >
-      <Text
-        style={
-          Object {
-            "left": "40%",
-            "position": "absolute",
-          }
-        }
-      >
-        SignIn With
-      </Text>
       <Image
         source={
           Object {
             "process": [Function],
           }
         }
-        style={Object {}}
+        style={
+          Object {
+            "left": 15,
+            "position": "absolute",
+          }
+        }
       />
+      <Text
+        style={
+          Object {
+            "marginVertical": 10,
+          }
+        }
+      >
+        SignIn With
+      </Text>
     </View>
   </View>
 </View>

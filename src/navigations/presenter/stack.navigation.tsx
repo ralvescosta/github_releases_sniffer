@@ -7,17 +7,19 @@ import {SignInScreenModule} from '../../signin/signin.module';
 import {BottomTabNavigation} from './bottom.tab.navigation';
 
 type Props = {
-  isLogged: boolean;
+  isLogged?: boolean;
 };
 
-export const StackNavigation: React.FC<Props> = ({isLogged = false}) => {
+export const StackNavigation: React.FC<Props> = ({isLogged}) => {
+  const initialRoute = isLogged ? 'dashboard' : 'signin';
+
   return (
     <Stack.Navigator
       screenOptions={{
         ...TransitionPresets.SlideFromRightIOS,
         headerShown: false,
       }}
-      initialRouteName={isLogged ? 'dashboard' : 'signin'}>
+      initialRouteName={initialRoute}>
       <Stack.Screen name="signin" component={SignInScreenModule} />
       <Stack.Screen name="dashboard" component={BottomTabNavigation} />
     </Stack.Navigator>

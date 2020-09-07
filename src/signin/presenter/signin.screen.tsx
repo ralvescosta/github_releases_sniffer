@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Image, TextInput, TouchableOpacity, Text, ActivityIndicator, Alert} from 'react-native';
+import {View, Image, TextInput, TouchableOpacity, Text, ActivityIndicator, Alert, Keyboard} from 'react-native';
 import LottieView from 'lottie-react-native';
 
 import styles from './signin.style';
@@ -16,6 +16,7 @@ type Props = {
 
 export const SignInScreen: React.FC<Props> = ({viewController}) => {
   async function onPressSignIn() {
+    Keyboard.dismiss();
     try {
       await viewController.onPressSignIn();
     } catch (err) {
@@ -34,12 +35,12 @@ export const SignInScreen: React.FC<Props> = ({viewController}) => {
           }}
         />
         <TouchableOpacity style={styles.signInSubmit} onPress={onPressSignIn} testID="signin-button">
+          <Image style={styles.github} source={githubicon} />
           {viewController.isLoading ? (
-            <ActivityIndicator color={primary} style={{right: -125}} testID="signin-indicator" />
+            <ActivityIndicator color={primary} testID="signin-indicator" size={35} />
           ) : (
             <Text style={styles.signInText}>SignIn With</Text>
           )}
-          <Image style={styles.github} source={githubicon} />
         </TouchableOpacity>
       </View>
     </View>
