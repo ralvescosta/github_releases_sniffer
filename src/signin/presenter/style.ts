@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {primary, secondary} from '../../core/themes/colors';
+import {widthToDP} from '../../core/themes/size';
 
 export default StyleSheet.create({
   main: {
@@ -15,16 +16,16 @@ export default StyleSheet.create({
   signInInput: {
     backgroundColor: secondary,
     width: '100%',
-    paddingVertical: 10,
-    paddingLeft: 10,
+    paddingVertical: widthToDP('2.5%'),
+    paddingLeft: widthToDP('4%'),
     borderRadius: 16,
     elevation: 5,
   },
   signInSubmit: {
-    marginTop: 20,
+    marginTop: widthToDP('7%'),
     width: '100%',
     backgroundColor: secondary,
-    padding: 5,
+    padding: widthToDP('1.5%'),
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -32,7 +33,7 @@ export default StyleSheet.create({
     elevation: 5,
   },
   signInText: {
-    marginVertical: 10,
+    marginVertical: widthToDP('2.3%'),
   },
   github: {
     position: 'absolute',

@@ -2,11 +2,12 @@ import React from 'react';
 import {View, Image, TextInput, TouchableOpacity, Text, ActivityIndicator, Alert, Keyboard} from 'react-native';
 import LottieView from 'lottie-react-native';
 
-import styles from './signin.style';
+import styles from './style';
 
 import githubAnimation from '../../assets/lottiefiles/octocat-animated.json';
 import githubicon from '../../assets/images/github.png';
 import {primary} from '../../core/themes/colors';
+import {widthToDP} from '../../core/themes/size';
 
 import {ISingInViewController} from '../interfaces/isignin.view.controller';
 
@@ -37,7 +38,7 @@ export const SignInScreen: React.FC<Props> = ({viewController}) => {
         <TouchableOpacity style={styles.signInSubmit} onPress={onPressSignIn} testID="signin-button">
           <Image style={styles.github} source={githubicon} />
           {viewController.isLoading ? (
-            <ActivityIndicator color={primary} testID="signin-indicator" size={35} />
+            <ActivityIndicator color={primary} testID="signin-indicator" size={widthToDP('9%')} />
           ) : (
             <Text style={styles.signInText}>SignIn With</Text>
           )}

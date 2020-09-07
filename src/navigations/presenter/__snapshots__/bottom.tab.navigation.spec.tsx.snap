@@ -67,8 +67,8 @@ exports[`Bottom Tab Navigation Should render correctly 1`] = `
                 "elevation": 5,
                 "flexDirection": "row",
                 "justifyContent": "space-between",
-                "paddingHorizontal": 10,
-                "paddingVertical": 5,
+                "paddingHorizontal": 22.5,
+                "paddingVertical": 11.5,
                 "width": "100%",
               }
             }
@@ -109,7 +109,7 @@ exports[`Bottom Tab Navigation Should render correctly 1`] = `
                   style={
                     Object {
                       "color": "#e1e4e8",
-                      "marginLeft": 10,
+                      "marginLeft": 26.5,
                     }
                   }
                 >
@@ -149,7 +149,7 @@ exports[`Bottom Tab Navigation Should render correctly 1`] = `
                   style={
                     Object {
                       "color": "#e1e4e8",
-                      "marginLeft": 10,
+                      "marginLeft": 26.5,
                     }
                   }
                 >
@@ -157,63 +157,2035 @@ exports[`Bottom Tab Navigation Should render correctly 1`] = `
                 </Text>
               </View>
             </View>
-            <RNGestureHandlerButton
-              collapsable={false}
-              onGestureEvent={[Function]}
-              onGestureHandlerEvent={[Function]}
-              onGestureHandlerStateChange={[Function]}
-              onHandlerStateChange={[Function]}
-              rippleColor={0}
+            <View
+              accessible={true}
+              focusable={false}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 26.5,
+                  "justifyContent": "center",
+                  "opacity": 1,
+                  "paddingHorizontal": 26.5,
+                }
+              }
             >
-              <View
-                accessible={true}
+              <Image
+                source={
+                  Object {
+                    "uri": "https://avatars0.githubusercontent.com/u/45952161?v=4",
+                  }
+                }
                 style={
                   Object {
-                    "alignItems": "center",
-                    "borderRadius": 10,
-                    "justifyContent": "center",
-                    "opacity": 1,
-                    "paddingHorizontal": 10,
+                    "borderRadius": 15,
+                    "height": 30,
+                    "width": 30,
+                  }
+                }
+              />
+              <Text
+                style={
+                  Object {
+                    "color": "#e1e4e8",
                   }
                 }
               >
-                <Image
-                  source={
-                    Object {
-                      "uri": "https://avatars0.githubusercontent.com/u/45952161?v=4",
-                    }
-                  }
-                  style={
-                    Object {
-                      "borderRadius": 15,
-                      "height": 30,
-                      "width": 30,
-                    }
-                  }
-                />
-                <Text
-                  style={
-                    Object {
-                      "color": "#e1e4e8",
-                      "marginLeft": 10,
-                    }
-                  }
-                >
-                  ralvescosta
-                </Text>
-              </View>
-            </RNGestureHandlerButton>
+                ralvescosta
+              </Text>
+            </View>
           </View>
-          <Text
+          <RCTScrollView
+            contentContainerStyle={
+              Object {
+                "alignItems": "center",
+              }
+            }
             style={
               Object {
-                "color": "#000",
-                "fontSize": 80,
+                "marginBottom": 30,
+                "width": "100%",
               }
             }
           >
-            Dashboard
-          </Text>
+            <View>
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#fff",
+                    "borderRadius": 6,
+                    "elevation": 5,
+                    "flexDirection": "row",
+                    "marginTop": 15,
+                    "padding": 15,
+                    "width": "95%",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "maxWidth": "60%",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <View
+                    style={Object {}}
+                  >
+                    <Text
+                      numberOfLines={2}
+                      style={
+                        Object {
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                      facebook/react-native
+                    </Text>
+                    <Text
+                      ellipsizeMode="tail"
+                      numberOfLines={2}
+                      style={
+                        Object {
+                          "color": "#777",
+                          "marginTop": 4,
+                        }
+                      }
+                    >
+                      A framework for building native apps with React.
+                    </Text>
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "flexDirection": "row",
+                        "marginTop": 15,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "color": "#777",
+                          "flexDirection": "row",
+                          "marginRight": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "#777",
+                              "fontSize": 15,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "FontAwesome",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                      <Text
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "fontSize": 25.5,
+                            "marginLeft": 3,
+                            "maxWidth": 40,
+                          }
+                        }
+                      >
+                        89929
+                      </Text>
+                    </View>
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "color": "#777",
+                          "flexDirection": "row",
+                          "marginRight": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "#777",
+                              "fontSize": 15,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "FontAwesome",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                      <Text
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "fontSize": 25.5,
+                            "marginLeft": 3,
+                            "maxWidth": 40,
+                          }
+                        }
+                      >
+                        19905
+                      </Text>
+                    </View>
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "color": "#777",
+                          "flexDirection": "row",
+                          "marginRight": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "#777",
+                              "fontSize": 15,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "FontAwesome",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                      <Text
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "fontSize": 25.5,
+                            "marginLeft": 3,
+                            "maxWidth": 40,
+                          }
+                        }
+                      >
+                        1020
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "column",
+                      "justifyContent": "center",
+                      "maxWidth": "40%",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "justifyContent": "center",
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                      Last Release: 
+                    </Text>
+                    <Text
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }
+                    >
+                      v0.63.2
+                    </Text>
+                  </View>
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": "#ffe311",
+                          "fontSize": 30,
+                        },
+                        undefined,
+                        Object {
+                          "fontFamily": "FontAwesome",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+                    
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#fff",
+                    "borderRadius": 6,
+                    "elevation": 5,
+                    "flexDirection": "row",
+                    "marginTop": 15,
+                    "padding": 15,
+                    "width": "95%",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "maxWidth": "60%",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <View
+                    style={Object {}}
+                  >
+                    <Text
+                      numberOfLines={2}
+                      style={
+                        Object {
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                      facebook/react-native
+                    </Text>
+                    <Text
+                      ellipsizeMode="tail"
+                      numberOfLines={2}
+                      style={
+                        Object {
+                          "color": "#777",
+                          "marginTop": 4,
+                        }
+                      }
+                    >
+                      A framework for building native apps with React.
+                    </Text>
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "flexDirection": "row",
+                        "marginTop": 15,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "color": "#777",
+                          "flexDirection": "row",
+                          "marginRight": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "#777",
+                              "fontSize": 15,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "FontAwesome",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                      <Text
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "fontSize": 25.5,
+                            "marginLeft": 3,
+                            "maxWidth": 40,
+                          }
+                        }
+                      >
+                        89929
+                      </Text>
+                    </View>
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "color": "#777",
+                          "flexDirection": "row",
+                          "marginRight": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "#777",
+                              "fontSize": 15,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "FontAwesome",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                      <Text
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "fontSize": 25.5,
+                            "marginLeft": 3,
+                            "maxWidth": 40,
+                          }
+                        }
+                      >
+                        19905
+                      </Text>
+                    </View>
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "color": "#777",
+                          "flexDirection": "row",
+                          "marginRight": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "#777",
+                              "fontSize": 15,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "FontAwesome",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                      <Text
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "fontSize": 25.5,
+                            "marginLeft": 3,
+                            "maxWidth": 40,
+                          }
+                        }
+                      >
+                        1020
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "column",
+                      "justifyContent": "center",
+                      "maxWidth": "40%",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "justifyContent": "center",
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                      Last Release: 
+                    </Text>
+                    <Text
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }
+                    >
+                      v0.63.2
+                    </Text>
+                  </View>
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": "#ffe311",
+                          "fontSize": 30,
+                        },
+                        undefined,
+                        Object {
+                          "fontFamily": "FontAwesome",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+                    
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#fff",
+                    "borderRadius": 6,
+                    "elevation": 5,
+                    "flexDirection": "row",
+                    "marginTop": 15,
+                    "padding": 15,
+                    "width": "95%",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "maxWidth": "60%",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <View
+                    style={Object {}}
+                  >
+                    <Text
+                      numberOfLines={2}
+                      style={
+                        Object {
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                      facebook/react-native
+                    </Text>
+                    <Text
+                      ellipsizeMode="tail"
+                      numberOfLines={2}
+                      style={
+                        Object {
+                          "color": "#777",
+                          "marginTop": 4,
+                        }
+                      }
+                    >
+                      A framework for building native apps with React.
+                    </Text>
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "flexDirection": "row",
+                        "marginTop": 15,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "color": "#777",
+                          "flexDirection": "row",
+                          "marginRight": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "#777",
+                              "fontSize": 15,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "FontAwesome",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                      <Text
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "fontSize": 25.5,
+                            "marginLeft": 3,
+                            "maxWidth": 40,
+                          }
+                        }
+                      >
+                        89929
+                      </Text>
+                    </View>
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "color": "#777",
+                          "flexDirection": "row",
+                          "marginRight": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "#777",
+                              "fontSize": 15,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "FontAwesome",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                      <Text
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "fontSize": 25.5,
+                            "marginLeft": 3,
+                            "maxWidth": 40,
+                          }
+                        }
+                      >
+                        19905
+                      </Text>
+                    </View>
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "color": "#777",
+                          "flexDirection": "row",
+                          "marginRight": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "#777",
+                              "fontSize": 15,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "FontAwesome",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                      <Text
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "fontSize": 25.5,
+                            "marginLeft": 3,
+                            "maxWidth": 40,
+                          }
+                        }
+                      >
+                        1020
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "column",
+                      "justifyContent": "center",
+                      "maxWidth": "40%",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "justifyContent": "center",
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                      Last Release: 
+                    </Text>
+                    <Text
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }
+                    >
+                      v0.63.2
+                    </Text>
+                  </View>
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": "#ffe311",
+                          "fontSize": 30,
+                        },
+                        undefined,
+                        Object {
+                          "fontFamily": "FontAwesome",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+                    
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#fff",
+                    "borderRadius": 6,
+                    "elevation": 5,
+                    "flexDirection": "row",
+                    "marginTop": 15,
+                    "padding": 15,
+                    "width": "95%",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "maxWidth": "60%",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <View
+                    style={Object {}}
+                  >
+                    <Text
+                      numberOfLines={2}
+                      style={
+                        Object {
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                      facebook/react-native
+                    </Text>
+                    <Text
+                      ellipsizeMode="tail"
+                      numberOfLines={2}
+                      style={
+                        Object {
+                          "color": "#777",
+                          "marginTop": 4,
+                        }
+                      }
+                    >
+                      A framework for building native apps with React.
+                    </Text>
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "flexDirection": "row",
+                        "marginTop": 15,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "color": "#777",
+                          "flexDirection": "row",
+                          "marginRight": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "#777",
+                              "fontSize": 15,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "FontAwesome",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                      <Text
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "fontSize": 25.5,
+                            "marginLeft": 3,
+                            "maxWidth": 40,
+                          }
+                        }
+                      >
+                        89929
+                      </Text>
+                    </View>
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "color": "#777",
+                          "flexDirection": "row",
+                          "marginRight": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "#777",
+                              "fontSize": 15,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "FontAwesome",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                      <Text
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "fontSize": 25.5,
+                            "marginLeft": 3,
+                            "maxWidth": 40,
+                          }
+                        }
+                      >
+                        19905
+                      </Text>
+                    </View>
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "color": "#777",
+                          "flexDirection": "row",
+                          "marginRight": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "#777",
+                              "fontSize": 15,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "FontAwesome",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                      <Text
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "fontSize": 25.5,
+                            "marginLeft": 3,
+                            "maxWidth": 40,
+                          }
+                        }
+                      >
+                        1020
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "column",
+                      "justifyContent": "center",
+                      "maxWidth": "40%",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "justifyContent": "center",
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                      Last Release: 
+                    </Text>
+                    <Text
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }
+                    >
+                      v0.63.2
+                    </Text>
+                  </View>
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": "#ffe311",
+                          "fontSize": 30,
+                        },
+                        undefined,
+                        Object {
+                          "fontFamily": "FontAwesome",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+                    
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#fff",
+                    "borderRadius": 6,
+                    "elevation": 5,
+                    "flexDirection": "row",
+                    "marginTop": 15,
+                    "padding": 15,
+                    "width": "95%",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "maxWidth": "60%",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <View
+                    style={Object {}}
+                  >
+                    <Text
+                      numberOfLines={2}
+                      style={
+                        Object {
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                      facebook/react-native
+                    </Text>
+                    <Text
+                      ellipsizeMode="tail"
+                      numberOfLines={2}
+                      style={
+                        Object {
+                          "color": "#777",
+                          "marginTop": 4,
+                        }
+                      }
+                    >
+                      A framework for building native apps with React.
+                    </Text>
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "flexDirection": "row",
+                        "marginTop": 15,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "color": "#777",
+                          "flexDirection": "row",
+                          "marginRight": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "#777",
+                              "fontSize": 15,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "FontAwesome",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                      <Text
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "fontSize": 25.5,
+                            "marginLeft": 3,
+                            "maxWidth": 40,
+                          }
+                        }
+                      >
+                        89929
+                      </Text>
+                    </View>
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "color": "#777",
+                          "flexDirection": "row",
+                          "marginRight": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "#777",
+                              "fontSize": 15,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "FontAwesome",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                      <Text
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "fontSize": 25.5,
+                            "marginLeft": 3,
+                            "maxWidth": 40,
+                          }
+                        }
+                      >
+                        19905
+                      </Text>
+                    </View>
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "color": "#777",
+                          "flexDirection": "row",
+                          "marginRight": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "#777",
+                              "fontSize": 15,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "FontAwesome",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                      <Text
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "fontSize": 25.5,
+                            "marginLeft": 3,
+                            "maxWidth": 40,
+                          }
+                        }
+                      >
+                        1020
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "column",
+                      "justifyContent": "center",
+                      "maxWidth": "40%",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "justifyContent": "center",
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                      Last Release: 
+                    </Text>
+                    <Text
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }
+                    >
+                      v0.63.2
+                    </Text>
+                  </View>
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": "#ffe311",
+                          "fontSize": 30,
+                        },
+                        undefined,
+                        Object {
+                          "fontFamily": "FontAwesome",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+                    
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#fff",
+                    "borderRadius": 6,
+                    "elevation": 5,
+                    "flexDirection": "row",
+                    "marginTop": 15,
+                    "padding": 15,
+                    "width": "95%",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "maxWidth": "60%",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <View
+                    style={Object {}}
+                  >
+                    <Text
+                      numberOfLines={2}
+                      style={
+                        Object {
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                      facebook/react-native
+                    </Text>
+                    <Text
+                      ellipsizeMode="tail"
+                      numberOfLines={2}
+                      style={
+                        Object {
+                          "color": "#777",
+                          "marginTop": 4,
+                        }
+                      }
+                    >
+                      A framework for building native apps with React.
+                    </Text>
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "flexDirection": "row",
+                        "marginTop": 15,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "color": "#777",
+                          "flexDirection": "row",
+                          "marginRight": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "#777",
+                              "fontSize": 15,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "FontAwesome",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                      <Text
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "fontSize": 25.5,
+                            "marginLeft": 3,
+                            "maxWidth": 40,
+                          }
+                        }
+                      >
+                        89929
+                      </Text>
+                    </View>
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "color": "#777",
+                          "flexDirection": "row",
+                          "marginRight": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "#777",
+                              "fontSize": 15,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "FontAwesome",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                      <Text
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "fontSize": 25.5,
+                            "marginLeft": 3,
+                            "maxWidth": 40,
+                          }
+                        }
+                      >
+                        19905
+                      </Text>
+                    </View>
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "color": "#777",
+                          "flexDirection": "row",
+                          "marginRight": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "#777",
+                              "fontSize": 15,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "FontAwesome",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                      <Text
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "fontSize": 25.5,
+                            "marginLeft": 3,
+                            "maxWidth": 40,
+                          }
+                        }
+                      >
+                        1020
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "column",
+                      "justifyContent": "center",
+                      "maxWidth": "40%",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "justifyContent": "center",
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                      Last Release: 
+                    </Text>
+                    <Text
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }
+                    >
+                      v0.63.2
+                    </Text>
+                  </View>
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": "#ffe311",
+                          "fontSize": 30,
+                        },
+                        undefined,
+                        Object {
+                          "fontFamily": "FontAwesome",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+                    
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#fff",
+                    "borderRadius": 6,
+                    "elevation": 5,
+                    "flexDirection": "row",
+                    "marginTop": 15,
+                    "padding": 15,
+                    "width": "95%",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "maxWidth": "60%",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <View
+                    style={Object {}}
+                  >
+                    <Text
+                      numberOfLines={2}
+                      style={
+                        Object {
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                      facebook/react-native
+                    </Text>
+                    <Text
+                      ellipsizeMode="tail"
+                      numberOfLines={2}
+                      style={
+                        Object {
+                          "color": "#777",
+                          "marginTop": 4,
+                        }
+                      }
+                    >
+                      A framework for building native apps with React.
+                    </Text>
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "flexDirection": "row",
+                        "marginTop": 15,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "color": "#777",
+                          "flexDirection": "row",
+                          "marginRight": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "#777",
+                              "fontSize": 15,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "FontAwesome",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                      <Text
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "fontSize": 25.5,
+                            "marginLeft": 3,
+                            "maxWidth": 40,
+                          }
+                        }
+                      >
+                        89929
+                      </Text>
+                    </View>
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "color": "#777",
+                          "flexDirection": "row",
+                          "marginRight": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "#777",
+                              "fontSize": 15,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "FontAwesome",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                      <Text
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "fontSize": 25.5,
+                            "marginLeft": 3,
+                            "maxWidth": 40,
+                          }
+                        }
+                      >
+                        19905
+                      </Text>
+                    </View>
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "color": "#777",
+                          "flexDirection": "row",
+                          "marginRight": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "#777",
+                              "fontSize": 15,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "FontAwesome",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                      <Text
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "fontSize": 25.5,
+                            "marginLeft": 3,
+                            "maxWidth": 40,
+                          }
+                        }
+                      >
+                        1020
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "column",
+                      "justifyContent": "center",
+                      "maxWidth": "40%",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "justifyContent": "center",
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                      Last Release: 
+                    </Text>
+                    <Text
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }
+                    >
+                      v0.63.2
+                    </Text>
+                  </View>
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": "#ffe311",
+                          "fontSize": 30,
+                        },
+                        undefined,
+                        Object {
+                          "fontFamily": "FontAwesome",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+                    
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#fff",
+                    "borderRadius": 6,
+                    "elevation": 5,
+                    "flexDirection": "row",
+                    "marginTop": 15,
+                    "padding": 15,
+                    "width": "95%",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "maxWidth": "60%",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <View
+                    style={Object {}}
+                  >
+                    <Text
+                      numberOfLines={2}
+                      style={
+                        Object {
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                      facebook/react-native
+                    </Text>
+                    <Text
+                      ellipsizeMode="tail"
+                      numberOfLines={2}
+                      style={
+                        Object {
+                          "color": "#777",
+                          "marginTop": 4,
+                        }
+                      }
+                    >
+                      A framework for building native apps with React.
+                    </Text>
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "flexDirection": "row",
+                        "marginTop": 15,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "color": "#777",
+                          "flexDirection": "row",
+                          "marginRight": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "#777",
+                              "fontSize": 15,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "FontAwesome",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                      <Text
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "fontSize": 25.5,
+                            "marginLeft": 3,
+                            "maxWidth": 40,
+                          }
+                        }
+                      >
+                        89929
+                      </Text>
+                    </View>
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "color": "#777",
+                          "flexDirection": "row",
+                          "marginRight": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "#777",
+                              "fontSize": 15,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "FontAwesome",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                      <Text
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "fontSize": 25.5,
+                            "marginLeft": 3,
+                            "maxWidth": 40,
+                          }
+                        }
+                      >
+                        19905
+                      </Text>
+                    </View>
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "color": "#777",
+                          "flexDirection": "row",
+                          "marginRight": 7,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "#777",
+                              "fontSize": 15,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "FontAwesome",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                      <Text
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "fontSize": 25.5,
+                            "marginLeft": 3,
+                            "maxWidth": 40,
+                          }
+                        }
+                      >
+                        1020
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "column",
+                      "justifyContent": "center",
+                      "maxWidth": "40%",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "justifyContent": "center",
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                      Last Release: 
+                    </Text>
+                    <Text
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }
+                    >
+                      v0.63.2
+                    </Text>
+                  </View>
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": "#ffe311",
+                          "fontSize": 30,
+                        },
+                        undefined,
+                        Object {
+                          "fontFamily": "FontAwesome",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+                    
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </RCTScrollView>
         </View>
       </View>
     </View>
