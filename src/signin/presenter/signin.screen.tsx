@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Image, TextInput, TouchableOpacity, Text, ActivityIndicator, Alert, Keyboard} from 'react-native';
 import LottieView from 'lottie-react-native';
 
-import styles from './signin.style';
+import styles from './style';
 
 import githubAnimation from '../../assets/lottiefiles/octocat-animated.json';
 import githubicon from '../../assets/images/github.png';
