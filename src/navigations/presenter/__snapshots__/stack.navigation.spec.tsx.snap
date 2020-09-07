@@ -242,8 +242,8 @@ exports[`Stack Navigation Should render correctly 1`] = `
                               "backgroundColor": "#e1e4e8",
                               "borderRadius": 16,
                               "elevation": 5,
-                              "paddingLeft": 10,
-                              "paddingVertical": 10,
+                              "paddingLeft": 30,
+                              "paddingVertical": 19,
                               "width": "100%",
                             }
                           }
@@ -267,9 +267,9 @@ exports[`Stack Navigation Should render correctly 1`] = `
                               "elevation": 5,
                               "flexDirection": "row",
                               "justifyContent": "center",
-                              "marginTop": 20,
+                              "marginTop": 52.5,
                               "opacity": 1,
-                              "padding": 5,
+                              "padding": 11.5,
                               "width": "100%",
                             }
                           }
@@ -291,7 +291,7 @@ exports[`Stack Navigation Should render correctly 1`] = `
                           <Text
                             style={
                               Object {
-                                "marginVertical": 10,
+                                "marginVertical": 17,
                               }
                             }
                           >
