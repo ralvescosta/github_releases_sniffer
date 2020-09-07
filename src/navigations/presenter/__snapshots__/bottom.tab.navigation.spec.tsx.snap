@@ -206,11 +206,11 @@ exports[`Bottom Tab Navigation Should render correctly 1`] = `
             contentContainerStyle={
               Object {
                 "alignItems": "center",
+                "paddingBottom": 35,
               }
             }
             style={
               Object {
-                "marginBottom": 30,
                 "width": "100%",
               }
             }

@@ -6,5 +6,7 @@
 <div style="display:flex; justify-content:space-around">
 <image width="200" src="./docs/assets/signin-gif.gif" >
 
-<image width="208" src="./docs/assets/dashboard.png" >
+<image width="230" src="./docs/assets/dashboard.jpeg" >
+<image width="230" src="./docs/assets/search.jpeg" >
+
 </div>

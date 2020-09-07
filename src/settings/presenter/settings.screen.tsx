@@ -2,16 +2,18 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-community/async-storage';
+import {useNavigation} from '@react-navigation/native';
 
 export const SettingsScreen: React.FC = ({}) => {
+  const navigation = useNavigation();
   async function singout() {
     await AsyncStorage.removeItem('@account');
+    navigation.navigate('signin');
   }
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Settings Screen</Text>
-      <TouchableOpacity onPress={singout}>
+      <TouchableOpacity style={styles.touchable} onPress={singout}>
         <Text>SignOut</Text>
       </TouchableOpacity>
     </View>
@@ -25,8 +27,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  text: {
-    color: '#000',
-    fontSize: 80,
+  touchable: {
+    backgroundColor: '#777',
+    width: '90%',
+    height: 50,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
