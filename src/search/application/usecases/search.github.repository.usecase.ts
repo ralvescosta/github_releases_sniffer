@@ -28,9 +28,9 @@ export class SearchGithubRepositoryUsecase implements ISearchGithubRepositoryUse
     response.forEach((item: GithubRepositoryEntity) => {
       const checkResultSearch = observedRepositories.findIndex((repo) => repo.fullName === item.fullName);
       if (checkResultSearch === -1) {
-        resultSearch.push(new ResultSearchGithubRepositoryEntity(item.fullName, item.description, false));
+        resultSearch.push(new ResultSearchGithubRepositoryEntity(item.id, item.fullName, item.description, false));
       } else {
-        resultSearch.push(new ResultSearchGithubRepositoryEntity(item.fullName, item.description, true));
+        resultSearch.push(new ResultSearchGithubRepositoryEntity(item.id, item.fullName, item.description, true));
       }
     });
 

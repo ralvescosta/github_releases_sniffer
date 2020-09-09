@@ -2,19 +2,23 @@ import React, {useState} from 'react';
 import {View, Text, Switch} from 'react-native';
 
 import {styles} from './styles';
-import search from './github_search_repo.json';
+import {ResultSearchGithubRepositoryEntity} from '../../../bussiness/entities/result.search.github.repository.entity';
 
-export const RepoCard: React.FC = () => {
+type Props = {
+  repository: ResultSearchGithubRepositoryEntity;
+};
+
+export const RepoCard: React.FC<Props> = ({repository}) => {
   const [switchState, setSwitchState] = useState(false);
   return (
     <View style={styles.repoCard}>
       <View style={styles.cardLeft}>
         <View style={styles.leftHeader}>
           <Text numberOfLines={2} style={styles.headerName}>
-            {search.items[0].full_name}
+            {repository.fullName}
           </Text>
           <Text numberOfLines={2} ellipsizeMode="tail" style={styles.headerDescription}>
-            {search.items[0].description}
+            {repository.description}
           </Text>
         </View>
       </View>

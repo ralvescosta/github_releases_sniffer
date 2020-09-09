@@ -1,3 +1,3 @@
 export class ResultSearchGithubRepositoryEntity {
-  constructor(public fullName: string, public description: string, public selected: boolean) {}
+  constructor(public id: number, public fullName: string, public description: string, public selected: boolean) {}
 }
