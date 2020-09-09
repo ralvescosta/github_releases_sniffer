@@ -20,7 +20,7 @@ export class SearchViewController {
   public setTimer(textInput: string) {
     clearTimeout(this.timer);
     this.repositoryName = textInput;
-    this.timer = setTimeout(() => this.searchRepository(), 500);
+    this.timer = setTimeout(() => this.searchRepository(), 750);
   }
 
   private async searchRepository() {

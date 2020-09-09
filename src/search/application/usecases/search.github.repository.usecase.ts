@@ -1,8 +1,8 @@
 import {ISearchGithubRepositoryUsecase} from '../../bussiness/usecases/isearch.github.repository.usecase';
-import {GithubRepositoryEntity} from '../../bussiness/entities/github.repository.entity';
+import {ISearchGithubRepoRepository} from '../protocols/isearch.github.repo.repository';
+
 import {ResultSearchGithubRepositoryEntity} from '../../bussiness/entities/result.search.github.repository.entity';
 import {ObservedGithubRepositoryEntity} from '../../bussiness/entities/observed.github.repository.entity';
-import {ISearchGithubRepoRepository} from '../protocols/isearch.github.repo.repository';
 
 export class SearchGithubRepositoryUsecase implements ISearchGithubRepositoryUsecase {
   constructor(private readonly searchGithubRepository: ISearchGithubRepoRepository) {}
@@ -10,7 +10,7 @@ export class SearchGithubRepositoryUsecase implements ISearchGithubRepositoryUse
     repository: string,
     observedRepositories: ObservedGithubRepositoryEntity[],
   ): Promise<ResultSearchGithubRepositoryEntity[]> {
-    let response: GithubRepositoryEntity[] = [];
+    let response: ResultSearchGithubRepositoryEntity[] = [];
     try {
       response = await this.searchGithubRepository.search(repository);
     } catch (err) {
@@ -25,12 +25,12 @@ export class SearchGithubRepositoryUsecase implements ISearchGithubRepositoryUse
     /**
      * Check if user already selected this repository
      */
-    response.forEach((item: GithubRepositoryEntity) => {
+    response.forEach((item: ResultSearchGithubRepositoryEntity) => {
       const checkResultSearch = observedRepositories.findIndex((repo) => repo.fullName === item.fullName);
       if (checkResultSearch === -1) {
-        resultSearch.push(new ResultSearchGithubRepositoryEntity(item.id, item.fullName, item.description, false));
+        resultSearch.push(item);
       } else {
-        resultSearch.push(new ResultSearchGithubRepositoryEntity(item.id, item.fullName, item.description, true));
+        resultSearch.push(item);
       }
     });
 
