@@ -1,39 +1,40 @@
 import React from 'react';
-import {View, TextInput, ScrollView, ActivityIndicator} from 'react-native';
+import {View, TextInput, ScrollView, TouchableOpacity, ActivityIndicator} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import {RepoCard} from './components/repoCard';
 
 import {styles} from './styles';
 
-import {SearchViewController} from '../interfaces/search.view.controller';
-import {SearchGithubRepositoryUsecase} from '../application/usecases/search.github.repository.usecase';
-import {SearchGithubRepoRepository} from '../infrastructure/repositories/search.github.repo.repository';
+import {ISearchViewController} from '../interfaces/isearch.view.controller';
 
-export const SearchScreen: React.FC = () => {
-  const searchGithubRepoRepository = new SearchGithubRepoRepository();
-  const searchGithubRepositoryUsecase = new SearchGithubRepositoryUsecase(searchGithubRepoRepository);
-  const searchViewController = new SearchViewController(searchGithubRepositoryUsecase);
+type Props = {
+  viewController: ISearchViewController;
+};
 
+export const SearchScreen: React.FC<Props> = ({viewController}) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <View style={styles.headerSearch}>
-          <FontAwesome name="search" color="#000" size={15} />
           <TextInput
             placeholder="Repositorio"
-            clearButtonMode="always"
             onChangeText={(text) => {
-              searchViewController.setTimer(text);
+              viewController.repositoryName.current = text;
             }}
+            style={styles.searchTextInput}
+            onSubmitEditing={() => viewController.searchRepository()}
           />
+          <TouchableOpacity style={styles.searchButton} onPress={() => viewController.searchRepository()}>
+            <FontAwesome name="search" color="#000" size={15} />
+          </TouchableOpacity>
         </View>
       </View>
       <ScrollView style={{width: '100%'}} contentContainerStyle={{marginTop: 15, paddingBottom: 45, alignItems: 'center'}}>
-        {searchViewController.isLoading ? <ActivityIndicator size={35} style={{marginVertical: 10}} color="#000" /> : null}
-        {searchViewController.foundRepositories.current.length
-          ? searchViewController.foundRepositories.current.map((repo) => (
-              <RepoCard key={repo.id} repository={repo} saveRepoToObserver={() => searchViewController.saveRepoToObserver(repo.id)} />
+        {viewController.isLoading ? <ActivityIndicator size={35} style={{marginVertical: 10}} color="#000" /> : null}
+        {viewController.foundRepositories.current.length
+          ? viewController.foundRepositories.current.map((repo) => (
+              <RepoCard key={repo.id} repository={repo} saveRepoToObserver={() => viewController.saveRepoToObserver(repo.id)} />
             ))
           : null}
       </ScrollView>

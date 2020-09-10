@@ -1,6 +1,6 @@
 import React, {createContext, useState} from 'react';
 
-export const Context = createContext(null as any);
+export const ObservedRepositoriesContext = createContext(null as any);
 
 export const ObservedRepositoriesContextProvider: React.FC = ({children}) => {
   const [observedRepositories, setObservedRepositories] = useState([]);
@@ -10,5 +10,5 @@ export const ObservedRepositoriesContextProvider: React.FC = ({children}) => {
     setObservedRepositories,
   };
 
-  return <Context.Provider value={defaultContext}>{children}</Context.Provider>;
+  return <ObservedRepositoriesContext.Provider value={defaultContext}>{children}</ObservedRepositoriesContext.Provider>;
 };

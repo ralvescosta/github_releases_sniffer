@@ -1,12 +1,15 @@
 import {useState, useRef, useContext} from 'react';
 import {Keyboard} from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
+
 import {ISearchGithubRepositoryUsecase} from '../bussiness/usecases/isearch.github.repository.usecase';
 import {ResultSearchGithubRepositoryEntity} from '../bussiness/entities/result.search.github.repository.entity';
-import AsyncStorage from '@react-native-community/async-storage';
-import {Context} from '../../core/context/observed.repositories.context';
+import {ISearchViewController} from './isearch.view.controller';
 
-export class SearchViewController {
-  public repositoryName: string;
+import {ObservedRepositoriesContext} from '../../core/context/observed.repositories.context';
+
+export class SearchViewController implements ISearchViewController {
+  public repositoryName: React.MutableRefObject<string>;
 
   public isLoading: boolean;
   public setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
@@ -15,26 +18,23 @@ export class SearchViewController {
 
   public timer: any;
 
-  public context = useContext(Context);
+  public context = useContext(ObservedRepositoriesContext);
 
   constructor(private readonly searchRepositoryUsecase: ISearchGithubRepositoryUsecase) {
-    this.repositoryName = '';
+    this.repositoryName = useRef('');
     [this.isLoading, this.setIsLoading] = useState<boolean>(false);
     this.foundRepositories = useRef<ResultSearchGithubRepositoryEntity[]>([]);
   }
 
-  public setTimer(textInput: string) {
-    clearTimeout(this.timer);
-    this.repositoryName = textInput;
-    this.timer = setTimeout(() => this.searchRepository(), 1000);
-  }
+  public async searchRepository(): Promise<void> {
+    if (!this.repositoryName.current) {
+      return;
+    }
 
-  private async searchRepository() {
     this.setIsLoading(true);
     Keyboard.dismiss();
 
-    const result = await this.searchRepositoryUsecase.search(this.repositoryName, this.context.observedRepositories);
-    console.log('result');
+    const result = await this.searchRepositoryUsecase.search(this.repositoryName.current, this.context.observedRepositories);
     this.foundRepositories.current = result;
 
     this.setIsLoading(false);

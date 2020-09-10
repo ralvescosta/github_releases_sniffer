@@ -5,6 +5,7 @@ import {StackNavigation} from './presenter/stack.navigation';
 import {CheckUserLoggedViewController} from './interfaces/check.user.logged.view.controller';
 import {LocalDatabaseRepository} from './infrastructure/repositories/local.database.repository';
 import {CheckUserIsLoggedUsecase} from './application/usecases/check.user.is.logged.usecase';
+
 import {ObservedRepositoriesContextProvider} from '../core/context/observed.repositories.context';
 
 type Props = {

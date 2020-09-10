@@ -1,8 +1,19 @@
+import React from 'react';
+import {ResultSearchGithubRepositoryEntity} from '../bussiness/entities/result.search.github.repository.entity';
+
 export interface ISearchViewController {
-  inputValue: string;
+  repositoryName: React.MutableRefObject<string>;
+
   isLoading: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
-  navigation: any;
 
-  onPressSignIn(): Promise<void>;
+  foundRepositories: React.MutableRefObject<ResultSearchGithubRepositoryEntity[]>;
+
+  timer: any;
+
+  context: any;
+
+  searchRepository: () => Promise<void>;
+
+  saveRepoToObserver: (repositoryIndex: number) => Promise<void>;
 }

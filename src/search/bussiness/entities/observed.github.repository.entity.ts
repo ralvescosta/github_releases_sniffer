@@ -8,7 +8,7 @@ export class ObservedGithubRepositoryEntity {
     public openIssues: number,
     public ownerId: number,
     public ownerAvatarUrl: string,
+    public releaseUrl: string,
     public lastRelease: string,
-    public releaseURL: string,
   ) {}
 }

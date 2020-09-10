@@ -3,6 +3,7 @@ import {ICheckUserIsLoggedUsecase} from '../bussiness/usecases/icheck.user.is.lo
 
 export class CheckUserLoggedViewController {
   public isLoading: boolean;
+
   public setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
   public isUserLogged: React.MutableRefObject<boolean>;
 

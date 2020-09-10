@@ -31,6 +31,7 @@ export class SearchGithubRepoRepository implements ISearchGithubRepoRepository {
           item.open_issues,
           item.owner.id,
           item.owner.avatar_url,
+          item.releases_url,
         ),
       );
     });
