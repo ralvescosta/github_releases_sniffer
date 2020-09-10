@@ -10,7 +10,7 @@ type Props = {
 };
 
 export const RepoCard: React.FC<Props> = ({repository, saveRepoToObserver}) => {
-  const [switchState, setSwitchState] = useState(false);
+  const [switchState, setSwitchState] = useState(repository.checked);
   const [loading, setLoading] = useState(false);
 
   function handleSwitch() {

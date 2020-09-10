@@ -1,2 +1,4 @@
 src/assets
 src/**/*.json
+
+src/navigations/presenter

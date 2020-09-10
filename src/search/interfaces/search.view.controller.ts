@@ -1,8 +1,9 @@
-import {useState, useRef} from 'react';
+import {useState, useRef, useContext} from 'react';
 import {Keyboard} from 'react-native';
 import {ISearchGithubRepositoryUsecase} from '../bussiness/usecases/isearch.github.repository.usecase';
 import {ResultSearchGithubRepositoryEntity} from '../bussiness/entities/result.search.github.repository.entity';
 import AsyncStorage from '@react-native-community/async-storage';
+import {Context} from '../../core/context/observed.repositories.context';
 
 export class SearchViewController {
   public repositoryName: string;
@@ -14,6 +15,8 @@ export class SearchViewController {
 
   public timer: any;
 
+  public context = useContext(Context);
+
   constructor(private readonly searchRepositoryUsecase: ISearchGithubRepositoryUsecase) {
     this.repositoryName = '';
     [this.isLoading, this.setIsLoading] = useState<boolean>(false);
@@ -23,14 +26,15 @@ export class SearchViewController {
   public setTimer(textInput: string) {
     clearTimeout(this.timer);
     this.repositoryName = textInput;
-    this.timer = setTimeout(() => this.searchRepository(), 750);
+    this.timer = setTimeout(() => this.searchRepository(), 1000);
   }
 
   private async searchRepository() {
     this.setIsLoading(true);
     Keyboard.dismiss();
 
-    const result = await this.searchRepositoryUsecase.search(this.repositoryName, []);
+    const result = await this.searchRepositoryUsecase.search(this.repositoryName, this.context.observedRepositories);
+    console.log('result');
     this.foundRepositories.current = result;
 
     this.setIsLoading(false);
@@ -43,12 +47,10 @@ export class SearchViewController {
       console.log('ERRROU');
     }
 
-    const observed = await AsyncStorage.getItem('@observed');
-    let observedJSON = [];
-    if (observed) {
-      observedJSON = JSON.parse(observed);
-    }
-    await AsyncStorage.setItem('@observed', JSON.stringify([...observedJSON, getRepositorySelected]));
+    const newContext = [...this.context.observedRepositories, getRepositorySelected];
+
+    await AsyncStorage.setItem('@observed', JSON.stringify(newContext));
+    this.context.setObservedRepositories(newContext);
     console.log(getRepositorySelected);
   }
 }

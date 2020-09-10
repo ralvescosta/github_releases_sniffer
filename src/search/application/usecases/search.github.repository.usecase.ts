@@ -26,7 +26,7 @@ export class SearchGithubRepositoryUsecase implements ISearchGithubRepositoryUse
      * Check if user already selected this repository
      */
     response.forEach((item: ResultSearchGithubRepositoryEntity) => {
-      const checkResultSearch = observedRepositories.findIndex((repo) => repo.fullName === item.fullName);
+      const checkResultSearch = observedRepositories.findIndex((repo) => repo.id === item.id);
       if (checkResultSearch === -1) {
         resultSearch.push(item);
       } else {

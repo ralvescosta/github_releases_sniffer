@@ -5,6 +5,7 @@ import {StackNavigation} from './presenter/stack.navigation';
 import {CheckUserLoggedViewController} from './interfaces/check.user.logged.view.controller';
 import {LocalDatabaseRepository} from './infrastructure/repositories/local.database.repository';
 import {CheckUserIsLoggedUsecase} from './application/usecases/check.user.is.logged.usecase';
+import {ObservedRepositoriesContextProvider} from '../core/context/observed.repositories.context';
 
 type Props = {
   viewController: CheckUserLoggedViewController;
@@ -13,7 +14,11 @@ type Props = {
 export const NavigationModule: React.FC<Props> = ({viewController}) => {
   return (
     <NavigationContainer>
-      {viewController.isLoading ? null : <StackNavigation isLogged={viewController.isUserLogged.current} />}
+      {viewController.isLoading ? null : (
+        <ObservedRepositoriesContextProvider>
+          <StackNavigation isLogged={viewController.isUserLogged.current} />
+        </ObservedRepositoriesContextProvider>
+      )}
     </NavigationContainer>
   );
 };
