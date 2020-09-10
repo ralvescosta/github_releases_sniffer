@@ -30,7 +30,7 @@ export class SearchGithubRepositoryUsecase implements ISearchGithubRepositoryUse
       if (checkResultSearch === -1) {
         resultSearch.push(item);
       } else {
-        resultSearch.push(item);
+        resultSearch.push({...item, checked: true});
       }
     });
 

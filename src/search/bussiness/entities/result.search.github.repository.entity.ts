@@ -8,5 +8,6 @@ export class ResultSearchGithubRepositoryEntity {
     public openIssues: number,
     public ownerId: number,
     public ownerAvatarUrl: string,
+    public checked: boolean = false,
   ) {}
 }

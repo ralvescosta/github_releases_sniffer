@@ -3,18 +3,21 @@ import {View, Text} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import {styles} from './styles';
-import search from './github_search_repo.json';
 
-export const RepoCard: React.FC = () => {
+type Props = {
+  repository: any;
+};
+
+export const RepoCard: React.FC<Props> = ({repository}) => {
   return (
     <View style={styles.repoCard}>
       <View style={styles.cardLeft}>
         <View style={styles.leftHeader}>
           <Text numberOfLines={2} style={styles.headerName}>
-            {search.items[0].full_name}
+            {repository.fullName}
           </Text>
           <Text numberOfLines={2} ellipsizeMode="tail" style={styles.headerDescription}>
-            {search.items[0].description}
+            {repository.description}
           </Text>
         </View>
 
@@ -22,21 +25,21 @@ export const RepoCard: React.FC = () => {
           <View style={styles.contentDetails}>
             <FontAwesome name="star" color="#777" size={15} />
             <Text numberOfLines={1} style={styles.detailsText}>
-              {search.items[0].stargazers_count}
+              {repository.stargazersCount}
             </Text>
           </View>
 
           <View style={styles.contentDetails}>
             <FontAwesome name="code-fork" color="#777" size={15} />
             <Text numberOfLines={1} style={styles.detailsText}>
-              {search.items[0].forks}
+              {repository.forks}
             </Text>
           </View>
 
           <View style={styles.contentDetails}>
             <FontAwesome name="bug" color="#777" size={15} />
             <Text numberOfLines={1} style={styles.detailsText}>
-              {search.items[0].open_issues}
+              {repository.openIssues}
             </Text>
           </View>
         </View>

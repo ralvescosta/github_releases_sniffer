@@ -26,13 +26,13 @@ function makeSut(isLogged = true): SutTypes {
 describe('Check User Logged View Controller', () => {
   it('Should isLogged.current must be true if checkUserIsLoggedUseCase returns true', async () => {
     const {sut} = makeSut();
-    sut.isLogged.current = true;
-    expect(sut.isLogged.current).toBeTruthy();
+    sut.isUserLogged.current = true;
+    expect(sut.isUserLogged.current).toBeTruthy();
   });
 
   it('Should isLogged.current must be false if checkUserIsLoggedUseCase returns false', async () => {
     const {sut} = makeSut(false);
 
-    expect(sut.isLogged.current).toBeFalsy();
+    expect(sut.isUserLogged.current).toBeFalsy();
   });
 });

@@ -1,3 +1,5 @@
+import {GithubUserAccountEntity} from '../entities/github.account.entity';
+
 export interface ICheckUserIsLoggedUsecase {
-  check: () => Promise<boolean>;
+  check: () => Promise<GithubUserAccountEntity | undefined>;
 }

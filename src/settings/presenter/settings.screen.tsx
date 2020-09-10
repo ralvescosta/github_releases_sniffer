@@ -11,10 +11,19 @@ export const SettingsScreen: React.FC = ({}) => {
     navigation.navigate('signin');
   }
 
+  async function clearCache() {
+    await AsyncStorage.removeItem('@observed');
+    navigation.navigate('dashboard');
+  }
+
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.touchable} onPress={singout}>
         <Text>SignOut</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.touchable} onPress={clearCache}>
+        <Text>Clear Observed Repos</Text>
       </TouchableOpacity>
     </View>
   );

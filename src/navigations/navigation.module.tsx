@@ -13,7 +13,7 @@ type Props = {
 export const NavigationModule: React.FC<Props> = ({viewController}) => {
   return (
     <NavigationContainer>
-      {viewController.isLoading ? null : <StackNavigation isLogged={viewController.isLogged.current} />}
+      {viewController.isLoading ? null : <StackNavigation isLogged={viewController.isUserLogged.current} />}
     </NavigationContainer>
   );
 };
