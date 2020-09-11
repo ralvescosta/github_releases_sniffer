@@ -7,6 +7,7 @@ module.exports = {
     '!<rootDir>/**/*.d.ts',
     '!<rootDir>/src/index.tsx',
     '!<rootDir>/src/**/*.module.tsx',
+    '!<rootDir>/src/core/**',
     '!<rootDir>/src/dashboard/**',
     '!<rootDir>/src/search/**',
     '!<rootDir>/src/settings/**',
