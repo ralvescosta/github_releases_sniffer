@@ -29,8 +29,14 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 7,
   },
 
-  text: {
-    color: '#000',
-    fontSize: 80,
+  searchTextInput: {
+    width: '85%',
+    // borderWidth: 2,
+    // borderColor: '#000',
+  },
+  searchButton: {
+    padding: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

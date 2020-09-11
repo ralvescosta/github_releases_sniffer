@@ -6,6 +6,8 @@ import {CheckUserLoggedViewController} from './interfaces/check.user.logged.view
 import {LocalDatabaseRepository} from './infrastructure/repositories/local.database.repository';
 import {CheckUserIsLoggedUsecase} from './application/usecases/check.user.is.logged.usecase';
 
+import {SniffedRepositoriesContextProvider} from '../core/context/sniffed.repositories.context';
+
 type Props = {
   viewController: CheckUserLoggedViewController;
 };
@@ -13,7 +15,11 @@ type Props = {
 export const NavigationModule: React.FC<Props> = ({viewController}) => {
   return (
     <NavigationContainer>
-      {viewController.isLoading ? null : <StackNavigation isLogged={viewController.isLogged.current} />}
+      {viewController.isLoading ? null : (
+        <SniffedRepositoriesContextProvider>
+          <StackNavigation isLogged={viewController.isUserLogged.current} />
+        </SniffedRepositoriesContextProvider>
+      )}
     </NavigationContainer>
   );
 };

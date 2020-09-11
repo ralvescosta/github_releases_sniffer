@@ -1,32 +1,42 @@
 import React from 'react';
-import {View, TextInput, ScrollView} from 'react-native';
+import {View, TextInput, ScrollView, TouchableOpacity, ActivityIndicator} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import {RepoCard} from './components/repoCard';
 
 import {styles} from './styles';
 
-export const SearchScreen: React.FC = () => {
+import {ISearchViewController} from '../interfaces/isearch.view.controller';
+
+type Props = {
+  viewController: ISearchViewController;
+};
+
+export const SearchScreen: React.FC<Props> = ({viewController}) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <View style={styles.headerSearch}>
-          <FontAwesome name="search" color="#000" size={15} />
-          <TextInput placeholder="Repositorio" />
+          <TextInput
+            placeholder="Repositorio"
+            onChangeText={(text) => {
+              viewController.repositoryName.current = text;
+            }}
+            style={styles.searchTextInput}
+            onSubmitEditing={() => viewController.searchRepository()}
+          />
+          <TouchableOpacity style={styles.searchButton} onPress={() => viewController.searchRepository()}>
+            <FontAwesome name="search" color="#000" size={15} />
+          </TouchableOpacity>
         </View>
       </View>
       <ScrollView style={{width: '100%'}} contentContainerStyle={{marginTop: 15, paddingBottom: 45, alignItems: 'center'}}>
-        <RepoCard />
-        <RepoCard />
-        <RepoCard />
-        <RepoCard />
-        <RepoCard />
-        <RepoCard />
-        <RepoCard />
-        <RepoCard />
-        <RepoCard />
-        <RepoCard />
-        <RepoCard />
+        {viewController.isLoading ? <ActivityIndicator size={35} style={{marginVertical: 10}} color="#000" /> : null}
+        {viewController.foundRepositories.current.length
+          ? viewController.foundRepositories.current.map((repo) => (
+              <RepoCard key={repo.id} repository={repo} saveRepoToObserver={() => viewController.saveRepoToObserver(repo.id)} />
+            ))
+          : null}
       </ScrollView>
     </View>
   );

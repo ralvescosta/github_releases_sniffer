@@ -1,4 +1,5 @@
 import React from 'react';
+import {SniffedRepositoriesContextProvider} from '../../core/context/sniffed.repositories.context'
 import '@react-native-community/async-storage';
 import {NavigationContainer} from '@react-navigation/native';
 
@@ -14,7 +15,9 @@ jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper');
 function makeSut(isLogged = false) {
   return render(
     <NavigationContainer>
-      <StackNavigation isLogged={isLogged} />
+      <SniffedRepositoriesContextProvider>
+        <StackNavigation isLogged={isLogged} />
+      </SniffedRepositoriesContextProvider>
     </NavigationContainer>,
   );
 }

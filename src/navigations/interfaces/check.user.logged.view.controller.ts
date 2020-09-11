@@ -3,21 +3,22 @@ import {ICheckUserIsLoggedUsecase} from '../bussiness/usecases/icheck.user.is.lo
 
 export class CheckUserLoggedViewController {
   public isLoading: boolean;
+
   public setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
-  public isLogged: React.MutableRefObject<boolean>;
+  public isUserLogged: React.MutableRefObject<boolean>;
 
   constructor(private readonly checkUserIsLoggedUseCase: ICheckUserIsLoggedUsecase) {
     [this.isLoading, this.setIsLoading] = useState<boolean>(true);
-    this.isLogged = useRef(false);
+    this.isUserLogged = useRef<boolean>(false);
 
     this.checkUserIsLogged();
   }
 
   private async checkUserIsLogged() {
-    const isLogged = await this.checkUserIsLoggedUseCase.check();
+    const userAccount = await this.checkUserIsLoggedUseCase.check();
 
-    if (isLogged) {
-      this.isLogged.current = true;
+    if (userAccount) {
+      this.isUserLogged.current = true;
     }
 
     this.setIsLoading(false);

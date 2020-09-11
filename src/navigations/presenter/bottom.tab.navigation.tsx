@@ -5,7 +5,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 const BottomTab = createMaterialBottomTabNavigator();
 
 import {Dashboard} from '../../dashboard/presenter/dashboard.screen';
-import {SearchScreen} from '../../search/presenter/search.screen';
+import {SearchScreenModule} from '../../search/search.module';
 import {SettingsScreen} from '../../settings/presenter/settings.screen';
 
 export const BottomTabNavigation: React.FC = () => {
@@ -25,7 +25,7 @@ export const BottomTabNavigation: React.FC = () => {
       />
       <BottomTab.Screen
         name="search"
-        component={SearchScreen}
+        component={SearchScreenModule}
         options={{
           tabBarLabel: 'Search',
           tabBarIcon: ({color}) => <MaterialIcons name="search" color={color} size={24} />,
