@@ -15,8 +15,8 @@ export const Dashboard: React.FC = () => {
     <View style={styles.container}>
       <Header />
       <ScrollView style={{width: '100%'}} contentContainerStyle={{paddingBottom: 35, alignItems: 'center'}}>
-        {controller.context.observedRepositories.length
-          ? controller.context.observedRepositories.map((item: any) => <RepoCard key={item.id} repository={item} />)
+        {controller.context.sniffedRepositories.length
+          ? controller.context.sniffedRepositories.map((item: any) => <RepoCard key={item.id} repository={item} />)
           : null}
       </ScrollView>
     </View>

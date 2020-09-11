@@ -12,7 +12,7 @@ export const SettingsScreen: React.FC = ({}) => {
   }
 
   async function clearCache() {
-    await AsyncStorage.removeItem('@observed');
+    await AsyncStorage.removeItem('@sniffed');
     navigation.navigate('dashboard');
   }
 
@@ -23,7 +23,7 @@ export const SettingsScreen: React.FC = ({}) => {
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.touchable} onPress={clearCache}>
-        <Text>Clear Observed Repos</Text>
+        <Text>Clear Sniffed Repos</Text>
       </TouchableOpacity>
     </View>
   );

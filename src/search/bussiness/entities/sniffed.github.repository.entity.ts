@@ -1,4 +1,4 @@
-export class ObservedGithubRepositoryEntity {
+export class SniffedGithubRepositoryEntity {
   constructor(
     public id: number,
     public fullName: string,
@@ -8,7 +8,7 @@ export class ObservedGithubRepositoryEntity {
     public openIssues: number,
     public ownerId: number,
     public ownerAvatarUrl: string,
-    public releaseUrl: string,
+    public releasesUrl: string,
     public lastRelease: string,
   ) {}
 }

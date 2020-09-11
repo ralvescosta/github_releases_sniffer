@@ -1,23 +1,23 @@
 import {useContext, useEffect} from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 
-import {ObservedRepositoriesContext} from '../../core/context/observed.repositories.context';
+import {SniffedRepositoriesContext} from '../../core/context/sniffed.repositories.context';
 
 export class DashboardViewController {
-  public context = useContext(ObservedRepositoriesContext);
+  public context = useContext(SniffedRepositoriesContext);
 
   constructor() {
     useEffect(() => {
-      this.getObservedReposIntoCacheAndSetGlobalContext();
+      this.getSniffedReposIntoCacheAndSetGlobalContext();
     }, []);
   }
 
-  private async getObservedReposIntoCacheAndSetGlobalContext() {
-    const observed = await AsyncStorage.getItem('@observed');
-    if (observed) {
-      const observedJSON = await JSON.parse(observed);
+  private async getSniffedReposIntoCacheAndSetGlobalContext() {
+    const sniffed = await AsyncStorage.getItem('@sniffed');
+    if (sniffed) {
+      const sniffedJSON = await JSON.parse(sniffed);
 
-      this.context.setObservedRepositories(observedJSON);
+      this.context.setSniffedRepositories(sniffedJSON);
     }
   }
 }

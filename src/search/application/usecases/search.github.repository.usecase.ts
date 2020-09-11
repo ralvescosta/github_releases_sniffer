@@ -2,13 +2,13 @@ import {ISearchGithubRepositoryUsecase} from '../../bussiness/usecases/isearch.g
 import {ISearchGithubRepoRepository} from '../protocols/isearch.github.repo.repository';
 
 import {ResultSearchGithubRepositoryEntity} from '../../bussiness/entities/result.search.github.repository.entity';
-import {ObservedGithubRepositoryEntity} from '../../bussiness/entities/observed.github.repository.entity';
+import {SniffedGithubRepositoryEntity} from '../../bussiness/entities/sniffed.github.repository.entity';
 
 export class SearchGithubRepositoryUsecase implements ISearchGithubRepositoryUsecase {
   constructor(private readonly searchGithubRepository: ISearchGithubRepoRepository) {}
   public async search(
     repository: string,
-    observedRepositories: ObservedGithubRepositoryEntity[],
+    sniffedRepositories: SniffedGithubRepositoryEntity[],
   ): Promise<ResultSearchGithubRepositoryEntity[]> {
     let response: ResultSearchGithubRepositoryEntity[] = [];
     try {
@@ -26,7 +26,7 @@ export class SearchGithubRepositoryUsecase implements ISearchGithubRepositoryUse
      * Check if user already selected this repository
      */
     response.forEach((item: ResultSearchGithubRepositoryEntity) => {
-      const checkResultSearch = observedRepositories.findIndex((repo) => repo.id === item.id);
+      const checkResultSearch = sniffedRepositories.findIndex((repo) => repo.id === item.id);
       if (checkResultSearch === -1) {
         resultSearch.push(item);
       } else {

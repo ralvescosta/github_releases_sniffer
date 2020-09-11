@@ -8,7 +8,7 @@ import {ResultSearchGithubRepositoryEntity} from '../../../bussiness/entities/re
 type Props = {
   repository: ResultSearchGithubRepositoryEntity;
   saveRepoToObserver: Function;
-  removeRepoObserved?: Function;
+  removeRepoSniffed?: Function;
 };
 
 export const RepoCard: React.FC<Props> = ({repository, saveRepoToObserver}) => {
