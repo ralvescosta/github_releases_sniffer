@@ -48,7 +48,7 @@ export const RepoCard: React.FC<Props> = ({repository}) => {
       <View style={styles.cardRight}>
         <View style={styles.rightRelease}>
           <Text style={styles.releaseTitle}>Last Release: </Text>
-          <Text style={styles.releaseTag}>v0.63.2</Text>
+          <Text style={styles.releaseTag}>{repository.lastRelease}</Text>
         </View>
         <FontAwesome name="bell" color="#ffe311" size={30} />
       </View>

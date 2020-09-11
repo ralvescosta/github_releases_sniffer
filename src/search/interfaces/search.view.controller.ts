@@ -1,12 +1,13 @@
 import {useState, useRef, useContext} from 'react';
 import {Keyboard} from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
+
+import {SniffedRepositoriesContext} from '../../core/context/sniffed.repositories.context';
+import {ISearchViewController} from './isearch.view.controller';
 
 import {ISearchGithubRepositoryUsecase} from '../bussiness/usecases/isearch.github.repository.usecase';
 import {ResultSearchGithubRepositoryEntity} from '../bussiness/entities/result.search.github.repository.entity';
-import {ISearchViewController} from './isearch.view.controller';
 
-import {SniffedRepositoriesContext} from '../../core/context/sniffed.repositories.context';
+import {ISaveRepositoryToSnifferUsecase} from '../bussiness/usecases/isave.repositrory.to.sniffer.usecase';
 
 export class SearchViewController implements ISearchViewController {
   public repositoryName: React.MutableRefObject<string>;
@@ -20,7 +21,10 @@ export class SearchViewController implements ISearchViewController {
 
   public context = useContext(SniffedRepositoriesContext);
 
-  constructor(private readonly searchRepositoryUsecase: ISearchGithubRepositoryUsecase) {
+  constructor(
+    private readonly searchRepositoryUsecase: ISearchGithubRepositoryUsecase,
+    private readonly saveToSnifferUsecase: ISaveRepositoryToSnifferUsecase,
+  ) {
     this.repositoryName = useRef('');
     [this.isLoading, this.setIsLoading] = useState<boolean>(false);
     this.foundRepositories = useRef<ResultSearchGithubRepositoryEntity[]>([]);
@@ -47,10 +51,9 @@ export class SearchViewController implements ISearchViewController {
       console.log('ERRROU');
     }
 
-    const newContext = [...this.context.sniffedRepositories, getRepositorySelected];
+    const sniffed = await this.saveToSnifferUsecase.saveToSniffer(getRepositorySelected as ResultSearchGithubRepositoryEntity);
 
-    await AsyncStorage.setItem('@sniffed', JSON.stringify(newContext));
-    this.context.setSniffedRepositories(newContext);
-    console.log(getRepositorySelected);
+    this.context.setSniffedRepositories([...this.context.sniffedRepositories, sniffed]);
+    console.log('SearchViewController', sniffed);
   }
 }

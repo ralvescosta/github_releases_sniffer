@@ -1,17 +1,17 @@
+import {ISaveRepositoryToSnifferUsecase} from '../../bussiness/usecases/isave.repositrory.to.sniffer.usecase';
 import {ResultSearchGithubRepositoryEntity} from '../../bussiness/entities/result.search.github.repository.entity';
-import {ISaveRepositoryToObserver} from '../../bussiness/usecases/isave.repositrory.to.observer';
 import {SniffedGithubRepositoryEntity} from '../../bussiness/entities/sniffed.github.repository.entity';
 
 import {ISaveLocallySniffedRepository} from '../protocols/isave.locally.sniffed.repository';
-import {ISearchGithubRepoRepository} from '../protocols/iget.last.sniffed.release.repository';
+import {IGetLastSniffedReleaseRepository} from '../protocols/iget.last.sniffed.release.repository';
 
-export class SaveRepositoryToObserver implements ISaveRepositoryToObserver {
+export class SaveRepositoryToSnifferUsecase implements ISaveRepositoryToSnifferUsecase {
   constructor(
     public locallySniffedRepository: ISaveLocallySniffedRepository,
-    public getLastReleaseRepository: ISearchGithubRepoRepository,
+    public getLastReleaseRepository: IGetLastSniffedReleaseRepository,
   ) {}
 
-  public async saveToObserver(repository: ResultSearchGithubRepositoryEntity): Promise<boolean> {
+  public async saveToSniffer(repository: ResultSearchGithubRepositoryEntity): Promise<SniffedGithubRepositoryEntity> {
     const lastRelease = await this.getLastReleaseRepository.get(repository.releasesUrl);
 
     const newSniffed = new SniffedGithubRepositoryEntity(
@@ -29,6 +29,6 @@ export class SaveRepositoryToObserver implements ISaveRepositoryToObserver {
 
     await this.locallySniffedRepository.saveSniffed(newSniffed);
 
-    return true;
+    return newSniffed;
   }
 }

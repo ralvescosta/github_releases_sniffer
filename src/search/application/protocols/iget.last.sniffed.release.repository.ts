@@ -1,3 +1,3 @@
-export interface ISearchGithubRepoRepository {
+export interface IGetLastSniffedReleaseRepository {
   get: (releasesUrl: string) => Promise<any>;
 }
