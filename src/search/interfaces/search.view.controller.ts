@@ -7,8 +7,6 @@ import {ISearchViewController} from './isearch.view.controller';
 import {ISearchGithubRepositoryUsecase} from '../bussiness/usecases/isearch.github.repository.usecase';
 import {ResultSearchGithubRepositoryEntity} from '../bussiness/entities/result.search.github.repository.entity';
 
-import {ISaveRepositoryToSnifferUsecase} from '../bussiness/usecases/isave.repositrory.to.sniffer.usecase';
-
 export class SearchViewController implements ISearchViewController {
   public repositoryName: React.MutableRefObject<string>;
 
@@ -17,16 +15,12 @@ export class SearchViewController implements ISearchViewController {
 
   public foundRepositories: React.MutableRefObject<ResultSearchGithubRepositoryEntity[]>;
 
-  public timer: any;
-
   public context = useContext(SniffedRepositoriesContext);
 
-  constructor(
-    private readonly searchRepositoryUsecase: ISearchGithubRepositoryUsecase,
-    private readonly saveToSnifferUsecase: ISaveRepositoryToSnifferUsecase,
-  ) {
+  constructor(private readonly searchRepositoryUsecase: ISearchGithubRepositoryUsecase) {
     this.repositoryName = useRef('');
     [this.isLoading, this.setIsLoading] = useState<boolean>(false);
+
     this.foundRepositories = useRef<ResultSearchGithubRepositoryEntity[]>([]);
   }
 
@@ -42,18 +36,5 @@ export class SearchViewController implements ISearchViewController {
     this.foundRepositories.current = result;
 
     this.setIsLoading(false);
-  }
-
-  public async saveRepoToObserver(repositoryId: number) {
-    const getRepositorySelected = this.foundRepositories.current.find((item) => item.id === repositoryId);
-
-    if (!getRepositorySelected) {
-      console.log('ERRROU');
-    }
-
-    const sniffed = await this.saveToSnifferUsecase.saveToSniffer(getRepositorySelected as ResultSearchGithubRepositoryEntity);
-
-    this.context.setSniffedRepositories([...this.context.sniffedRepositories, sniffed]);
-    console.log('SearchViewController', sniffed);
   }
 }

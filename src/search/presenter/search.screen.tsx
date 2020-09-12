@@ -33,9 +33,7 @@ export const SearchScreen: React.FC<Props> = ({viewController}) => {
       <ScrollView style={{width: '100%'}} contentContainerStyle={{marginTop: 15, paddingBottom: 45, alignItems: 'center'}}>
         {viewController.isLoading ? <ActivityIndicator size={35} style={{marginVertical: 10}} color="#000" /> : null}
         {viewController.foundRepositories.current.length
-          ? viewController.foundRepositories.current.map((repo) => (
-              <RepoCard key={repo.id} repository={repo} saveRepoToObserver={() => viewController.saveRepoToObserver(repo.id)} />
-            ))
+          ? viewController.foundRepositories.current.map((repo) => <RepoCard key={repo.id} repository={repo} />)
           : null}
       </ScrollView>
     </View>

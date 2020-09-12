@@ -3,7 +3,19 @@ import {ISearchGithubRepoRepository} from '../../application/protocols/isearch.g
 import {GithubSearchRepositoryDatasource} from '../datasources/github.search.repository.datasource';
 
 export class SearchGithubRepoRepository implements ISearchGithubRepoRepository {
-  public githubSearchRepoBaseUrl = 'https://api.github.com/search/repositories?q=';
+  private readonly githubSearchRepoBaseUrl = 'https://api.github.com/search/repositories?q=';
+
+  /**
+   * Singleton
+   */
+  private static instance: SearchGithubRepoRepository;
+  private constructor() {}
+  public static getInstance(): SearchGithubRepoRepository {
+    if (!SearchGithubRepoRepository.instance) {
+      SearchGithubRepoRepository.instance = new SearchGithubRepoRepository();
+    }
+    return SearchGithubRepoRepository.instance;
+  }
 
   public async search(repository: string): Promise<ResultSearchGithubRepositoryEntity[]> {
     let httpBody: GithubSearchRepositoryDatasource;

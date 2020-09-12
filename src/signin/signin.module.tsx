@@ -7,9 +7,7 @@ import {LocalDatabaseRepository} from './infrastructure/repositories/local.datab
 import {SignInUsecases} from './application/usecases/signin.usecases';
 
 export const SignInScreenModule: React.FC = () => {
-  const githubFindUserRepository = new GithubSearchUserRepository();
-  const localDatabaseRepository = new LocalDatabaseRepository();
-  const signInUsecases = new SignInUsecases(githubFindUserRepository, localDatabaseRepository);
+  const signInUsecases = new SignInUsecases(GithubSearchUserRepository.getInstance(), LocalDatabaseRepository.getInstance());
   const singInViewController = new SingInViewController(signInUsecases);
 
   return <SignInScreen viewController={singInViewController} />;

@@ -1,10 +1,13 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {View, Text} from 'react-native';
+import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-community/async-storage';
 import {useNavigation} from '@react-navigation/native';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-export const SettingsScreen: React.FC = ({}) => {
+import {styles} from './styles';
+
+export const SettingsScreen = ({}) => {
   const navigation = useNavigation();
   async function singout() {
     await AsyncStorage.removeItem('@account');
@@ -18,30 +21,19 @@ export const SettingsScreen: React.FC = ({}) => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.touchable} onPress={singout}>
-        <Text>SignOut</Text>
-      </TouchableOpacity>
+      <View style={styles.header} />
 
-      <TouchableOpacity style={styles.touchable} onPress={clearCache}>
-        <Text>Clear Sniffed Repos</Text>
-      </TouchableOpacity>
+      <ScrollView>
+        <TouchableOpacity style={styles.touchable} onPress={singout}>
+          <MaterialIcons name="exit-to-app" color="#000" size={24} style={styles.icon} />
+          <Text>Signou</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.touchable} onPress={clearCache}>
+          <MaterialIcons name="clear-all" color="#000" size={24} style={styles.icon} />
+          <Text>Clear sniffed repositories</Text>
+        </TouchableOpacity>
+      </ScrollView>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#f4f4f4',
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  touchable: {
-    backgroundColor: '#777',
-    width: '90%',
-    height: 50,
-    borderRadius: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
