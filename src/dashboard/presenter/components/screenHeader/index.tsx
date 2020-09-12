@@ -4,7 +4,14 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import {styles} from './styles';
 
-export const Header: React.FC = () => {
+type Props = {
+  account: {
+    avatarUrl?: string;
+    login?: string;
+  };
+};
+
+export const Header = ({account}: Props) => {
   return (
     <View style={styles.header}>
       <View style={styles.resumeColumn}>
@@ -19,8 +26,8 @@ export const Header: React.FC = () => {
       </View>
 
       <TouchableOpacity style={styles.accountColumn} activeOpacity={0.4}>
-        <Image style={styles.accountAvatar} source={{uri: 'https://avatars0.githubusercontent.com/u/45952161?v=4'}} />
-        <Text style={styles.accountUser}>ralvescosta</Text>
+        <Image style={styles.accountAvatar} source={{uri: account?.avatarUrl}} />
+        <Text style={styles.accountUser}>{account.login ? account.login : ''}</Text>
       </TouchableOpacity>
     </View>
   );

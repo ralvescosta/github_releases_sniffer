@@ -16,7 +16,7 @@ export const RepoCard: React.FC<Props> = ({repository}) => {
           <Text numberOfLines={2} style={styles.headerName}>
             {repository.fullName}
           </Text>
-          <Text numberOfLines={2} ellipsizeMode="tail" style={styles.headerDescription}>
+          <Text numberOfLines={4} ellipsizeMode="tail" style={styles.headerDescription}>
             {repository.description}
           </Text>
         </View>

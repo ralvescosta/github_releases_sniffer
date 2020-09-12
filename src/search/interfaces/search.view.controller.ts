@@ -17,8 +17,6 @@ export class SearchViewController implements ISearchViewController {
 
   public foundRepositories: React.MutableRefObject<ResultSearchGithubRepositoryEntity[]>;
 
-  public timer: any;
-
   public context = useContext(SniffedRepositoriesContext);
 
   constructor(
@@ -27,6 +25,7 @@ export class SearchViewController implements ISearchViewController {
   ) {
     this.repositoryName = useRef('');
     [this.isLoading, this.setIsLoading] = useState<boolean>(false);
+
     this.foundRepositories = useRef<ResultSearchGithubRepositoryEntity[]>([]);
   }
 
@@ -51,9 +50,9 @@ export class SearchViewController implements ISearchViewController {
       console.log('ERRROU');
     }
 
-    const sniffed = await this.saveToSnifferUsecase.saveToSniffer(getRepositorySelected as ResultSearchGithubRepositoryEntity);
-
-    this.context.setSniffedRepositories([...this.context.sniffedRepositories, sniffed]);
-    console.log('SearchViewController', sniffed);
+    try {
+      const sniffed = await this.saveToSnifferUsecase.saveToSniffer(getRepositorySelected as ResultSearchGithubRepositoryEntity);
+      this.context.setSniffedRepositories([...this.context.sniffedRepositories, sniffed]);
+    } catch (err) {}
   }
 }

@@ -9,11 +9,7 @@ export interface ISearchViewController {
 
   foundRepositories: React.MutableRefObject<ResultSearchGithubRepositoryEntity[]>;
 
-  timer: any;
-
   context: any;
 
   searchRepository: () => Promise<void>;
-
-  saveRepoToObserver: (repositoryIndex: number) => Promise<void>;
 }
