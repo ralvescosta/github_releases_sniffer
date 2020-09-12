@@ -18,14 +18,17 @@ export class RepoCardViewController {
     private readonly repository: ResultSearchGithubRepositoryEntity,
     private readonly saveToSnifferUsecase: ISaveRepositoryToSnifferUsecase,
   ) {
-    [this.switchState, this.setSwitchState] = useState<boolean>(false);
+    [this.switchState, this.setSwitchState] = useState<boolean>(this.repository.checked);
     [this.loading, this.setLoading] = useState<boolean>(false);
   }
 
   public async saveRepoToObserver() {
+    this.setLoading(true);
     try {
       const sniffed = await this.saveToSnifferUsecase.saveToSniffer(this.repository);
       this.context.setSniffedRepositories([...this.context.sniffedRepositories, sniffed]);
+      this.setSwitchState(true);
     } catch (err) {}
+    this.setLoading(false);
   }
 }

@@ -3,6 +3,18 @@ import {SniffedGithubRepositoryEntity} from '../../bussiness/entities/sniffed.gi
 import {ISaveLocallySniffedRepository} from '../../application/protocols/isave.locally.sniffed.repository';
 
 export class SaveLocallySniffedRepository implements ISaveLocallySniffedRepository {
+  /**
+   * Singleton
+   */
+  private static instance: SaveLocallySniffedRepository;
+  private constructor() {}
+  public static getInstance(): SaveLocallySniffedRepository {
+    if (!SaveLocallySniffedRepository.instance) {
+      SaveLocallySniffedRepository.instance = new SaveLocallySniffedRepository();
+    }
+    return SaveLocallySniffedRepository.instance;
+  }
+
   public async saveSniffed(entity: SniffedGithubRepositoryEntity): Promise<boolean> {
     const sniffedSaved = await AsyncStorage.getItem('@sniffed');
 

@@ -2,8 +2,20 @@ import {IGetLastSniffedReleaseRepository} from '../../application/protocols/iget
 import {GithubRepositoryReleasesDatasource} from '../datasources/github.repository.releases.datasource';
 
 export class GetLastSniffedReleaseRepository implements IGetLastSniffedReleaseRepository {
+  /**
+   * Singleton
+   */
+  private static instance: GetLastSniffedReleaseRepository;
+  private constructor() {}
+  public static getInstance(): GetLastSniffedReleaseRepository {
+    if (!GetLastSniffedReleaseRepository.instance) {
+      GetLastSniffedReleaseRepository.instance = new GetLastSniffedReleaseRepository();
+    }
+
+    return GetLastSniffedReleaseRepository.instance;
+  }
+
   public async get(releasesUrl: string): Promise<any> {
-    console.log(releasesUrl);
     let httpBody: GithubRepositoryReleasesDatasource[];
     try {
       const httpResponse = await fetch(releasesUrl, {method: 'GET'});
@@ -20,7 +32,7 @@ export class GetLastSniffedReleaseRepository implements IGetLastSniffedReleaseRe
     } catch (err) {
       throw new Error();
     }
-    console.log(httpBody);
+
     return {
       tagName: httpBody[0].tag_name,
     };

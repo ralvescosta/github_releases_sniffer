@@ -3,7 +3,20 @@ import {GithubUserAccountEntity} from '../../bussiness/entities/github.account.e
 import {GithubSearchUserDataSource} from '../datastructure/github.search.user.datasource';
 
 export class GithubSearchUserRepository implements IGithubSearchUserRepository {
-  public githubSearchUrlBase = 'https://api.github.com/users/';
+  private readonly githubSearchUrlBase = 'https://api.github.com/users/';
+
+  /**
+   * Singleton
+   */
+  private static instance: GithubSearchUserRepository;
+  private constructor() {}
+  public static getInstance(): GithubSearchUserRepository {
+    if (!GithubSearchUserRepository.instance) {
+      GithubSearchUserRepository.instance = new GithubSearchUserRepository();
+    }
+
+    return GithubSearchUserRepository.instance;
+  }
 
   public async search(gitUser: string): Promise<GithubUserAccountEntity> {
     let httpBody: GithubSearchUserDataSource;

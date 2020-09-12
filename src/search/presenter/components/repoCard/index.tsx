@@ -1,22 +1,28 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, Text, Switch, Alert, ActivityIndicator} from 'react-native';
 
 import {styles} from './styles';
 
 import {ResultSearchGithubRepositoryEntity} from '../../../bussiness/entities/result.search.github.repository.entity';
 
+import {SaveRepositoryToSnifferUsecase} from '../../../application/usecases/save.repositrory.to.sniffer.usecase';
+import {RepoCardViewController} from '../../../interfaces/repo.card.view.controller';
+import {SaveLocallySniffedRepository} from '../../../infrastructure/repositories/save.locally.sniffed.repository';
+import {GetLastSniffedReleaseRepository} from '../../../infrastructure/repositories/get.last.sniffed.release.repository';
+
 type Props = {
   repository: ResultSearchGithubRepositoryEntity;
-  saveRepoToObserver: Function;
-  removeRepoSniffed?: Function;
 };
 
-export const RepoCard: React.FC<Props> = ({repository, saveRepoToObserver}) => {
-  const [switchState, setSwitchState] = useState(repository.checked);
-  const [loading, setLoading] = useState(false);
+export const RepoCard = ({repository}: Props) => {
+  const saveRepositoryToSnifferUsecase = new SaveRepositoryToSnifferUsecase(
+    SaveLocallySniffedRepository.getInstance(),
+    GetLastSniffedReleaseRepository.getInstance(),
+  );
+  const viewController = new RepoCardViewController(repository, saveRepositoryToSnifferUsecase);
 
   function handleSwitch(): void {
-    if (!switchState) {
+    if (!viewController.switchState) {
       Alert.alert('Github Sniffer', 'Voce deseja marcar este repositorio para ter sua release monitorada?', [
         {
           text: 'cancel',
@@ -25,10 +31,7 @@ export const RepoCard: React.FC<Props> = ({repository, saveRepoToObserver}) => {
         {
           text: 'OK',
           onPress: async () => {
-            setLoading(true);
-            await saveRepoToObserver();
-            setLoading(false);
-            setSwitchState(true);
+            await viewController.saveRepoToObserver();
           },
         },
       ]);
@@ -49,7 +52,11 @@ export const RepoCard: React.FC<Props> = ({repository, saveRepoToObserver}) => {
       </View>
 
       <View style={styles.cardRight}>
-        {loading ? <ActivityIndicator color="#000" /> : <Switch value={switchState} onValueChange={handleSwitch} />}
+        {viewController.loading ? (
+          <ActivityIndicator color="#000" />
+        ) : (
+          <Switch value={viewController.switchState} onValueChange={handleSwitch} />
+        )}
       </View>
     </View>
   );
