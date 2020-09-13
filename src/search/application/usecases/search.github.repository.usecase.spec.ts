@@ -1,6 +1,6 @@
 import {SaveRepositoryToSnifferUsecase} from './save.repositrory.to.sniffer.usecase';
-import {SaveLocallySniffedRepositorySpy} from '../__tests__/save.locally.sniffed.repository.spy';
-import {GetLastSniffedReleaseRepositorySpy} from '../__tests__/get.last.sniffed.release.repository.spy';
+import {SaveLocallySniffedRepositorySpy} from '../__test__/save.locally.sniffed.repository.spy';
+import {GetLastSniffedReleaseRepositorySpy} from '../__test__/get.last.sniffed.release.repository.spy';
 
 type SutTypes = {
   sut: SaveRepositoryToSnifferUsecase;
