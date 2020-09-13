@@ -4,17 +4,7 @@ import {ResultSearchGithubRepositoryEntity} from '../../bussiness/entities/resul
 
 export class SaveLocallySniffedRepositorySpy implements ISaveLocallySniffedRepository {
   public sniffedEntity = new SniffedGithubRepositoryEntity(1, '', '', 10, 10, 10, 1, '', '', '');
-  public resultSearchEntity = new ResultSearchGithubRepositoryEntity(
-    1,
-    'full_name',
-    'description',
-    10,
-    10,
-    10,
-    1,
-    'avatar_url',
-    'releases_url',
-  );
+  public resultSearchEntity = new ResultSearchGithubRepositoryEntity(1, '', '', 10, 10, 10, 1, '', '');
 
   public async saveSniffed(entity: SniffedGithubRepositoryEntity): Promise<boolean> {
     this.sniffedEntity = entity;

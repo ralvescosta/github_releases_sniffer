@@ -14,11 +14,11 @@ export class SearchGithubRepositoryUsecase implements ISearchGithubRepositoryUse
     try {
       response = await this.searchGithubRepository.search(repository);
     } catch (err) {
-      console.log(err);
+      throw new Error();
     }
 
     if (!response.length) {
-      return [];
+      throw new Error();
     }
 
     const resultSearch: ResultSearchGithubRepositoryEntity[] = [];
