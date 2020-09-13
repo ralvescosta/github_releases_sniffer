@@ -5,18 +5,6 @@ import {GithubSearchRepositoryDatasource} from '../datasources/github.search.rep
 export class SearchGithubRepoRepository implements ISearchGithubRepoRepository {
   private readonly githubSearchRepoBaseUrl = 'https://api.github.com/search/repositories?q=';
 
-  /**
-   * Singleton
-   */
-  private static instance: SearchGithubRepoRepository;
-  private constructor() {}
-  public static getInstance(): SearchGithubRepoRepository {
-    if (!SearchGithubRepoRepository.instance) {
-      SearchGithubRepoRepository.instance = new SearchGithubRepoRepository();
-    }
-    return SearchGithubRepoRepository.instance;
-  }
-
   public async search(repository: string): Promise<ResultSearchGithubRepositoryEntity[]> {
     let httpBody: GithubSearchRepositoryDatasource;
     try {

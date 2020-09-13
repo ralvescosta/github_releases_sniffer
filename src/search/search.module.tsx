@@ -6,7 +6,8 @@ import {SearchGithubRepositoryUsecase} from './application/usecases/search.githu
 import {SearchViewController} from './interfaces/search.view.controller';
 
 export const SearchScreenModule: React.FC = () => {
-  const searchGithubRepositoryUsecase = new SearchGithubRepositoryUsecase(SearchGithubRepoRepository.getInstance());
+  const searchGithubRepoRepository = new SearchGithubRepoRepository();
+  const searchGithubRepositoryUsecase = new SearchGithubRepositoryUsecase(searchGithubRepoRepository);
 
   const searchViewController = new SearchViewController(searchGithubRepositoryUsecase);
 
