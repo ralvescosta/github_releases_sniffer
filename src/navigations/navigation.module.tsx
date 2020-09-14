@@ -25,7 +25,8 @@ export const NavigationModule: React.FC<Props> = ({viewController}) => {
 };
 
 export const WarperNavigationModule: React.FC = () => {
-  const checkUserIsLoggedUsecase = new CheckUserIsLoggedUsecase(LocalDatabaseRepository.getInstance());
+  const localDatabaseRepository = new LocalDatabaseRepository();
+  const checkUserIsLoggedUsecase = new CheckUserIsLoggedUsecase(localDatabaseRepository);
   const checkUserLoggedViewController = new CheckUserLoggedViewController(checkUserIsLoggedUsecase);
 
   return <NavigationModule viewController={checkUserLoggedViewController} />;

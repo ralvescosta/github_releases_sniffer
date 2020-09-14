@@ -2,17 +2,16 @@ import React from 'react';
 import {View, TextInput, ScrollView, TouchableOpacity, ActivityIndicator} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-import {RepoCard} from './components/repoCard';
-
 import {styles} from './styles';
 
 import {ISearchViewController} from '../interfaces/isearch.view.controller';
 
 type Props = {
   viewController: ISearchViewController;
+  RepoCard: any;
 };
 
-export const SearchScreen: React.FC<Props> = ({viewController}) => {
+export const SearchScreen: React.FC<Props> = ({viewController, RepoCard}) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>

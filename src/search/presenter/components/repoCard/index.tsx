@@ -3,24 +3,13 @@ import {View, Text, Switch, Alert, ActivityIndicator} from 'react-native';
 
 import {styles} from './styles';
 
-import {ResultSearchGithubRepositoryEntity} from '../../../bussiness/entities/result.search.github.repository.entity';
-
-import {SaveRepositoryToSnifferUsecase} from '../../../application/usecases/save.repositrory.to.sniffer.usecase';
-import {RepoCardViewController} from '../../../interfaces/repo.card.view.controller';
-import {SaveLocallySniffedRepository} from '../../../infrastructure/repositories/save.locally.sniffed.repository';
-import {GetLastSniffedReleaseRepository} from '../../../infrastructure/repositories/get.last.sniffed.release.repository';
+import {IRepoCardViewController} from '../../../interfaces/irepo.card.view.controller';
 
 type Props = {
-  repository: ResultSearchGithubRepositoryEntity;
+  viewController: IRepoCardViewController;
 };
 
-export const RepoCard = ({repository}: Props) => {
-  const saveRepositoryToSnifferUsecase = new SaveRepositoryToSnifferUsecase(
-    SaveLocallySniffedRepository.getInstance(),
-    GetLastSniffedReleaseRepository.getInstance(),
-  );
-  const viewController = new RepoCardViewController(repository, saveRepositoryToSnifferUsecase);
-
+export const RepoCard = ({viewController}: Props) => {
   function handleSwitch(): void {
     if (!viewController.switchState) {
       Alert.alert('Github Sniffer', 'Voce deseja marcar este repositorio para ter sua release monitorada?', [
@@ -43,10 +32,10 @@ export const RepoCard = ({repository}: Props) => {
       <View style={styles.cardLeft}>
         <View style={styles.leftHeader}>
           <Text numberOfLines={2} style={styles.headerName}>
-            {repository.fullName}
+            {viewController.repository.fullName}
           </Text>
           <Text numberOfLines={2} ellipsizeMode="tail" style={styles.headerDescription}>
-            {repository.description}
+            {viewController.repository.description}
           </Text>
         </View>
       </View>
