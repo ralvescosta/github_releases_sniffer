@@ -21,8 +21,8 @@ export class SaveLocallySniffedRepository implements ISaveLocallySniffedReposito
     let sniffedSavedJSON = [];
     if (sniffedSaved) {
       sniffedSavedJSON = JSON.parse(sniffedSaved);
-      sniffedSavedJSON.push(entity);
     }
+    sniffedSavedJSON.push(entity);
 
     await AsyncStorage.setItem('@sniffed', JSON.stringify(sniffedSavedJSON));
     return true;
