@@ -9,7 +9,7 @@ module.exports = {
     '!<rootDir>/src/**/*.module.tsx',
     '!<rootDir>/src/core/**',
     '!<rootDir>/src/dashboard/**',
-    '!<rootDir>/src/search/**',
+    '!<rootDir>/src/search/presenter/**',
     '!<rootDir>/src/settings/**',
   ],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],

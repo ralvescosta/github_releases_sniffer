@@ -26,7 +26,7 @@ export class SearchViewController implements ISearchViewController {
 
   public async searchRepository(): Promise<void> {
     if (!this.repositoryName.current) {
-      return;
+      throw new Error();
     }
 
     this.setIsLoading(true);

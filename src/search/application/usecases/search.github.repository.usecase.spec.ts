@@ -20,7 +20,7 @@ describe('Search GithubRepository Usecase', () => {
   it('search()', async () => {
     const {sut, searchGithubRepositorySpy} = makeSut();
 
-    jest.spyOn(searchGithubRepositorySpy, 'search').mockResolvedValueOnce([searchGithubRepositorySpy.resultSearchEntity]);
+    jest.spyOn(searchGithubRepositorySpy, 'search');
 
     await sut.search('some_repository', []);
 

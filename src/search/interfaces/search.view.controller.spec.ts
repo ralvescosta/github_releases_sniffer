@@ -54,4 +54,13 @@ describe('Search View Controller', () => {
 
     expect(result).rejects.toThrow(new Error());
   });
+
+  it('Should Throw Error if repositoryName is empty', async () => {
+    const {sut} = makeSut();
+    sut.repositoryName.current = '';
+
+    const result = sut.searchRepository();
+
+    expect(result).rejects.toThrow(new Error());
+  });
 });

@@ -51,6 +51,15 @@ describe('Get Last Sniffed Release Repository', () => {
     expect(result).rejects.toThrow(new Error());
   });
 
+  it('Should throw Error if Body is empty', async () => {
+    const {sut, MockReleaseURL} = makeSut();
+    fetch.mockResponseOnce(JSON.stringify([]) as any);
+
+    const result = sut.get(MockReleaseURL);
+
+    expect(result).rejects.toThrow(new Error('404'));
+  });
+
   it('Should returns tagName if success', async () => {
     const {sut, MockReleaseURL} = makeSut();
     fetch.mockResponseOnce(JSON.stringify(MockResultGithubRepositoryReleases) as any);

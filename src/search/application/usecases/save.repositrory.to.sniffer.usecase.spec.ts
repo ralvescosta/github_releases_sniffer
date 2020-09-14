@@ -23,8 +23,8 @@ function makeSut(): SutTypes {
 describe('Save Repository To Sniffer Usecase', () => {
   it('saveToSniffer()', async () => {
     const {sut, locallySniffedRepositorySpy, getLastSniffedReleaseRepositorySpy} = makeSut();
-    jest.spyOn(getLastSniffedReleaseRepositorySpy, 'get').mockResolvedValueOnce({tagName: 'v'});
-    jest.spyOn(locallySniffedRepositorySpy, 'saveSniffed').mockResolvedValueOnce(true);
+    jest.spyOn(getLastSniffedReleaseRepositorySpy, 'get');
+    jest.spyOn(locallySniffedRepositorySpy, 'saveSniffed');
 
     await sut.saveToSniffer(locallySniffedRepositorySpy.resultSearchEntity);
 
