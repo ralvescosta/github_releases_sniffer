@@ -1,4 +1,4 @@
-export const searchResultMock = {
+export const MockResultGithubRepositorySearch = {
   total_count: 1590541,
   incomplete_results: false,
   items: [
@@ -105,3 +105,46 @@ export const searchResultMock = {
     },
   ],
 };
+
+export const MockResultGithubRepositoryReleases = [
+  {
+    url: 'https://api.github.com/repos/facebook/react/releases/24688601',
+    assets_url: 'https://api.github.com/repos/facebook/react/releases/24688601/assets',
+    upload_url: 'https://uploads.github.com/repos/facebook/react/releases/24688601/assets{?name,label}',
+    html_url: 'https://github.com/facebook/react/releases/tag/v16.13.1',
+    id: 24688601,
+    node_id: 'MDc6UmVsZWFzZTI0Njg4NjAx',
+    tag_name: 'v16.13.1',
+    target_commitish: 'master',
+    name: '16.13.1 (March 19, 2020)',
+    draft: false,
+    author: {
+      login: 'acdlite',
+      id: 3624098,
+      node_id: 'MDQ6VXNlcjM2MjQwOTg=',
+      avatar_url: 'https://avatars0.githubusercontent.com/u/3624098?v=4',
+      gravatar_id: '',
+      url: 'https://api.github.com/users/acdlite',
+      html_url: 'https://github.com/acdlite',
+      followers_url: 'https://api.github.com/users/acdlite/followers',
+      following_url: 'https://api.github.com/users/acdlite/following{/other_user}',
+      gists_url: 'https://api.github.com/users/acdlite/gists{/gist_id}',
+      starred_url: 'https://api.github.com/users/acdlite/starred{/owner}{/repo}',
+      subscriptions_url: 'https://api.github.com/users/acdlite/subscriptions',
+      organizations_url: 'https://api.github.com/users/acdlite/orgs',
+      repos_url: 'https://api.github.com/users/acdlite/repos',
+      events_url: 'https://api.github.com/users/acdlite/events{/privacy}',
+      received_events_url: 'https://api.github.com/users/acdlite/received_events',
+      type: 'User',
+      site_admin: false,
+    },
+    prerelease: false,
+    created_at: '2020-03-19T20:02:31Z',
+    published_at: '2020-03-19T20:29:38Z',
+    assets: [],
+    tarball_url: 'https://api.github.com/repos/facebook/react/tarball/v16.13.1',
+    zipball_url: 'https://api.github.com/repos/facebook/react/zipball/v16.13.1',
+    body:
+      '### React DOM\r\n\r\n* Fix bug in legacy mode Suspense where effect clean-up functions are not fired. This only affects users who use Suspense for data fetching in legacy mode, which is not technically supported. ([@acdlite](https://github.com/acdlite) in [#18238](https://github.com/facebook/react/pull/18238))\r\n* Revert warning for cross-component updates that happen inside class render lifecycles (`componentWillReceiveProps`, `shouldComponentUpdate`, and so on). ([@gaearon](https://github.com/gaearon) in [#18330](https://github.com/facebook/react/pull/18330))\r\n\r\n## Artifacts\r\n\r\n- react: https://unpkg.com/react@16.13.1/umd/\r\n- react-art: https://unpkg.com/react-art@16.13.1/umd/\r\n- react-dom: https://unpkg.com/react-dom@16.13.1/umd/\r\n- react-is: https://unpkg.com/react-is@16.13.1/umd/\r\n- react-test-renderer: https://unpkg.com/react-test-renderer@16.13.1/umd/\r\n- scheduler: https://unpkg.com/scheduler@0.19.1/umd/',
+  },
+];

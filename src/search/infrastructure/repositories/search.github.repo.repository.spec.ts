@@ -2,7 +2,7 @@ import fetch from 'jest-fetch-mock';
 import {SearchGithubRepoRepository} from './search.github.repo.repository';
 import {ResultSearchGithubRepositoryEntity} from '../../bussiness/entities/result.search.github.repository.entity';
 
-import {searchResultMock} from '../__test__/search.result.mock';
+import {MockResultGithubRepositorySearch} from '../__test__/mock';
 
 fetch.enableMocks();
 
@@ -26,7 +26,7 @@ describe('Search Github Repo Repository', () => {
 
   it('search()', async () => {
     const {sut} = makeSut();
-    fetch.mockResponseOnce(JSON.stringify(searchResultMock));
+    fetch.mockResponseOnce(JSON.stringify(MockResultGithubRepositorySearch));
 
     await sut.search('some_repository');
 
@@ -53,7 +53,7 @@ describe('Search Github Repo Repository', () => {
 
   it('Should returns array of ResultSearchGithubRepositoryEntity if success', async () => {
     const {sut} = makeSut();
-    fetch.mockResponseOnce(JSON.stringify(searchResultMock));
+    fetch.mockResponseOnce(JSON.stringify(MockResultGithubRepositorySearch));
 
     const result = await sut.search('some_repository');
 
