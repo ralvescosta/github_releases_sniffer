@@ -23,13 +23,14 @@ export class RepoCardViewController implements IRepoCardViewController {
     [this.loading, this.setLoading] = useState<boolean>(false);
   }
 
-  public async saveRepoToObserver() {
+  public async saveRepoToObserver(): Promise<void> {
     this.setLoading(true);
     try {
       const sniffed = await this.saveToSnifferUsecase.saveToSniffer(this.repository);
       this.context.setSniffedRepositories([...this.context.sniffedRepositories, sniffed]);
       this.setSwitchState(true);
     } catch (err) {}
+
     this.setLoading(false);
   }
 }
