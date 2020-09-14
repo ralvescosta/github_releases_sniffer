@@ -7,6 +7,8 @@ import {ResultSearchGithubRepositoryEntity} from '../bussiness/entities/result.s
 import {ISaveRepositoryToSnifferUsecase} from '../bussiness/usecases/isave.repositrory.to.sniffer.usecase';
 
 export class RepoCardViewController implements IRepoCardViewController {
+  public repository: ResultSearchGithubRepositoryEntity;
+
   public switchState: boolean;
   public setSwitchState: React.Dispatch<React.SetStateAction<boolean>>;
 
@@ -15,10 +17,8 @@ export class RepoCardViewController implements IRepoCardViewController {
 
   public context = useContext(SniffedRepositoriesContext);
 
-  constructor(
-    private readonly repository: ResultSearchGithubRepositoryEntity,
-    private readonly saveToSnifferUsecase: ISaveRepositoryToSnifferUsecase,
-  ) {
+  constructor(repository: ResultSearchGithubRepositoryEntity, private readonly saveToSnifferUsecase: ISaveRepositoryToSnifferUsecase) {
+    this.repository = repository;
     [this.switchState, this.setSwitchState] = useState<boolean>(this.repository.checked);
     [this.loading, this.setLoading] = useState<boolean>(false);
   }
