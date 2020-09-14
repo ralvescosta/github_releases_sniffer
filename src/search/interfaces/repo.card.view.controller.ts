@@ -1,11 +1,12 @@
 import {useState, useContext} from 'react';
+import {IRepoCardViewController} from './irepo.card.view.controller';
+
 import {SniffedRepositoriesContext} from '../../core/context/sniffed.repositories.context';
 
 import {ResultSearchGithubRepositoryEntity} from '../bussiness/entities/result.search.github.repository.entity';
-
 import {ISaveRepositoryToSnifferUsecase} from '../bussiness/usecases/isave.repositrory.to.sniffer.usecase';
 
-export class RepoCardViewController {
+export class RepoCardViewController implements IRepoCardViewController {
   public switchState: boolean;
   public setSwitchState: React.Dispatch<React.SetStateAction<boolean>>;
 

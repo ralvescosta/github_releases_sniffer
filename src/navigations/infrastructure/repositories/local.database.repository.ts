@@ -7,19 +7,6 @@ import {GithubUserAccountEntity} from '../../bussiness/entities/github.account.e
 export class LocalDatabaseRepository implements IGetLocallyUserAccountRepository {
   private readonly accountAsyncKey = '@account';
 
-  /**
-   * Singleton
-   */
-  private static instance: LocalDatabaseRepository;
-  private constructor() {}
-  public static getInstance(): LocalDatabaseRepository {
-    if (!LocalDatabaseRepository.instance) {
-      LocalDatabaseRepository.instance = new LocalDatabaseRepository();
-    }
-
-    return LocalDatabaseRepository.instance;
-  }
-
   public async getAccount(): Promise<GithubUserAccountEntity | undefined> {
     const account = await AsyncStorage.getItem(this.accountAsyncKey);
     if (account) {
