@@ -11,7 +11,7 @@ type SutTypes = {
 function makeSut(): SutTypes {
   const locallySniffedRepositorySpy = new SaveLocallySniffedRepositorySpy();
   const getLastSniffedReleaseRepositorySpy = new GetLastSniffedReleaseRepositorySpy();
-  const sut = new SaveRepositoryToSnifferUsecase(locallySniffedRepositorySpy, getLastSniffedReleaseRepositorySpy);
+  const sut = SaveRepositoryToSnifferUsecase.getInstance(locallySniffedRepositorySpy, getLastSniffedReleaseRepositorySpy);
 
   return {
     sut,
@@ -21,6 +21,10 @@ function makeSut(): SutTypes {
 }
 
 describe('Save Repository To Sniffer Usecase', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('saveToSniffer()', async () => {
     const {sut, locallySniffedRepositorySpy, getLastSniffedReleaseRepositorySpy} = makeSut();
     jest.spyOn(getLastSniffedReleaseRepositorySpy, 'get');
@@ -38,7 +42,7 @@ describe('Save Repository To Sniffer Usecase', () => {
 
     const result = sut.saveToSniffer(locallySniffedRepositorySpy.resultSearchEntity);
 
-    await expect(result).rejects.toThrow(new Error());
+    expect(result).rejects.toThrow(new Error());
   });
 
   it('Should throw some Error if SaveLocallySniffedRepository Throws', async () => {
@@ -48,7 +52,7 @@ describe('Save Repository To Sniffer Usecase', () => {
 
     const result = sut.saveToSniffer(locallySniffedRepositorySpy.resultSearchEntity);
 
-    await expect(result).rejects.toThrow(new Error());
+    expect(result).rejects.toThrow(new Error());
   });
 
   it('Should return true if saveToSniffer executed successfully', async () => {

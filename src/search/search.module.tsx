@@ -6,17 +6,21 @@ import {SearchGithubRepositoryUsecase} from './application/usecases/search.githu
 import {SearchViewController} from './interfaces/search.view.controller';
 
 import {RepoCard} from './presenter/components/repoCard';
+import {RepoCardViewController} from './interfaces/repo.card.view.controller';
+
 import {SaveRepositoryToSnifferUsecase} from './application/usecases/save.repositrory.to.sniffer.usecase';
 import {SaveLocallySniffedRepository} from './infrastructure/repositories/save.locally.sniffed.repository';
 import {GetLastSniffedReleaseRepository} from './infrastructure/repositories/get.last.sniffed.release.repository';
-import {RepoCardViewController} from './interfaces/repo.card.view.controller';
+
+import {RemoveRepositoryCheckedAsSnifferUsecase} from './application/usecases/remove.repository.checked.as.sniffer.usecase';
+import {UpdateLocallySniffedRepository} from './infrastructure/repositories/update.locally.sniffed.repository';
 
 const RepositoryCardComponent = ({repository}: any) => {
-  const saveRepositoryToSnifferUsecase = new SaveRepositoryToSnifferUsecase(
-    SaveLocallySniffedRepository.getInstance(),
-    GetLastSniffedReleaseRepository.getInstance(),
+  const viewController = new RepoCardViewController(
+    repository,
+    SaveRepositoryToSnifferUsecase.getInstance(SaveLocallySniffedRepository.getInstance(), GetLastSniffedReleaseRepository.getInstance()),
+    RemoveRepositoryCheckedAsSnifferUsecase.getInstance(UpdateLocallySniffedRepository.getInstance()),
   );
-  const viewController = new RepoCardViewController(repository, saveRepositoryToSnifferUsecase);
 
   return <RepoCard viewController={viewController} />;
 };
