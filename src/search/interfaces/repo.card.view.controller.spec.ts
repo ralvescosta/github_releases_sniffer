@@ -7,13 +7,14 @@ jest.mock('react', () => ({
   useRef: jest.fn(() => ({current: {value: 'some_thing'}})),
   useState: jest.fn(() => [[], jest.fn()]),
   useEffect: jest.fn(() => {}),
-  useContext: jest.fn(() => {}),
+  useContext: jest.fn(() => ({setSniffedRepositories: jest.fn(), sniffedRepositories: []})),
   createContext: jest.fn(),
 }));
 
 type SutTypes = {
   sut: RepoCardViewController;
   saveRepositoryToSnifferUsecaseSpy: SaveRepositoryToSnifferUsecaseSpy;
+  removeRepositoryCheckedAsSnifferUsecaseSpy: RemoveRepositoryCheckedAsSnifferUsecaseSpy;
 };
 
 function makeSut(): SutTypes {
@@ -28,6 +29,7 @@ function makeSut(): SutTypes {
   return {
     sut,
     saveRepositoryToSnifferUsecaseSpy,
+    removeRepositoryCheckedAsSnifferUsecaseSpy,
   };
 }
 
@@ -43,6 +45,15 @@ describe('Repo Card View Controller', () => {
     await sut.saveRepositoryToSniffer();
 
     expect(saveRepositoryToSnifferUsecaseSpy.saveToSniffer).toHaveBeenCalledTimes(1);
+  });
+
+  it('removeSnifferRepository()', async () => {
+    const {sut, removeRepositoryCheckedAsSnifferUsecaseSpy} = makeSut();
+    jest.spyOn(removeRepositoryCheckedAsSnifferUsecaseSpy, 'remove');
+
+    await sut.removeSnifferRepository();
+
+    expect(removeRepositoryCheckedAsSnifferUsecaseSpy.remove).toHaveBeenCalledTimes(1);
   });
 
   it('Should Throw Error if SaveRepositoryToSnifferUsecase throws', async () => {

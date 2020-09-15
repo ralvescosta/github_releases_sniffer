@@ -15,7 +15,8 @@ export class UpdateLocallySniffedRepository implements IUpdateLocallySniffedRepo
     return UpdateLocallySniffedRepository.instance;
   }
 
-  public async update(sniffedRepositories: SniffedGithubRepositoryEntity[]): Promise<void> {
+  public async update(sniffedRepositories: SniffedGithubRepositoryEntity[]): Promise<boolean> {
     await AsyncStorage.setItem('@sniffed', JSON.stringify(sniffedRepositories));
+    return true;
   }
 }

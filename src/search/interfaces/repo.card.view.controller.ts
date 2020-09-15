@@ -5,7 +5,7 @@ import {SniffedRepositoriesContext} from '../../core/context/sniffed.repositorie
 
 import {ResultSearchGithubRepositoryEntity} from '../bussiness/entities/result.search.github.repository.entity';
 import {ISaveRepositoryToSnifferUsecase} from '../bussiness/usecases/isave.repositrory.to.sniffer.usecase';
-import {IRemoveRepositoryCheckedAsAnifferUseCase} from '../bussiness/usecases/iremove.repository.checked.as.sniffer.usecase';
+import {IRemoveRepositoryCheckedAsSnifferUsecase} from '../bussiness/usecases/iremove.repository.checked.as.sniffer.usecase';
 
 export class RepoCardViewController implements IRepoCardViewController {
   public repository: ResultSearchGithubRepositoryEntity;
@@ -21,7 +21,7 @@ export class RepoCardViewController implements IRepoCardViewController {
   constructor(
     repository: ResultSearchGithubRepositoryEntity,
     private readonly saveToSnifferUsecase: ISaveRepositoryToSnifferUsecase,
-    private readonly removeSniffedUsecase: IRemoveRepositoryCheckedAsAnifferUseCase,
+    private readonly removeSniffedUsecase: IRemoveRepositoryCheckedAsSnifferUsecase,
   ) {
     this.repository = repository;
     [this.switchState, this.setSwitchState] = useState<boolean>(this.repository.checked);
