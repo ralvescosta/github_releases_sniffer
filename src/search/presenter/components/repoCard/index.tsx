@@ -12,7 +12,7 @@ type Props = {
 export const RepoCard = ({viewController}: Props) => {
   function handleSwitch(): void {
     if (!viewController.switchState) {
-      Alert.alert('Github Sniffer', 'Voce deseja marcar este repositorio para ter sua release monitorada?', [
+      Alert.alert('Github Sniffer', 'Do you really want to save this repository to sniffer?', [
         {
           text: 'cancel',
           style: 'cancel',
@@ -20,7 +20,20 @@ export const RepoCard = ({viewController}: Props) => {
         {
           text: 'OK',
           onPress: async () => {
-            await viewController.saveRepoToObserver();
+            await viewController.saveRepositoryToSniffer();
+          },
+        },
+      ]);
+    } else {
+      Alert.alert('Github Sniffer', 'Do you really want to remove this repository on your sniffereds repositories?', [
+        {
+          text: 'cancel',
+          style: 'cancel',
+        },
+        {
+          text: 'OK',
+          onPress: async () => {
+            await viewController.removeSnifferRepository();
           },
         },
       ]);

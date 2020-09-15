@@ -12,5 +12,7 @@ export interface IRepoCardViewController {
 
   context: any;
 
-  saveRepoToObserver: () => Promise<void>;
+  saveRepositoryToSniffer: () => Promise<void>;
+
+  removeSnifferRepository: () => Promise<void>;
 }

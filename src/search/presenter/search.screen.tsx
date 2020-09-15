@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, TextInput, ScrollView, TouchableOpacity, ActivityIndicator} from 'react-native';
+import {View, TextInput, ScrollView, TouchableOpacity, ActivityIndicator, Alert} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import {styles} from './styles';
@@ -12,6 +12,13 @@ type Props = {
 };
 
 export const SearchScreen: React.FC<Props> = ({viewController, RepoCard}) => {
+  async function handleSearch() {
+    try {
+      await viewController.searchRepository();
+    } catch (err) {
+      Alert.alert('Github WR', 'Something wrong, try again!');
+    }
+  }
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -24,7 +31,7 @@ export const SearchScreen: React.FC<Props> = ({viewController, RepoCard}) => {
             style={styles.searchTextInput}
             onSubmitEditing={() => viewController.searchRepository()}
           />
-          <TouchableOpacity style={styles.searchButton} onPress={() => viewController.searchRepository()}>
+          <TouchableOpacity style={styles.searchButton} onPress={handleSearch}>
             <FontAwesome name="search" color="#000" size={15} />
           </TouchableOpacity>
         </View>

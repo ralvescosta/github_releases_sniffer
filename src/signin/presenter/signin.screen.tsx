@@ -21,7 +21,7 @@ export const SignInScreen: React.FC<Props> = ({viewController}) => {
     try {
       await viewController.onPressSignIn();
     } catch (err) {
-      Alert.alert('Github WR', 'Tap the valid github user');
+      Alert.alert('Github WR', 'Insert a valid Github User');
     }
   }
   return (

@@ -1,5 +1,6 @@
 import 'react';
 import {RepoCardViewController} from './repo.card.view.controller';
+import {RemoveRepositoryCheckedAsSnifferUsecaseSpy} from './__test__/remove.repository.checked.as.sniffer.usecase.spy';
 import {SaveRepositoryToSnifferUsecaseSpy} from './__test__/save.repositrory.to.sniffer.usecase.spy';
 
 jest.mock('react', () => ({
@@ -17,7 +18,12 @@ type SutTypes = {
 
 function makeSut(): SutTypes {
   const saveRepositoryToSnifferUsecaseSpy = new SaveRepositoryToSnifferUsecaseSpy();
-  const sut = new RepoCardViewController(saveRepositoryToSnifferUsecaseSpy.resultSearchEntity, saveRepositoryToSnifferUsecaseSpy);
+  const removeRepositoryCheckedAsSnifferUsecaseSpy = new RemoveRepositoryCheckedAsSnifferUsecaseSpy();
+  const sut = new RepoCardViewController(
+    saveRepositoryToSnifferUsecaseSpy.resultSearchEntity,
+    saveRepositoryToSnifferUsecaseSpy,
+    removeRepositoryCheckedAsSnifferUsecaseSpy,
+  );
 
   return {
     sut,
@@ -34,7 +40,7 @@ describe('Repo Card View Controller', () => {
     const {sut, saveRepositoryToSnifferUsecaseSpy} = makeSut();
     jest.spyOn(saveRepositoryToSnifferUsecaseSpy, 'saveToSniffer');
 
-    await sut.saveRepoToObserver();
+    await sut.saveRepositoryToSniffer();
 
     expect(saveRepositoryToSnifferUsecaseSpy.saveToSniffer).toHaveBeenCalledTimes(1);
   });
@@ -43,7 +49,7 @@ describe('Repo Card View Controller', () => {
     const {sut, saveRepositoryToSnifferUsecaseSpy} = makeSut();
     jest.spyOn(saveRepositoryToSnifferUsecaseSpy, 'saveToSniffer').mockRejectedValueOnce(new Error());
 
-    const result = sut.saveRepoToObserver();
+    const result = sut.saveRepositoryToSniffer();
 
     expect(result).rejects.toThrow(new Error());
   });

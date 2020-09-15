@@ -6,10 +6,24 @@ import {ISaveLocallySniffedRepository} from '../protocols/isave.locally.sniffed.
 import {IGetLastSniffedReleaseRepository} from '../protocols/iget.last.sniffed.release.repository';
 
 export class SaveRepositoryToSnifferUsecase implements ISaveRepositoryToSnifferUsecase {
-  constructor(
+  /**
+   * Singleton
+   */
+  private static instance: SaveRepositoryToSnifferUsecase;
+  private constructor(
     public locallySniffedRepository: ISaveLocallySniffedRepository,
     public getLastReleaseRepository: IGetLastSniffedReleaseRepository,
   ) {}
+  public static getInstance(
+    locallySniffedRepository: ISaveLocallySniffedRepository,
+    getLastReleaseRepository: IGetLastSniffedReleaseRepository,
+  ): SaveRepositoryToSnifferUsecase {
+    if (!SaveRepositoryToSnifferUsecase.instance) {
+      SaveRepositoryToSnifferUsecase.instance = new SaveRepositoryToSnifferUsecase(locallySniffedRepository, getLastReleaseRepository);
+    }
+
+    return SaveRepositoryToSnifferUsecase.instance;
+  }
 
   public async saveToSniffer(repository: ResultSearchGithubRepositoryEntity): Promise<SniffedGithubRepositoryEntity> {
     const lastRelease = await this.getLastReleaseRepository.get(repository.releasesUrl);
