@@ -1,25 +1,37 @@
 import React from 'react';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-const BottomTab = createMaterialBottomTabNavigator();
+const Tab = createMaterialTopTabNavigator();
 
 import {Dashboard} from '../../dashboard/presenter/dashboard.screen';
 import {SearchScreenModule} from '../../search/search.module';
 import {SettingsScreen} from '../../settings/presenter/settings.screen';
+import { primary } from '../../core/themes/colors';
 
 export const BottomTabNavigation = () => {
   return (
-    <BottomTab.Navigator
-      barStyle={{
+    <Tab.Navigator
+      style={{
         backgroundColor: '#fff',
         elevation: 5,
+        margin: 0,
+        padding: 0,
       }}
-      screenOptions={{
-        
+      tabBarPosition="bottom"
+      tabBarOptions={{
+        showIcon: true,
+        indicatorStyle: {
+          backgroundColor: primary,
+        },
+        labelStyle: {
+          padding: 0,
+          margin: 0
+        }
       }}
+
       >
-      <BottomTab.Screen
+      <Tab.Screen
         name="dashboard"
         component={Dashboard}
         options={{
@@ -27,7 +39,7 @@ export const BottomTabNavigation = () => {
           tabBarIcon: ({color}) => <MaterialIcons name="dashboard" color={color} size={24} />,
         }}
       />
-      <BottomTab.Screen
+      <Tab.Screen
         name="search"
         component={SearchScreenModule}
         options={{
@@ -36,7 +48,7 @@ export const BottomTabNavigation = () => {
         }}
       />
 
-      <BottomTab.Screen
+      <Tab.Screen
         name="settings"
         component={SettingsScreen}
         options={{
@@ -44,6 +56,6 @@ export const BottomTabNavigation = () => {
           tabBarIcon: ({color}) => <MaterialIcons name="unfold-more" color={color} size={24} />,
         }}
       />
-    </BottomTab.Navigator>
+    </Tab.Navigator>
   );
 };
