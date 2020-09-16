@@ -8,7 +8,7 @@ type Props = {
   repository: any;
 };
 
-export const RepoCard: React.FC<Props> = ({repository}) => {
+export const RepoCard = ({repository}: Props) => {
   return (
     <View style={styles.repoCard}>
       <View style={styles.cardLeft}>
@@ -16,7 +16,7 @@ export const RepoCard: React.FC<Props> = ({repository}) => {
           <Text numberOfLines={2} style={styles.headerName}>
             {repository.fullName}
           </Text>
-          <Text numberOfLines={4} ellipsizeMode="tail" style={styles.headerDescription}>
+          <Text numberOfLines={3} ellipsizeMode="tail" style={styles.headerDescription}>
             {repository.description}
           </Text>
         </View>
@@ -50,7 +50,7 @@ export const RepoCard: React.FC<Props> = ({repository}) => {
           <Text style={styles.releaseTitle}>Last Release: </Text>
           <Text style={styles.releaseTag}>{repository.lastRelease}</Text>
         </View>
-        <FontAwesome name="bell" color="#ffe311" size={30} />
+        <FontAwesome name="bell" color="#d4d4d4" size={30} />
       </View>
     </View>
   );

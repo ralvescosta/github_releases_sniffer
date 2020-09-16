@@ -8,13 +8,17 @@ import {Dashboard} from '../../dashboard/presenter/dashboard.screen';
 import {SearchScreenModule} from '../../search/search.module';
 import {SettingsScreen} from '../../settings/presenter/settings.screen';
 
-export const BottomTabNavigation: React.FC = () => {
+export const BottomTabNavigation = () => {
   return (
     <BottomTab.Navigator
       barStyle={{
         backgroundColor: '#fff',
         elevation: 5,
-      }}>
+      }}
+      screenOptions={{
+        
+      }}
+      >
       <BottomTab.Screen
         name="dashboard"
         component={Dashboard}

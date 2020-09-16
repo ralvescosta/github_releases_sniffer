@@ -11,7 +11,7 @@ type Props = {
   RepoCard: any;
 };
 
-export const SearchScreen: React.FC<Props> = ({viewController, RepoCard}) => {
+export const SearchScreen = ({viewController, RepoCard}: Props) => {
   async function handleSearch() {
     try {
       await viewController.searchRepository();

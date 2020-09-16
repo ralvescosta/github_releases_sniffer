@@ -15,7 +15,7 @@ type Props = {
   viewController: ISingInViewController;
 };
 
-export const SignInScreen: React.FC<Props> = ({viewController}) => {
+export const SignInScreen = ({viewController}: Props) => {
   async function onPressSignIn() {
     Keyboard.dismiss();
     try {

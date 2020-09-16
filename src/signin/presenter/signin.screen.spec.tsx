@@ -14,7 +14,7 @@ type SutTypes = {
 function makeSut(): SutTypes {
   let singInViewControllerSpy: any;
 
-  const SignInScreenWarper: React.FC = () => {
+  const SignInScreenWarper = () => {
     singInViewControllerSpy = new SingInViewControllerSpy();
     return <SignInScreen viewController={singInViewControllerSpy} />;
   };
