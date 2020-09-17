@@ -1,5 +1,6 @@
-import React from 'react';
-import {View, ScrollView} from 'react-native';
+import React, {useEffect} from 'react';
+import {View, ScrollView, TouchableOpacity, Text} from 'react-native';
+import {BackgroundRoutines} from '../../core/backgroundJobs';
 
 import {styles} from './styles';
 
@@ -11,6 +12,9 @@ import {DashboardViewController} from '../interfaces/dashboard.view.controller';
 export const Dashboard = () => {
   const controller = new DashboardViewController();
 
+  useEffect(() => {
+    BackgroundRoutines.start();
+  }, []);
   return (
     <View style={styles.container}>
       <Header account={controller.userAccount} />
@@ -18,6 +22,16 @@ export const Dashboard = () => {
         {controller.context.sniffedRepositories.length
           ? controller.context.sniffedRepositories.map((item: any) => <RepoCard key={item.id} repository={item} />)
           : null}
+        <TouchableOpacity
+          onPress={() => {}}
+          style={{
+            height: 50,
+            width: '100%',
+            marginTop: 10,
+            backgroundColor: '#ccc',
+          }}>
+          <Text>Notification</Text>
+        </TouchableOpacity>
       </ScrollView>
     </View>
   );
