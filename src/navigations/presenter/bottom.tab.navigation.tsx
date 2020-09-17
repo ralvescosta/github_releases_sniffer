@@ -1,8 +1,8 @@
 import React from 'react';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-const Tab = createMaterialTopTabNavigator();
+const BottomTab = createMaterialBottomTabNavigator();
 
 import {Dashboard} from '../../dashboard/presenter/dashboard.screen';
 import {SearchScreenModule} from '../../search/search.module';
@@ -11,27 +11,15 @@ import { primary } from '../../core/themes/colors';
 
 export const BottomTabNavigation = () => {
   return (
-    <Tab.Navigator
-      style={{
+    <BottomTab.Navigator
+      barStyle={{
         backgroundColor: '#fff',
         elevation: 5,
         margin: 0,
         padding: 0,
       }}
-      tabBarPosition="bottom"
-      tabBarOptions={{
-        showIcon: true,
-        indicatorStyle: {
-          backgroundColor: primary,
-        },
-        labelStyle: {
-          padding: 0,
-          margin: 0
-        }
-      }}
-
       >
-      <Tab.Screen
+      <BottomTab.Screen
         name="dashboard"
         component={Dashboard}
         options={{
@@ -39,7 +27,7 @@ export const BottomTabNavigation = () => {
           tabBarIcon: ({color}) => <MaterialIcons name="dashboard" color={color} size={24} />,
         }}
       />
-      <Tab.Screen
+      <BottomTab.Screen
         name="search"
         component={SearchScreenModule}
         options={{
@@ -48,7 +36,7 @@ export const BottomTabNavigation = () => {
         }}
       />
 
-      <Tab.Screen
+      <BottomTab.Screen
         name="settings"
         component={SettingsScreen}
         options={{
@@ -56,6 +44,6 @@ export const BottomTabNavigation = () => {
           tabBarIcon: ({color}) => <MaterialIcons name="unfold-more" color={color} size={24} />,
         }}
       />
-    </Tab.Navigator>
+    </BottomTab.Navigator>
   );
 };

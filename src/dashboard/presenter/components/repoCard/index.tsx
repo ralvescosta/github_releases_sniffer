@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Alert} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import {styles} from './styles';
@@ -9,8 +10,21 @@ type Props = {
 };
 
 export const RepoCard = ({repository}: Props) => {
+  function pressedCard() {
+    Alert.alert('Github Sniffer', 'Do you really want removing this repository sniffed?', [
+      {
+        text: 'cancel',
+        style: 'cancel',
+      },
+      {
+        text: 'OK',
+        onPress: async () => {},
+      },
+    ]);
+  }
+
   return (
-    <View style={styles.repoCard}>
+    <TouchableOpacity style={styles.repoCard} onPress={pressedCard}>
       <View style={styles.cardLeft}>
         <View style={styles.leftHeader}>
           <Text numberOfLines={2} style={styles.headerName}>
@@ -52,6 +66,6 @@ export const RepoCard = ({repository}: Props) => {
         </View>
         <FontAwesome name="bell" color="#d4d4d4" size={30} />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };

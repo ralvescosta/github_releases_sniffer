@@ -7,7 +7,7 @@ module.exports = {
     '!<rootDir>/**/*.d.ts',
     '!<rootDir>/src/index.tsx',
     '!<rootDir>/src/**/*.module.tsx',
-    '!<rootDir>/src/navigation/presenter/**',
+    '!<rootDir>/src/navigation/presenter/**', // unfortunately it reacts to navigation jestSetup is not working to move createMaterialTopTabNavigator
     '!<rootDir>/src/core/**',
     '!<rootDir>/src/dashboard/**',
     '!<rootDir>/src/search/presenter/**',
