@@ -1,6 +1,5 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {View, ScrollView, TouchableOpacity, Text} from 'react-native';
-import {BackgroundRoutines} from '../../core/backgroundJobs';
 
 import {styles} from './styles';
 
@@ -12,9 +11,6 @@ import {DashboardViewController} from '../interfaces/dashboard.view.controller';
 export const Dashboard = () => {
   const controller = new DashboardViewController();
 
-  useEffect(() => {
-    BackgroundRoutines.start();
-  }, []);
   return (
     <View style={styles.container}>
       <Header account={controller.userAccount} />
