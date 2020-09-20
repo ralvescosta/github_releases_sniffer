@@ -8,7 +8,7 @@ import {RepoCard} from './components/repoCard';
 
 import {DashboardViewController} from '../interfaces/dashboard.view.controller';
 
-// import BGJob from '../../core/backgroundJobs';
+import Sniffer from '../../core/backgroundJobs';
 
 export const Dashboard = () => {
   const controller = new DashboardViewController();
@@ -21,7 +21,10 @@ export const Dashboard = () => {
           ? controller.context.sniffedRepositories.map((item: any) => <RepoCard key={item.id} repository={item} />)
           : null}
         <TouchableOpacity
-          onPress={() => {}}
+          onPress={() => {
+            console.log('START');
+            Sniffer.startService();
+          }}
           style={{
             height: 50,
             width: '100%',

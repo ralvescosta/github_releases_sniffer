@@ -16,7 +16,7 @@ import com.facebook.react.HeadlessJsTaskService;
 
 public class SnifferService extends Service {
 
-    private static final int SERVICE_NOTIFICATION_ID = 123456;
+    private static final int SERVICE_NOTIFICATION_ID = 12345;
     private static final String CHANNEL_ID = "SNIFFER";
 
     private Handler handler = new Handler();
@@ -27,7 +27,7 @@ public class SnifferService extends Service {
             Intent myIntent = new Intent(context, SnifferEventService.class);
             context.startService(myIntent);
             HeadlessJsTaskService.acquireWakeLockNow(context);
-            handler.postDelayed(this, 2000);
+            handler.postDelayed(this, 1000);
         }
     };
     private void createNotificationChannel() {
