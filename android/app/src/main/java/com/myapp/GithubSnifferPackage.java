@@ -10,12 +10,12 @@ import java.util.Collections;
 import java.util.List;
 
 
-public class SnifferPackage implements ReactPackage {
+public class GithubSnifferPackage implements ReactPackage {
 
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         return Arrays.<NativeModule>asList(
-                new SnifferModule(reactContext)
+                new GithubSnifferModule(reactContext)
         );
     }
 

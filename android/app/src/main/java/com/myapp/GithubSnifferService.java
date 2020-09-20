@@ -14,20 +14,20 @@ import android.os.Build;
 
 import com.facebook.react.HeadlessJsTaskService;
 
-public class SnifferService extends Service {
+public class GithubSnifferService extends Service {
 
     private static final int SERVICE_NOTIFICATION_ID = 12345;
-    private static final String CHANNEL_ID = "SNIFFER";
+    private static final String CHANNEL_ID = "GITHUBSNIFFER";
 
     private Handler handler = new Handler();
     private Runnable runnableCode = new Runnable() {
         @Override
         public void run() {
             Context context = getApplicationContext();
-            Intent myIntent = new Intent(context, SnifferEventService.class);
+            Intent myIntent = new Intent(context, GithubSnifferEventService.class);
             context.startService(myIntent);
             HeadlessJsTaskService.acquireWakeLockNow(context);
-            handler.postDelayed(this, 1000);
+            handler.postDelayed(this, 2000);
         }
     };
     private void createNotificationChannel() {
@@ -35,7 +35,7 @@ public class SnifferService extends Service {
         // the NotificationChannel class is new and not in the support library
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "SNIFFER", importance);
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "HEARTBEAT", importance);
             channel.setDescription("CHANEL DESCRIPTION");
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
@@ -66,9 +66,9 @@ public class SnifferService extends Service {
         Intent notificationIntent = new Intent(this, MainActivity.class);
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setContentTitle("Github Sniffer service")
+                .setContentTitle("GithubSniffer service")
                 .setContentText("Running...")
-                .setSmallIcon(R.drawable.icon)
+                // .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentIntent(contentIntent)
                 .setOngoing(true)
                 .build();

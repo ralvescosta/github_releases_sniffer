@@ -2,10 +2,9 @@
   package="com.myapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/> 
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     
     <application
       android:name=".MainApplication"
@@ -27,24 +26,23 @@
       </activity>
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
 
-      <service
-        android:name="com.myapp.SnifferService"
-        android:enabled="true"
-        android:exported="false" >
-      </service>
-      <service
-          android:name="com.myapp.SnifferEventService">
-      </service>
-
-      <receiver
-        android:name="com.myapp.BootUpReceiver"
-        android:enabled="true"
-        android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
-        <intent-filter>
-          <action android:name="android.intent.action.BOOT_COMPLETED" />
-          <category android:name="android.intent.category.DEFAULT" />
-        </intent-filter>
-      </receiver>
+        <service
+            android:name="com.myapp.GithubSnifferService"
+            android:enabled="true"
+            android:exported="false" >
+        </service>
+        <service
+            android:name="com.myapp.GithubSnifferEventService">
+        </service>
+        <receiver
+            android:name="com.myapp.BootUpReceiver"
+            android:enabled="true"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
 
     </application>
 

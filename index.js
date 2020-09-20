@@ -10,5 +10,5 @@ const MyHeadlessTask = async () => {
   console.log('Receiving Sniffer!');
 };
 
-AppRegistry.registerHeadlessTask('Sniffer', () => MyHeadlessTask);
+AppRegistry.registerHeadlessTask('GithubSniffer', () => MyHeadlessTask);
 AppRegistry.registerComponent(appName, () => App);

@@ -1,14 +1,14 @@
 import React from 'react';
 import {View, ScrollView, TouchableOpacity, Text} from 'react-native';
 
+import GithubSniffer from '../../core/backgroundJobs/githubSniffer';
+
 import {styles} from './styles';
 
 import {Header} from './components/screenHeader';
 import {RepoCard} from './components/repoCard';
 
 import {DashboardViewController} from '../interfaces/dashboard.view.controller';
-
-import Sniffer from '../../core/backgroundJobs';
 
 export const Dashboard = () => {
   const controller = new DashboardViewController();
@@ -22,8 +22,8 @@ export const Dashboard = () => {
           : null}
         <TouchableOpacity
           onPress={() => {
-            console.log('START');
-            Sniffer.startService();
+            console.log('STARTING');
+            GithubSniffer.startService();
           }}
           style={{
             height: 50,
@@ -31,7 +31,20 @@ export const Dashboard = () => {
             marginTop: 10,
             backgroundColor: '#ccc',
           }}>
-          <Text>Notification</Text>
+          <Text>START</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            console.log('PAUSING');
+            GithubSniffer.stopService();
+          }}
+          style={{
+            height: 50,
+            width: '100%',
+            marginTop: 10,
+            backgroundColor: '#ccc',
+          }}>
+          <Text>STOP</Text>
         </TouchableOpacity>
       </ScrollView>
     </View>
