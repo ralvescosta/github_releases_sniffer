@@ -2,7 +2,7 @@ import React, {createContext, useState} from 'react';
 
 export const SniffedRepositoriesContext = createContext(null as any);
 
-export const SniffedRepositoriesContextProvider: React.FC = ({children}) => {
+export const SniffedRepositoriesContextProvider = ({children}: any) => {
   const [sniffedRepositories, setSniffedRepositories] = useState([]);
 
   const defaultContext = {

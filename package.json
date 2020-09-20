@@ -6,6 +6,7 @@
     "android": "npx react-native run-android",
     "ios": "react-native run-ios",
     "start": "npx react-native start",
+    "log": "npx react-native log-android",
     "test": "jest --runInBand --detectOpenHandles",
     "test:staged": "yarn test --findRelatedTests src/",
     "test:cov": "yarn test --coverage",
@@ -21,9 +22,11 @@
     "react-native": "0.63.2",
     "react-native-gesture-handler": "^1.8.0",
     "react-native-paper": "^4.1.0",
+    "react-native-push-notification": "^5.1.1",
     "react-native-reanimated": "^1.13.0",
     "react-native-safe-area-context": "^3.1.7",
     "react-native-screens": "^2.10.1",
+    "react-native-tab-view": "^2.15.1",
     "react-native-vector-icons": "^7.0.0"
   },
   "devDependencies": {
@@ -37,6 +40,7 @@
     "@testing-library/react-native": "^7.0.2",
     "@types/jest": "^25.2.3",
     "@types/react-native": "^0.63.2",
+    "@types/react-native-push-notification": "^5.0.2",
     "@types/react-native-vector-icons": "^6.4.5",
     "@types/react-test-renderer": "^16.9.2",
     "@typescript-eslint/eslint-plugin": "^2.27.0",

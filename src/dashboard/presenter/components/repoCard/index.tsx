@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Alert} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import {styles} from './styles';
@@ -8,15 +9,28 @@ type Props = {
   repository: any;
 };
 
-export const RepoCard: React.FC<Props> = ({repository}) => {
+export const RepoCard = ({repository}: Props) => {
+  function pressedCard() {
+    Alert.alert('Github Sniffer', 'Do you really want removing this repository sniffed?', [
+      {
+        text: 'cancel',
+        style: 'cancel',
+      },
+      {
+        text: 'OK',
+        onPress: async () => {},
+      },
+    ]);
+  }
+
   return (
-    <View style={styles.repoCard}>
+    <TouchableOpacity style={styles.repoCard} onPress={pressedCard}>
       <View style={styles.cardLeft}>
         <View style={styles.leftHeader}>
           <Text numberOfLines={2} style={styles.headerName}>
             {repository.fullName}
           </Text>
-          <Text numberOfLines={4} ellipsizeMode="tail" style={styles.headerDescription}>
+          <Text numberOfLines={3} ellipsizeMode="tail" style={styles.headerDescription}>
             {repository.description}
           </Text>
         </View>
@@ -50,8 +64,8 @@ export const RepoCard: React.FC<Props> = ({repository}) => {
           <Text style={styles.releaseTitle}>Last Release: </Text>
           <Text style={styles.releaseTag}>{repository.lastRelease}</Text>
         </View>
-        <FontAwesome name="bell" color="#ffe311" size={30} />
+        <FontAwesome name="bell" color="#d4d4d4" size={30} />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };

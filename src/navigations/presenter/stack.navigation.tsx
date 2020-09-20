@@ -10,7 +10,7 @@ type Props = {
   isLogged?: boolean;
 };
 
-export const StackNavigation: React.FC<Props> = ({isLogged}) => {
+export const StackNavigation = ({isLogged}:Props) => {
   const initialRoute = isLogged ? 'dashboard' : 'signin';
 
   return (

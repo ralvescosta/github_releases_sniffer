@@ -4,7 +4,7 @@ import {widthToDP} from '../../../../core/themes/size';
 
 export const styles = StyleSheet.create({
   repoCard: {
-    width: '95%',
+    width: '100%',
     flexDirection: 'row',
     padding: widthToDP('2%'),
     backgroundColor: '#fff',

@@ -1,5 +1,5 @@
 import React from 'react';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const BottomTab = createMaterialBottomTabNavigator();
@@ -7,14 +7,18 @@ const BottomTab = createMaterialBottomTabNavigator();
 import {Dashboard} from '../../dashboard/presenter/dashboard.screen';
 import {SearchScreenModule} from '../../search/search.module';
 import {SettingsScreen} from '../../settings/presenter/settings.screen';
+import { primary } from '../../core/themes/colors';
 
-export const BottomTabNavigation: React.FC = () => {
+export const BottomTabNavigation = () => {
   return (
     <BottomTab.Navigator
       barStyle={{
         backgroundColor: '#fff',
         elevation: 5,
-      }}>
+        margin: 0,
+        padding: 0,
+      }}
+      >
       <BottomTab.Screen
         name="dashboard"
         component={Dashboard}

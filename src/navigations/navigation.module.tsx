@@ -12,7 +12,7 @@ type Props = {
   viewController: CheckUserLoggedViewController;
 };
 
-export const NavigationModule: React.FC<Props> = ({viewController}) => {
+export const NavigationModule = ({viewController}: Props) => {
   return (
     <NavigationContainer>
       {viewController.isLoading ? null : (
@@ -24,7 +24,7 @@ export const NavigationModule: React.FC<Props> = ({viewController}) => {
   );
 };
 
-export const WarperNavigationModule: React.FC = () => {
+export const WarperNavigationModule = () => {
   const localDatabaseRepository = new LocalDatabaseRepository();
   const checkUserIsLoggedUsecase = new CheckUserIsLoggedUsecase(localDatabaseRepository);
   const checkUserLoggedViewController = new CheckUserLoggedViewController(checkUserIsLoggedUsecase);

@@ -7,6 +7,7 @@ module.exports = {
     '!<rootDir>/**/*.d.ts',
     '!<rootDir>/src/index.tsx',
     '!<rootDir>/src/**/*.module.tsx',
+    '!<rootDir>/src/navigation/presenter/**', // unfortunately it reacts to navigation jestSetup is not working to move createMaterialTopTabNavigator
     '!<rootDir>/src/core/**',
     '!<rootDir>/src/dashboard/**',
     '!<rootDir>/src/search/presenter/**',
@@ -17,10 +18,9 @@ module.exports = {
     '.+\\.(png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
   },
   transform: {
-    // '^.+\\.(js|ts|tsx)$':
-    //   '<rootDir>/node_modules/react-native/jest/preprocessor.js',
     '.+\\.(ts|tsx)$': 'babel-jest',
   },
-  setupFiles: ['./node_modules/react-native-gesture-handler/jestSetup.js', '<rootDir>/jest/jest.setup.js'],
+  transformIgnorePatterns: ['<rootDir>/node_modules/(?!(jest-)?react-native|@?react-navigation)'],
+  setupFiles: ['<rootDir>/jest/jest.setup.js'],
   verbose: true,
 };
