@@ -5,6 +5,8 @@ import AsyncStorage from '@react-native-community/async-storage';
 import {useNavigation} from '@react-navigation/native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
+import {GithubSniffer} from '../../core/backgroundTask/githubSniffer';
+
 import {styles} from './styles';
 import {SniffedRepositoriesContext} from '../../core/context/sniffed.repositories.context';
 
@@ -23,6 +25,18 @@ export const SettingsScreen = ({}) => {
     navigation.navigate('dashboard');
   }
 
+  async function turnOfNotifications() {}
+
+  async function turnOnNotifications() {}
+
+  async function startGithubSniffer() {
+    GithubSniffer.startService();
+  }
+
+  async function stopGithubSniffer() {
+    GithubSniffer.stopService();
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.header} />
@@ -36,6 +50,26 @@ export const SettingsScreen = ({}) => {
         <TouchableOpacity style={styles.touchable} onPress={clearCache}>
           <MaterialIcons name="clear-all" color="#000" size={24} style={styles.icon} />
           <Text>Clear sniffed repositories</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.touchable} onPress={turnOfNotifications}>
+          <MaterialIcons name="notifications-off" color="#000" size={24} style={styles.icon} />
+          <Text>Turn-off notifications</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.touchable} onPress={turnOnNotifications}>
+          <MaterialIcons name="notifications-active" color="#000" size={24} style={styles.icon} />
+          <Text>Turn-on notifications</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.touchable} onPress={startGithubSniffer}>
+          <MaterialIcons name="visibility" color="#000" size={24} style={styles.icon} />
+          <Text>Start Github repositories release sniffer</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.touchable} onPress={stopGithubSniffer}>
+          <MaterialIcons name="visibility-off" color="#000" size={24} style={styles.icon} />
+          <Text>Stop Github repositories release sniffer</Text>
         </TouchableOpacity>
       </ScrollView>
     </View>
