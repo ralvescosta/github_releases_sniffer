@@ -68,7 +68,7 @@ public class GithubSnifferService extends Service {
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle("GithubSniffer service")
                 .setContentText("Running...")
-                // .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.drawable.icon)
                 .setContentIntent(contentIntent)
                 .setOngoing(true)
                 .build();

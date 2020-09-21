@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     elevation: 5,
     backgroundColor: '#fff',
-    marginBottom: 5,
+    marginBottom: 8,
   },
   icon: {
     transform: [{rotateY: '180deg'}],

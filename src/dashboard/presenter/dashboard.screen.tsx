@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, ScrollView, TouchableOpacity, Text} from 'react-native';
 
-import GithubSniffer from '../../core/backgroundJobs/githubSniffer';
+import {GithubSniffer} from '../../core/backgroundTask/githubSniffer';
 
 import {styles} from './styles';
 
