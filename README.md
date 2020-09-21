@@ -1,6 +1,6 @@
 # GitHub Releases Watcher
 
-## Screens
+## Screens.
 
 
 <div style="display:flex; justify-content:space-around">
