@@ -1,30 +1,26 @@
-import React from 'react';
-import {View, Text, Alert} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import {styles} from './styles';
+
+import {ModelSnifferDetails} from '../modelSnifferDetails';
 
 type Props = {
   repository: any;
 };
 
 export const RepoCard = ({repository}: Props) => {
+  const [modalVisible, setModalVisible] = useState(false);
+
   function pressedCard() {
-    Alert.alert('Github Sniffer', 'Do you really want removing this repository sniffed?', [
-      {
-        text: 'cancel',
-        style: 'cancel',
-      },
-      {
-        text: 'OK',
-        onPress: async () => {},
-      },
-    ]);
+    setModalVisible(!modalVisible);
   }
 
   return (
     <TouchableOpacity style={styles.repoCard} onPress={pressedCard}>
+      <ModelSnifferDetails repository={repository} modalVisible={modalVisible} setModalVisible={() => setModalVisible(false)} />
       <View style={styles.cardLeft}>
         <View style={styles.leftHeader}>
           <Text numberOfLines={2} style={styles.headerName}>

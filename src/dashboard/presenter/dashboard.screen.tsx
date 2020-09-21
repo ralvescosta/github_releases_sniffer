@@ -1,7 +1,5 @@
 import React from 'react';
-import {View, ScrollView, TouchableOpacity, Text} from 'react-native';
-
-import {GithubSniffer} from '../../core/backgroundTask/githubSniffer';
+import {View, ScrollView} from 'react-native';
 
 import {styles} from './styles';
 
@@ -20,32 +18,6 @@ export const Dashboard = () => {
         {controller.context.sniffedRepositories.length
           ? controller.context.sniffedRepositories.map((item: any) => <RepoCard key={item.id} repository={item} />)
           : null}
-        <TouchableOpacity
-          onPress={() => {
-            console.log('STARTING');
-            GithubSniffer.startService();
-          }}
-          style={{
-            height: 50,
-            width: '100%',
-            marginTop: 10,
-            backgroundColor: '#ccc',
-          }}>
-          <Text>START</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {
-            console.log('PAUSING');
-            GithubSniffer.stopService();
-          }}
-          style={{
-            height: 50,
-            width: '100%',
-            marginTop: 10,
-            backgroundColor: '#ccc',
-          }}>
-          <Text>STOP</Text>
-        </TouchableOpacity>
       </ScrollView>
     </View>
   );
