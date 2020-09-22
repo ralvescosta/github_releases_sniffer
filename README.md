@@ -1,7 +1,9 @@
-# GitHub Releases Watcher
+# GitHub Releases Sniffer
 
-## Screens.
+![CI](https://github.com/ralvescosta/github_releases_sniffer/workflows/CI/badge.svg?branch=rn-develop)
 
+
+## Screens
 
 <div style="display:flex; justify-content:space-around">
 <image width="200" src="./docs/assets/signin-gif.gif" >
