@@ -2,7 +2,7 @@ import {IGithubSearchUserRepository} from '../../application/protocols/igithub.s
 import {GithubUserAccountEntity} from '../../bussiness/entities/github.account.entity';
 import {GithubSearchUserDataSource} from '../datastructure/github.search.user.datasource';
 
-export class GithubSearchUserRepository implements IGithubSearchUserRepository {
+export class HttpClintGithubApiRepository implements IGithubSearchUserRepository {
   private readonly githubSearchUrlBase = 'https://api.github.com/users/';
 
   public async search(gitUser: string): Promise<GithubUserAccountEntity> {

@@ -21,7 +21,7 @@ function makeSut(): SutTypes {
   };
 }
 
-describe('Save Locally Sniffed Repository', () => {
+describe('Search Module - Local Database Repository', () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });

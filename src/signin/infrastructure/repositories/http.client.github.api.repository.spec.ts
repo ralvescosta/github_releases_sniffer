@@ -1,14 +1,14 @@
 import fetch from 'jest-fetch-mock';
-import {GithubSearchUserRepository} from './github.search.user.repository';
+import {HttpClintGithubApiRepository} from './http.client.github.api.repository';
 import {GithubUserAccountEntity} from '../../bussiness/entities/github.account.entity';
 
 type SutTypes = {
-  sut: GithubSearchUserRepository;
+  sut: HttpClintGithubApiRepository;
   entity: GithubUserAccountEntity;
 };
 
 function makeSut(): SutTypes {
-  const sut = new GithubSearchUserRepository();
+  const sut = new HttpClintGithubApiRepository();
   const entity = new GithubUserAccountEntity(1, 'login', 'avatar_url', 'name', 'bio', 10, 10, 10);
 
   return {
@@ -19,7 +19,7 @@ function makeSut(): SutTypes {
 
 fetch.enableMocks();
 
-describe('Github Search User Repository', () => {
+describe('SignIn Module - Http Clint Github Api Repository', () => {
   beforeEach(() => {
     fetch.resetMocks();
     jest.clearAllMocks();

@@ -20,7 +20,7 @@ function makeSut(): SutTypes {
   };
 }
 
-describe('Get Last Sniffed Release Repository', () => {
+describe('Search Module - Http Clint Github Api Repository', () => {
   beforeEach(() => {
     fetch.resetMocks();
     jest.clearAllMocks();
