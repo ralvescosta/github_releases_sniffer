@@ -4,13 +4,14 @@ import {View, ScrollView} from 'react-native';
 import {styles} from './styles';
 
 import {Header} from './components/screenHeader';
-import {RepoCard} from './components/repoCard';
+// import {RepoCard} from './components/repoCard';
 
 type Props = {
   viewController: any;
+  RepoCard: any;
 };
 
-export const Dashboard = ({viewController}: Props) => {
+export const Dashboard = ({viewController, RepoCard}: Props) => {
   return (
     <View style={styles.container}>
       <Header account={viewController.userAccount} />

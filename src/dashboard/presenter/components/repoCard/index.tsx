@@ -5,13 +5,12 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import {styles} from './styles';
 
-import {ModelSnifferDetails} from '../modelSnifferDetails';
-
 type Props = {
   repository: any;
+  ModelSnifferDetails: any;
 };
 
-export const RepoCard = ({repository}: Props) => {
+export const RepoCard = ({repository, ModelSnifferDetails}: Props) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   function pressedCard() {
