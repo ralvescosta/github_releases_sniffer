@@ -4,10 +4,9 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const BottomTab = createMaterialBottomTabNavigator();
 
-import {Dashboard} from '../../dashboard/presenter/dashboard.screen';
+import {DashboardModule} from '../../dashboard/dashboard.module';
 import {SearchScreenModule} from '../../search/search.module';
 import {SettingsScreen} from '../../settings/presenter/settings.screen';
-import { primary } from '../../core/themes/colors';
 
 export const BottomTabNavigation = () => {
   return (
@@ -21,7 +20,7 @@ export const BottomTabNavigation = () => {
       >
       <BottomTab.Screen
         name="dashboard"
-        component={Dashboard}
+        component={DashboardModule}
         options={{
           tabBarLabel: 'Dashboard',
           tabBarIcon: ({color}) => <MaterialIcons name="dashboard" color={color} size={24} />,
