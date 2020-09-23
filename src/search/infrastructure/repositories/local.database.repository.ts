@@ -1,11 +1,12 @@
 import AsyncStorage from '@react-native-community/async-storage';
 
+import {ASYNC_STORAGE_KEYS} from '../../../core/defines/enums';
 import {SniffedGithubRepositoryEntity} from '../../bussiness/entities/sniffed.github.repository.entity';
 import {ISaveLocallySniffedRepository} from '../../application/protocols/isave.locally.sniffed.repository';
 import {IUpdateLocallySniffedRepository} from '../../application/protocols/iupdate.locally.sniffed.repository';
 
 export class LocalDatabaseRepository implements ISaveLocallySniffedRepository, IUpdateLocallySniffedRepository {
-  private readonly _sniffedAsyncKey = '@sniffed';
+  private readonly _sniffedAsyncKey = ASYNC_STORAGE_KEYS.SNIFFED;
 
   /**
    * Singleton

@@ -5,7 +5,7 @@ import {GithubRepositoryReleasesDatasource} from '../datasources/github.reposito
 import {GithubSearchRepositoryDatasource} from '../datasources/github.search.repository.datasource';
 
 export class HttpClintGithubApiRepository implements ISearchGithubRepoRepository, IGetLastSniffedReleaseRepository {
-  private readonly githubSearchRepoBaseUrl = 'https://api.github.com/search/repositories?q=';
+  private readonly _githubSearchRepoBaseUrl = 'https://api.github.com/search/repositories?q=';
 
   /**
    * Singleton
@@ -23,7 +23,7 @@ export class HttpClintGithubApiRepository implements ISearchGithubRepoRepository
   public async search(repository: string): Promise<ResultSearchGithubRepositoryEntity[]> {
     let httpBody: GithubSearchRepositoryDatasource;
     try {
-      const httpResponse = await fetch(`${this.githubSearchRepoBaseUrl}${repository}`);
+      const httpResponse = await fetch(`${this._githubSearchRepoBaseUrl}${repository}`);
 
       if (httpResponse.status >= 400) {
         throw new Error(`${httpResponse.status}`);

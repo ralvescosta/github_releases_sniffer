@@ -1,6 +1,8 @@
 import {useContext, useEffect, useState} from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 
+import {ASYNC_STORAGE_KEYS} from '../../core/defines/enums';
+
 import {SniffedRepositoriesContext} from '../../core/context/sniffed.repositories.context';
 
 export class DashboardViewController {
@@ -17,8 +19,8 @@ export class DashboardViewController {
   }
 
   private async getSniffedReposAndAccountIntoCacheAndSetGlobalContext() {
-    const sniffed = await AsyncStorage.getItem('@sniffed');
-    const userAccount = await AsyncStorage.getItem('@account');
+    const sniffed = await AsyncStorage.getItem(ASYNC_STORAGE_KEYS.SNIFFED);
+    const userAccount = await AsyncStorage.getItem(ASYNC_STORAGE_KEYS.ACCOUNT);
 
     if (sniffed) {
       const sniffedJSON = await JSON.parse(sniffed);

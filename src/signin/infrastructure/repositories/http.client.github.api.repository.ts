@@ -3,12 +3,12 @@ import {GithubUserAccountEntity} from '../../bussiness/entities/github.account.e
 import {GithubSearchUserDataSource} from '../datastructure/github.search.user.datasource';
 
 export class HttpClintGithubApiRepository implements IGithubSearchUserRepository {
-  private readonly githubSearchUrlBase = 'https://api.github.com/users/';
+  private readonly _githubSearchUrlBase = 'https://api.github.com/users/';
 
   public async search(gitUser: string): Promise<GithubUserAccountEntity> {
     let httpBody: GithubSearchUserDataSource;
     try {
-      const httpResponse = await fetch(`${this.githubSearchUrlBase}${gitUser}`, {
+      const httpResponse = await fetch(`${this._githubSearchUrlBase}${gitUser}`, {
         method: 'GET',
       });
       if (httpResponse.status >= 400) {

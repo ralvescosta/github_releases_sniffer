@@ -5,14 +5,14 @@ import {ISaveLocallyUserAccountRepository} from '../protocols/isave.locally.user
 
 export class SignInUsecases implements ISignInUsecase {
   constructor(
-    private readonly githubFindUserRepository: IGithubSearchUserRepository,
-    private readonly localDatabaseRepository: ISaveLocallyUserAccountRepository,
+    private readonly _githubFindUserRepository: IGithubSearchUserRepository,
+    private readonly _localDatabaseRepository: ISaveLocallyUserAccountRepository,
   ) {}
 
   public async signin(githubUser: string): Promise<GithubUserAccountEntity> {
     try {
-      const result = await this.githubFindUserRepository.search(githubUser);
-      await this.localDatabaseRepository.registerUser(result);
+      const result = await this._githubFindUserRepository.search(githubUser);
+      await this._localDatabaseRepository.registerUser(result);
       return result;
     } catch (err) {
       throw new Error();

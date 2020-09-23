@@ -17,7 +17,7 @@ export class SearchViewController implements ISearchViewController {
 
   public context = useContext(SniffedRepositoriesContext);
 
-  constructor(private readonly searchRepositoryUsecase: ISearchGithubRepositoryUsecase) {
+  constructor(private readonly _searchRepositoryUsecase: ISearchGithubRepositoryUsecase) {
     this.repositoryName = useRef('');
     [this.isLoading, this.setIsLoading] = useState<boolean>(false);
 
@@ -32,7 +32,7 @@ export class SearchViewController implements ISearchViewController {
     this.setIsLoading(true);
     Keyboard.dismiss();
 
-    const result = await this.searchRepositoryUsecase.search(this.repositoryName.current, this.context.sniffedRepositories);
+    const result = await this._searchRepositoryUsecase.search(this.repositoryName.current, this.context.sniffedRepositories);
     this.foundRepositories.current = result;
 
     this.setIsLoading(false);

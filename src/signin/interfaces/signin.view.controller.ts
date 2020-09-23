@@ -9,7 +9,7 @@ export class SingInViewController implements ISingInViewController {
   public setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
   public navigation: any;
 
-  constructor(private readonly signInUsecase: ISignInUsecase) {
+  constructor(private readonly _signInUsecase: ISignInUsecase) {
     this.inputValue = '';
     this.navigation = useNavigation();
     [this.isLoading, this.setIsLoading] = useState<boolean>(false);
@@ -21,7 +21,7 @@ export class SingInViewController implements ISingInViewController {
     }
     this.setIsLoading(true);
     try {
-      await this.signInUsecase.signin(this.inputValue);
+      await this._signInUsecase.signin(this.inputValue);
       this.navigation.navigate('dashboard');
     } catch (err) {
       this.setIsLoading(false);

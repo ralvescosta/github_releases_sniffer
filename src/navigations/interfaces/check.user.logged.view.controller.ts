@@ -7,7 +7,7 @@ export class CheckUserLoggedViewController {
   public setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
   public isUserLogged: React.MutableRefObject<boolean>;
 
-  constructor(private readonly checkUserIsLoggedUseCase: ICheckUserIsLoggedUsecase) {
+  constructor(private readonly _checkUserIsLoggedUseCase: ICheckUserIsLoggedUsecase) {
     [this.isLoading, this.setIsLoading] = useState<boolean>(true);
     this.isUserLogged = useRef<boolean>(false);
 
@@ -15,7 +15,7 @@ export class CheckUserLoggedViewController {
   }
 
   private async checkUserIsLogged() {
-    const userAccount = await this.checkUserIsLoggedUseCase.check();
+    const userAccount = await this._checkUserIsLoggedUseCase.check();
 
     if (userAccount) {
       this.isUserLogged.current = true;

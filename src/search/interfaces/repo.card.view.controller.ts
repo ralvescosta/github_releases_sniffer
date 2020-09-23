@@ -20,8 +20,8 @@ export class RepoCardViewController implements IRepoCardViewController {
 
   constructor(
     repository: ResultSearchGithubRepositoryEntity,
-    private readonly saveToSnifferUsecase: ISaveRepositoryToSnifferUsecase,
-    private readonly removeSniffedUsecase: IRemoveRepositoryCheckedAsSnifferUsecase,
+    private readonly _saveToSnifferUsecase: ISaveRepositoryToSnifferUsecase,
+    private readonly _removeSniffedUsecase: IRemoveRepositoryCheckedAsSnifferUsecase,
   ) {
     this.repository = repository;
     [this.switchState, this.setSwitchState] = useState<boolean>(this.repository.checked);
@@ -31,7 +31,7 @@ export class RepoCardViewController implements IRepoCardViewController {
   public async saveRepositoryToSniffer(): Promise<void> {
     this.setLoading(true);
     try {
-      const sniffed = await this.saveToSnifferUsecase.saveToSniffer(this.repository);
+      const sniffed = await this._saveToSnifferUsecase.saveToSniffer(this.repository);
       this.context.setSniffedRepositories([...this.context.sniffedRepositories, sniffed]);
       this.setSwitchState(true);
     } catch (err) {}
@@ -42,7 +42,7 @@ export class RepoCardViewController implements IRepoCardViewController {
   public async removeSnifferRepository() {
     this.setLoading(true);
 
-    const result = await this.removeSniffedUsecase.remove(this.repository.id, this.context.sniffedRepositories);
+    const result = await this._removeSniffedUsecase.remove(this.repository.id, this.context.sniffedRepositories);
     this.context.setSniffedRepositories(result);
 
     this.setSwitchState(false);

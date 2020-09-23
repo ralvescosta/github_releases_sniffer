@@ -3,9 +3,9 @@ import {IGetLocallyUserAccountRepository} from '../protocols/iget.locally.user.a
 import {GithubUserAccountEntity} from '../../bussiness/entities/github.account.entity';
 
 export class CheckUserIsLoggedUsecase implements ICheckUserIsLoggedUsecase {
-  constructor(private readonly localDatabaseRepository: IGetLocallyUserAccountRepository) {}
+  constructor(private readonly _localDatabaseRepository: IGetLocallyUserAccountRepository) {}
   public async check(): Promise<GithubUserAccountEntity | undefined> {
-    const account = await this.localDatabaseRepository.getAccount();
+    const account = await this._localDatabaseRepository.getAccount();
 
     if (account) {
       return account;
