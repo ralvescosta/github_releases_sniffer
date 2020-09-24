@@ -17,8 +17,8 @@ export const Dashboard = ({viewController, RepoCard}: Props) => {
     <View style={styles.container}>
       <Header account={viewController.userAccount} />
       <ScrollView style={{width: '100%'}} contentContainerStyle={{paddingBottom: 35, alignItems: 'center'}}>
-        {viewController.context.sniffedRepositories.length
-          ? viewController.context.sniffedRepositories.map((item: any) => <RepoCard key={item.id} repository={item} />)
+        {viewController.snifferContext.sniffedRepositories.length
+          ? viewController.snifferContext.sniffedRepositories.map((item: any) => <RepoCard key={item.id} repository={item} />)
           : null}
       </ScrollView>
     </View>

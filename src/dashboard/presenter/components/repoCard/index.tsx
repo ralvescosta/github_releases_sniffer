@@ -4,6 +4,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import {styles} from './styles';
+import {widthToDP} from '../../../../core/themes/size';
 
 import {IRepoCardViewController} from '../../../interfaces/repoCard/irepo.card.view.controller';
 import {SniffedGithubRepositoryEntity} from '../../../bussiness/entities/sniffed.github.repository.entity';
@@ -16,7 +17,7 @@ type Props = {
 
 export const RepoCard = ({repository, viewController, ModelSnifferDetails}: Props) => {
   return (
-    <TouchableOpacity style={styles.repoCard} onPress={() => viewController.openModal()}>
+    <TouchableOpacity style={styles.repoCard} onPress={() => viewController.openModal(repository.id)}>
       <ModelSnifferDetails repository={repository} />
       <View style={styles.cardLeft}>
         <View style={styles.leftHeader}>
@@ -30,21 +31,21 @@ export const RepoCard = ({repository, viewController, ModelSnifferDetails}: Prop
 
         <View style={styles.leftContent}>
           <View style={styles.contentDetails}>
-            <FontAwesome name="star" color="#777" size={15} />
+            <FontAwesome name="star" color="#777" size={widthToDP('4%')} />
             <Text numberOfLines={1} style={styles.detailsText}>
               {repository.stargazersCount}
             </Text>
           </View>
 
           <View style={styles.contentDetails}>
-            <FontAwesome name="code-fork" color="#777" size={15} />
+            <FontAwesome name="code-fork" color="#777" size={widthToDP('4%')} />
             <Text numberOfLines={1} style={styles.detailsText}>
               {repository.forks}
             </Text>
           </View>
 
           <View style={styles.contentDetails}>
-            <FontAwesome name="bug" color="#777" size={15} />
+            <FontAwesome name="bug" color="#777" size={widthToDP('4%')} />
             <Text numberOfLines={1} style={styles.detailsText}>
               {repository.openIssues}
             </Text>
@@ -57,7 +58,7 @@ export const RepoCard = ({repository, viewController, ModelSnifferDetails}: Prop
           <Text style={styles.releaseTitle}>Last Release: </Text>
           <Text style={styles.releaseTag}>{repository.lastRelease}</Text>
         </View>
-        <FontAwesome name="bell" color="#d4d4d4" size={30} />
+        <FontAwesome name="bell" color="#d4d4d4" size={widthToDP('8%')} />
       </View>
     </TouchableOpacity>
   );

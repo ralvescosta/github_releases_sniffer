@@ -4,7 +4,8 @@ import {SniffedRepositoriesContext} from '../../../core/context/sniffed.reposito
 import {IGetSnifferReposAndAccountUsecase} from '../../bussiness/usecases/iget.sniffer.repos.and.account.usecase';
 
 export class DashboardViewController {
-  public context = useContext(SniffedRepositoriesContext);
+  public snifferContext = useContext(SniffedRepositoriesContext);
+
   public userAccount: any;
   public setUserAccount: React.Dispatch<React.SetStateAction<any>>;
 
@@ -18,7 +19,7 @@ export class DashboardViewController {
 
   private async getSniffedReposAndAccountIntoCacheAndSetGlobalContext() {
     const result = await this._getSnifferReposAndAccountUsecase.get();
-    this.context.setSniffedRepositories(result.sniffer);
+    this.snifferContext.setSniffedRepositories(result.sniffer);
     this.setUserAccount(result.user);
   }
 }

@@ -1,7 +1,9 @@
 import React from 'react';
 import {Modal, View, TouchableOpacity, Text, Image} from 'react-native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import {styles} from './styles';
+import {widthToDP} from '../../../../core/themes/size';
 
 import {IModalSnifferDetailsViewController} from '../../../interfaces/modalSnifferDetails/imodal.sniffer.details.view.controller';
 import {SniffedGithubRepositoryEntity} from '../../../bussiness/entities/sniffed.github.repository.entity';
@@ -13,10 +15,14 @@ type Props = {
 
 export const ModelSnifferDetails = ({repository, viewController}: Props) => {
   return (
-    <Modal animationType="slide" visible={viewController.modalContext.toggleModal}>
+    <Modal
+      animationType="slide"
+      visible={
+        viewController.modalContext.toggleModal[`${repository.id}`] ? viewController.modalContext.toggleModal[`${repository.id}`] : false
+      }>
       <View style={styles.modalContainer}>
-        <TouchableOpacity style={styles.closeModal} onPress={() => viewController.closeModal()}>
-          <Text>X</Text>
+        <TouchableOpacity style={styles.closeModal} onPress={() => viewController.closeModal(repository.id)}>
+          <FontAwesome name="close" size={widthToDP('4.5%')} />
         </TouchableOpacity>
         <View style={styles.containerContent}>
           <View style={styles.contentRepository}>

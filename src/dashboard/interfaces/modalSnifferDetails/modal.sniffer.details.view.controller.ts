@@ -8,8 +8,9 @@ export class ModalSnifferDetailsViewController {
   public modalContext = useContext(ModalContext);
   private _snifferContext = useContext(SniffedRepositoriesContext);
 
-  public closeModal() {
-    this.modalContext.setToggleModal(false);
+  public closeModal(repositoryId: number) {
+    this.modalContext.toggleModal[repositoryId] = false;
+    this.modalContext.setToggleModal({...this.modalContext.toggleModal, [`${repositoryId}`]: false});
   }
 
   public async removeRepository(repositoryId: number) {

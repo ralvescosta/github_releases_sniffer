@@ -1,5 +1,5 @@
 export interface IModalSnifferDetailsViewController {
   modalContext: any;
-  closeModal: () => void;
+  closeModal: (repositoryId: number) => void;
   removeRepository: (repositoryId: number) => Promise<void>;
 }

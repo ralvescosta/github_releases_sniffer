@@ -1,4 +1,4 @@
 export interface IRepoCardViewController {
   context: any;
-  openModal: () => void;
+  openModal: (repositoryId: number) => void;
 }
