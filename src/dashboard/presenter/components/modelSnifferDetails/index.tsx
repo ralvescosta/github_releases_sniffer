@@ -1,31 +1,21 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Modal, View, TouchableOpacity, Text, Image} from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
 
 import {styles} from './styles';
-import {SniffedRepositoriesContext} from '../../../../core/context/sniffed.repositories.context';
+
+import {IModalSnifferDetailsViewController} from '../../../interfaces/modalSnifferDetails/imodal.sniffer.details.view.controller';
+import {SniffedGithubRepositoryEntity} from '../../../bussiness/entities/sniffed.github.repository.entity';
 
 type Props = {
-  repository: any;
-  modalVisible: boolean;
-  setModalVisible: any;
+  repository: SniffedGithubRepositoryEntity;
+  viewController: IModalSnifferDetailsViewController;
 };
 
-export const ModelSnifferDetails = ({repository, modalVisible, setModalVisible}: Props) => {
-  const context = useContext(SniffedRepositoriesContext);
-
-  async function removeRepository() {
-    const sniffed = context.sniffedRepositories;
-    const filter = sniffed.filter((item: any) => item.id !== repository.id);
-
-    context.setSniffedRepositories(filter);
-    await AsyncStorage.setItem('@sniffed', JSON.stringify(filter));
-  }
-
+export const ModelSnifferDetails = ({repository, viewController}: Props) => {
   return (
-    <Modal animationType="slide" visible={modalVisible}>
+    <Modal animationType="slide" visible={viewController.modalContext.toggleModal}>
       <View style={styles.modalContainer}>
-        <TouchableOpacity style={styles.closeModal} onPress={setModalVisible}>
+        <TouchableOpacity style={styles.closeModal} onPress={() => viewController.closeModal()}>
           <Text>X</Text>
         </TouchableOpacity>
         <View style={styles.containerContent}>
@@ -39,7 +29,7 @@ export const ModelSnifferDetails = ({repository, modalVisible, setModalVisible}:
             <Text style={styles.releaseText}>{repository.lastRelease}</Text>
           </View>
 
-          <TouchableOpacity onPress={removeRepository} style={styles.contentRemove}>
+          <TouchableOpacity onPress={() => viewController.removeRepository(repository.id)} style={styles.contentRemove}>
             <Text>Remove Repository on Sniffer</Text>
           </TouchableOpacity>
         </View>

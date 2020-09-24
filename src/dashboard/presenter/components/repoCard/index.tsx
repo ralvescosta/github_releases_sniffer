@@ -1,25 +1,23 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, Text} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import {styles} from './styles';
 
+import {IRepoCardViewController} from '../../../interfaces/repoCard/irepo.card.view.controller';
+import {SniffedGithubRepositoryEntity} from '../../../bussiness/entities/sniffed.github.repository.entity';
+
 type Props = {
-  repository: any;
+  repository: SniffedGithubRepositoryEntity;
+  viewController: IRepoCardViewController;
   ModelSnifferDetails: any;
 };
 
-export const RepoCard = ({repository, ModelSnifferDetails}: Props) => {
-  const [modalVisible, setModalVisible] = useState(false);
-
-  function pressedCard() {
-    setModalVisible(!modalVisible);
-  }
-
+export const RepoCard = ({repository, viewController, ModelSnifferDetails}: Props) => {
   return (
-    <TouchableOpacity style={styles.repoCard} onPress={pressedCard}>
-      <ModelSnifferDetails repository={repository} modalVisible={modalVisible} setModalVisible={() => setModalVisible(false)} />
+    <TouchableOpacity style={styles.repoCard} onPress={() => viewController.openModal()}>
+      <ModelSnifferDetails repository={repository} />
       <View style={styles.cardLeft}>
         <View style={styles.leftHeader}>
           <Text numberOfLines={2} style={styles.headerName}>

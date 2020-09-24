@@ -4,10 +4,11 @@ import {View, ScrollView} from 'react-native';
 import {styles} from './styles';
 
 import {Header} from './components/screenHeader';
-// import {RepoCard} from './components/repoCard';
+
+import {IDashboardViewController} from '../interfaces/dashboard/idashboard.view.controller';
 
 type Props = {
-  viewController: any;
+  viewController: IDashboardViewController;
   RepoCard: any;
 };
 
