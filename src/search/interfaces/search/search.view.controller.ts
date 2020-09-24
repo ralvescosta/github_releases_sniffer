@@ -1,11 +1,11 @@
 import {useState, useRef, useContext} from 'react';
 import {Keyboard} from 'react-native';
 
-import {SniffedRepositoriesContext} from '../../core/context/sniffed.repositories.context';
+import {SniffedRepositoriesContext} from '../../../core/context/sniffed.repositories.context';
 import {ISearchViewController} from './isearch.view.controller';
 
-import {ISearchGithubRepositoryUsecase} from '../bussiness/usecases/isearch.github.repository.usecase';
-import {ResultSearchGithubRepositoryEntity} from '../bussiness/entities/result.search.github.repository.entity';
+import {ISearchGithubRepositoryUsecase} from '../../bussiness/usecases/isearch.github.repository.usecase';
+import {ResultSearchGithubRepositoryEntity} from '../../bussiness/entities/result.search.github.repository.entity';
 
 export class SearchViewController implements ISearchViewController {
   public repositoryName: React.MutableRefObject<string>;

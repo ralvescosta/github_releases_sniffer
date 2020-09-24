@@ -1,7 +1,7 @@
 import 'react';
 import {RepoCardViewController} from './repo.card.view.controller';
-import {RemoveRepositoryCheckedAsSnifferUsecaseSpy} from './__test__/remove.repository.checked.as.sniffer.usecase.spy';
-import {SaveRepositoryToSnifferUsecaseSpy} from './__test__/save.repositrory.to.sniffer.usecase.spy';
+import {RemoveRepositoryCheckedAsSnifferUsecaseSpy} from '../__test__/remove.repository.checked.as.sniffer.usecase.spy';
+import {SaveRepositoryToSnifferUsecaseSpy} from '../__test__/save.repositrory.to.sniffer.usecase.spy';
 
 jest.mock('react', () => ({
   useRef: jest.fn(() => ({current: {value: 'some_thing'}})),

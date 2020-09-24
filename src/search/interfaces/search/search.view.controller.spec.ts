@@ -1,7 +1,7 @@
 import 'react';
 import 'react-native';
 import {SearchViewController} from './search.view.controller';
-import {SearchGithubRepositoryUsecaseSpy} from './__test__/search.github.repository.usecase.spy';
+import {SearchGithubRepositoryUsecaseSpy} from '../__test__/search.github.repository.usecase.spy';
 
 jest.mock('react', () => ({
   useRef: jest.fn(() => ({current: 'some_value'})),

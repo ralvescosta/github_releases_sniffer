@@ -1,5 +1,5 @@
 import React from 'react';
-import {ResultSearchGithubRepositoryEntity} from '../bussiness/entities/result.search.github.repository.entity';
+import {ResultSearchGithubRepositoryEntity} from '../../bussiness/entities/result.search.github.repository.entity';
 
 export interface ISearchViewController {
   repositoryName: React.MutableRefObject<string>;
