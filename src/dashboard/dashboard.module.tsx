@@ -11,9 +11,14 @@ import {RepoCardViewController} from './interfaces/repoCard/repo.card.view.contr
 
 import {ModelSnifferDetails} from './presenter/components/modelSnifferDetails';
 import {ModalSnifferDetailsViewController} from './interfaces/modalSnifferDetails/modal.sniffer.details.view.controller';
+import {RemoveSnifferRepoUsecase} from './application/usecases/remove.sniffer.repo.usecase';
 
 const WrapperModelSnifferDetails = ({repository, modalControl, setModalControl}: any) => {
-  const modalSnifferDetailsViewController = new ModalSnifferDetailsViewController(modalControl, setModalControl);
+  const modalSnifferDetailsViewController = new ModalSnifferDetailsViewController(
+    modalControl,
+    setModalControl,
+    RemoveSnifferRepoUsecase.getInstance(LocalDatabaseRepository.getInstance()),
+  );
   return <ModelSnifferDetails repository={repository} viewController={modalSnifferDetailsViewController} />;
 };
 
@@ -23,8 +28,7 @@ const WrapperRepoCard = ({repository}: any) => {
 };
 
 export const DashboardModule = () => {
-  const localDatabaseRepository = new LocalDatabaseRepository();
-  const getSnifferReposAndAccountUsecase = new GetSnifferReposAndAccountUsecase(localDatabaseRepository);
+  const getSnifferReposAndAccountUsecase = new GetSnifferReposAndAccountUsecase(LocalDatabaseRepository.getInstance());
   const dashboardViewController = new DashboardViewController(getSnifferReposAndAccountUsecase);
 
   return <Dashboard viewController={dashboardViewController} RepoCard={WrapperRepoCard} />;

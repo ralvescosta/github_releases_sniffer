@@ -1,23 +1,26 @@
 import React, {useContext} from 'react';
-import AsyncStorage from '@react-native-community/async-storage';
 
 import {IModalSnifferDetailsViewController} from './imodal.sniffer.details.view.controller';
 import {SniffedRepositoriesContext} from '../../../core/context/sniffed.repositories.context';
+import {IRemoveSnifferRepoUsecase} from '../../bussiness/usecases/iremove.sniffer.repo.usecase';
 
 export class ModalSnifferDetailsViewController implements IModalSnifferDetailsViewController {
   private _snifferContext = useContext(SniffedRepositoriesContext);
 
-  constructor(public modalControl: boolean, private readonly setModalControl: React.Dispatch<React.SetStateAction<boolean>>) {}
+  constructor(
+    public modalControl: boolean,
+    private readonly _setModalControl: React.Dispatch<React.SetStateAction<boolean>>,
+    private readonly removeSnifferRepoUsecase: IRemoveSnifferRepoUsecase,
+  ) {}
 
   public closeModal() {
-    this.setModalControl(false);
+    this._setModalControl(false);
   }
 
   public async removeRepository(repositoryId: number) {
     const sniffed = this._snifferContext.sniffedRepositories;
-    const filter = sniffed.filter((item: any) => item.id !== repositoryId);
+    const filter = await this.removeSnifferRepoUsecase.remove(repositoryId, sniffed);
 
     this._snifferContext.setSniffedRepositories(filter);
-    await AsyncStorage.setItem('@sniffed', JSON.stringify(filter));
   }
 }
