@@ -1,11 +1,16 @@
-import {useContext} from 'react';
+import React, {useState} from 'react';
 
-import {ModalContext} from '../context/modal.context';
+import {IRepoCardViewController} from './irepo.card.view.controller';
 
-export class RepoCardViewController {
-  public context = useContext(ModalContext);
+export class RepoCardViewController implements IRepoCardViewController {
+  public modalControl: boolean;
+  public setModalControl: React.Dispatch<React.SetStateAction<boolean>>;
 
-  public openModal(repositoryId: number) {
-    this.context.setToggleModal({...this.context.toggleModal, [`${repositoryId}`]: true});
+  constructor() {
+    [this.modalControl, this.setModalControl] = useState<boolean>(false);
+  }
+
+  public openModal() {
+    this.setModalControl(true);
   }
 }

@@ -1,4 +1,7 @@
+import React from 'react';
+
 export interface IRepoCardViewController {
-  context: any;
+  modalControl: boolean;
+  setModalControl: React.Dispatch<React.SetStateAction<boolean>>;
   openModal: (repositoryId: number) => void;
 }

@@ -18,7 +18,11 @@ type Props = {
 export const RepoCard = ({repository, viewController, ModelSnifferDetails}: Props) => {
   return (
     <TouchableOpacity style={styles.repoCard} onPress={() => viewController.openModal(repository.id)}>
-      <ModelSnifferDetails repository={repository} />
+      <ModelSnifferDetails
+        repository={repository}
+        modalControl={viewController.modalControl}
+        setModalControl={viewController.setModalControl}
+      />
       <View style={styles.cardLeft}>
         <View style={styles.leftHeader}>
           <Text numberOfLines={2} style={styles.headerName}>

@@ -1,16 +1,16 @@
-import {useContext} from 'react';
+import React, {useContext} from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 
+import {IModalSnifferDetailsViewController} from './imodal.sniffer.details.view.controller';
 import {SniffedRepositoriesContext} from '../../../core/context/sniffed.repositories.context';
-import {ModalContext} from '../context/modal.context';
 
-export class ModalSnifferDetailsViewController {
-  public modalContext = useContext(ModalContext);
+export class ModalSnifferDetailsViewController implements IModalSnifferDetailsViewController {
   private _snifferContext = useContext(SniffedRepositoriesContext);
 
-  public closeModal(repositoryId: number) {
-    this.modalContext.toggleModal[repositoryId] = false;
-    this.modalContext.setToggleModal({...this.modalContext.toggleModal, [`${repositoryId}`]: false});
+  constructor(public modalControl: boolean, private readonly setModalControl: React.Dispatch<React.SetStateAction<boolean>>) {}
+
+  public closeModal() {
+    this.setModalControl(false);
   }
 
   public async removeRepository(repositoryId: number) {

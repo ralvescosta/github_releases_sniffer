@@ -15,11 +15,8 @@ type Props = {
 
 export const ModelSnifferDetails = ({repository, viewController}: Props) => {
   return (
-    <Modal
-      animationType="slide"
-      visible={
-        viewController.modalContext.toggleModal[`${repository.id}`] ? viewController.modalContext.toggleModal[`${repository.id}`] : false
-      }>
+    <Modal animationType="slide" visible={viewController.modalControl}>
+      {console.log('render', repository.id)}
       <View style={styles.modalContainer}>
         <TouchableOpacity style={styles.closeModal} onPress={() => viewController.closeModal(repository.id)}>
           <FontAwesome name="close" size={widthToDP('4.5%')} />
