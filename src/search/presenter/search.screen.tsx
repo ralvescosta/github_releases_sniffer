@@ -4,7 +4,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import {styles} from './styles';
 
-import {ISearchViewController} from '../interfaces/isearch.view.controller';
+import {ISearchViewController} from '../interfaces/search/isearch.view.controller';
 
 type Props = {
   viewController: ISearchViewController;

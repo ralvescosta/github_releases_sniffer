@@ -5,14 +5,14 @@ import {ResultSearchGithubRepositoryEntity} from '../../bussiness/entities/resul
 import {SniffedGithubRepositoryEntity} from '../../bussiness/entities/sniffed.github.repository.entity';
 
 export class SearchGithubRepositoryUsecase implements ISearchGithubRepositoryUsecase {
-  constructor(private readonly searchGithubRepository: ISearchGithubRepoRepository) {}
+  constructor(private readonly _searchGithubRepository: ISearchGithubRepoRepository) {}
   public async search(
     repository: string,
     sniffedRepositories: SniffedGithubRepositoryEntity[],
   ): Promise<ResultSearchGithubRepositoryEntity[]> {
     let response: ResultSearchGithubRepositoryEntity[] = [];
     try {
-      response = await this.searchGithubRepository.search(repository);
+      response = await this._searchGithubRepository.search(repository);
     } catch (err) {
       throw new Error();
     }

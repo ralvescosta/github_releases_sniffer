@@ -7,7 +7,7 @@ export class RemoveRepositoryCheckedAsSnifferUsecase implements IRemoveRepositor
    * Singleton
    */
   private static instance: RemoveRepositoryCheckedAsSnifferUsecase;
-  private constructor(private readonly updateLocallySniffedRepository: IUpdateLocallySniffedRepository) {}
+  private constructor(private readonly _updateLocallySniffedRepository: IUpdateLocallySniffedRepository) {}
   public static getInstance(updateLocallySniffedRepository: IUpdateLocallySniffedRepository): RemoveRepositoryCheckedAsSnifferUsecase {
     if (!RemoveRepositoryCheckedAsSnifferUsecase.instance) {
       RemoveRepositoryCheckedAsSnifferUsecase.instance = new RemoveRepositoryCheckedAsSnifferUsecase(updateLocallySniffedRepository);
@@ -22,7 +22,7 @@ export class RemoveRepositoryCheckedAsSnifferUsecase implements IRemoveRepositor
   ): Promise<SniffedGithubRepositoryEntity[]> {
     const filterRepositories = sniffedRepositories.filter((item: any) => item.id !== removedRepositoryId);
 
-    await this.updateLocallySniffedRepository.update(filterRepositories);
+    await this._updateLocallySniffedRepository.update(filterRepositories);
 
     return filterRepositories;
   }

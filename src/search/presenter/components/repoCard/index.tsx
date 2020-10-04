@@ -3,7 +3,7 @@ import {View, Text, Switch, Alert, ActivityIndicator} from 'react-native';
 
 import {styles} from './styles';
 
-import {IRepoCardViewController} from '../../../interfaces/irepo.card.view.controller';
+import {IRepoCardViewController} from '../../../interfaces/repoCard/irepo.card.view.controller';
 
 type Props = {
   viewController: IRepoCardViewController;

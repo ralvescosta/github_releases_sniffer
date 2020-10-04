@@ -1,0 +1,7 @@
+import React from 'react';
+
+export interface IDashboardViewController {
+  snifferContext: any;
+  userAccount: any;
+  setUserAccount: React.Dispatch<React.SetStateAction<any>>;
+}

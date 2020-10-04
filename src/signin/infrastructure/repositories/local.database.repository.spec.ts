@@ -21,7 +21,7 @@ function makeSut(): SutTypes {
   };
 }
 
-describe('Local Database Repository', () => {
+describe('SignIn Module - Local Database Repository', () => {
   it('registerUser()', async () => {
     const {sut, userAccount} = makeSut();
     sut.registerUser(userAccount);
