@@ -18,7 +18,7 @@ export class DashboardViewController implements IDashboardViewController {
     }, []);
   }
 
-  private async getSniffedReposAndAccountIntoCacheAndSetGlobalContext() {
+  public async getSniffedReposAndAccountIntoCacheAndSetGlobalContext() {
     const result = await this._getSnifferReposAndAccountUsecase.get();
     this.snifferContext.setSniffedRepositories(result.sniffer);
     this.setUserAccount(result.user);
