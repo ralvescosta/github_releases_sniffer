@@ -23,7 +23,11 @@ export const ModelSnifferDetails = ({repository, viewController}: Props) => {
         </TouchableOpacity>
         <View style={styles.containerContent}>
           <View style={styles.contentRepository}>
-            <Image style={styles.repositoryOwnerAvatar} source={{uri: repository.ownerAvatarUrl}} resizeMode="cover" />
+            {viewController.isNetworkAvailable ? (
+              <Image style={styles.repositoryOwnerAvatar} source={{uri: repository.ownerAvatarUrl}} resizeMode="cover" />
+            ) : (
+              <View style={styles.repositoryOwnerFakeAvatar} />
+            )}
             <Text style={styles.repositoryText}>{repository.fullName}</Text>
           </View>
 

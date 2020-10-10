@@ -22,6 +22,11 @@ export const styles = StyleSheet.create({
     width: 85,
     height: 85,
   },
+  repositoryOwnerFakeAvatar: {
+    width: 85,
+    height: 85,
+    backgroundColor: '#ccc',
+  },
   repositoryText: {
     fontSize: widthToDP('8%'),
     fontWeight: 'bold',

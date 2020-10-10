@@ -6,6 +6,7 @@ import {IRemoveSnifferRepoUsecase} from '../../bussiness/usecases/iremove.sniffe
 
 export class ModalSnifferDetailsViewController implements IModalSnifferDetailsViewController {
   private _snifferContext = useContext(GlobalContext);
+  public isNetworkAvailable: boolean = this._snifferContext.isNetworkAvailable;
 
   constructor(
     public modalControl: boolean,
