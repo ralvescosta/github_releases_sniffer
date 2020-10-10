@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {primary} from '../../core/themes/colors';
+import {widthToDP} from '../../core/themes/size';
 
 export const styles = StyleSheet.create({
   container: {
@@ -38,5 +39,18 @@ export const styles = StyleSheet.create({
     padding: 15,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+
+  networkInfo: {
+    position: 'absolute',
+    bottom: -widthToDP('155%'),
+    width: widthToDP('100%'),
+    padding: widthToDP('2%'),
+    backgroundColor: '#f00',
+    alignItems: 'center',
+  },
+  networkInfoText: {
+    color: '#fff',
+    fontWeight: 'bold',
   },
 });

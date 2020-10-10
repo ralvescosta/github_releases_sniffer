@@ -23,7 +23,6 @@ export class DashboardViewController implements IDashboardViewController {
         if (this._isNetworkAvailable !== state.isConnected) {
           this._isNetworkAvailable = state.isConnected;
           this.globalContext.setIsNetworkAvailable(state.isConnected);
-          console.log(state.isConnected);
         }
       });
 

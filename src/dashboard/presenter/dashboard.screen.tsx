@@ -21,7 +21,6 @@ export const Dashboard = ({viewController, RepoCard}: Props) => {
         amountOfAlerts={0}
         isNetworkAvailable={viewController.globalContext.isNetworkAvailable}
       />
-      {console.log('Dashboard Render', Date.now())}
       <ScrollView style={{width: '100%'}} contentContainerStyle={{paddingBottom: 35, alignItems: 'center'}}>
         {viewController.globalContext.sniffedRepositories.length
           ? viewController.globalContext.sniffedRepositories.map((item: any) => <RepoCard key={item.id} repository={item} />)

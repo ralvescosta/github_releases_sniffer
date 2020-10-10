@@ -10,6 +10,7 @@ export interface ISearchViewController {
   foundRepositories: React.MutableRefObject<ResultSearchGithubRepositoryEntity[]>;
 
   context: any;
+  isNetworkAvailable: boolean;
 
   searchRepository: () => Promise<void>;
 }

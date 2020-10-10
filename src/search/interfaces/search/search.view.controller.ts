@@ -16,6 +16,7 @@ export class SearchViewController implements ISearchViewController {
   public foundRepositories: React.MutableRefObject<ResultSearchGithubRepositoryEntity[]>;
 
   public context = useContext(GlobalContext);
+  public isNetworkAvailable = this.context.isNetworkAvailable;
 
   constructor(private readonly _searchRepositoryUsecase: ISearchGithubRepositoryUsecase) {
     this.repositoryName = useRef('');
@@ -29,11 +30,17 @@ export class SearchViewController implements ISearchViewController {
       throw new Error();
     }
 
+    if (!this.isNetworkAvailable) {
+      return;
+    }
+
     this.setIsLoading(true);
     Keyboard.dismiss();
 
-    const result = await this._searchRepositoryUsecase.search(this.repositoryName.current, this.context.sniffedRepositories);
-    this.foundRepositories.current = result;
+    try {
+      const result = await this._searchRepositoryUsecase.search(this.repositoryName.current, this.context.sniffedRepositories);
+      this.foundRepositories.current = result;
+    } catch (err) {}
 
     this.setIsLoading(false);
   }
