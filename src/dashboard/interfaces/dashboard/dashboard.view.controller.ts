@@ -1,11 +1,14 @@
 import {useContext, useEffect, useState} from 'react';
+import NetInfo from '@react-native-community/netinfo';
 
 import {IDashboardViewController} from './idashboard.view.controller';
-import {SniffedRepositoriesContext} from '../../../core/context/sniffed.repositories.context';
+import {GlobalContext} from '../../../core/context/sniffed.repositories.context';
 import {IGetSnifferReposAndAccountUsecase} from '../../bussiness/usecases/iget.sniffer.repos.and.account.usecase';
 
 export class DashboardViewController implements IDashboardViewController {
-  public snifferContext = useContext(SniffedRepositoriesContext);
+  public globalContext = useContext(GlobalContext);
+
+  private _isNetworkAvailable: boolean = false;
 
   public userAccount: any;
   public setUserAccount: React.Dispatch<React.SetStateAction<any>>;
@@ -15,12 +18,22 @@ export class DashboardViewController implements IDashboardViewController {
 
     useEffect(() => {
       this.getSniffedReposAndAccountIntoCacheAndSetGlobalContext();
+
+      const unsubscribe = NetInfo.addEventListener((state) => {
+        if (this._isNetworkAvailable !== state.isConnected) {
+          this._isNetworkAvailable = state.isConnected;
+          this.globalContext.setIsNetworkAvailable(state.isConnected);
+          console.log(state.isConnected);
+        }
+      });
+
+      return () => unsubscribe();
     }, []);
   }
 
   public async getSniffedReposAndAccountIntoCacheAndSetGlobalContext() {
     const result = await this._getSnifferReposAndAccountUsecase.get();
-    this.snifferContext.setSniffedRepositories(result.sniffer);
+    this.globalContext.setSniffedRepositories(result.sniffer);
     this.setUserAccount(result.user);
   }
 }

@@ -8,11 +8,11 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {GithubSniffer} from '../../core/backgroundTask/githubSniffer';
 
 import {styles} from './styles';
-import {SniffedRepositoriesContext} from '../../core/context/sniffed.repositories.context';
+import {GlobalContext} from '../../core/context/sniffed.repositories.context';
 
 export const SettingsScreen = ({}) => {
   const navigation = useNavigation();
-  const context = useContext(SniffedRepositoriesContext);
+  const context = useContext(GlobalContext);
 
   async function singout() {
     await AsyncStorage.removeItem('@account');

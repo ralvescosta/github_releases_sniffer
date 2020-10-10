@@ -1,15 +1,18 @@
 import React, {createContext, useState} from 'react';
 import {SniffedGithubRepositoryEntity} from '../../search/bussiness/entities/sniffed.github.repository.entity';
 
-export const SniffedRepositoriesContext = createContext(null as any);
+export const GlobalContext = createContext(null as any);
 
-export const SniffedRepositoriesContextProvider = ({children}: any) => {
+export const GlobalContextProvider = ({children}: any) => {
   const [sniffedRepositories, setSniffedRepositories] = useState<SniffedGithubRepositoryEntity[]>([]);
+  const [isNetworkAvailable, setIsNetworkAvailable] = useState<boolean>(false);
 
   const defaultContext = {
     sniffedRepositories,
     setSniffedRepositories,
+    isNetworkAvailable,
+    setIsNetworkAvailable,
   };
 
-  return <SniffedRepositoriesContext.Provider value={defaultContext}>{children}</SniffedRepositoriesContext.Provider>;
+  return <GlobalContext.Provider value={defaultContext}>{children}</GlobalContext.Provider>;
 };

@@ -1,5 +1,5 @@
 // import React from 'react';
-// import {SniffedRepositoriesContextProvider} from '../../core/context/sniffed.repositories.context'
+// import {GlobalContextProvider} from '../../core/context/sniffed.repositories.context'
 // import '@react-native-community/async-storage';
 // import {NavigationContainer} from '@react-navigation/native';
 
@@ -15,9 +15,9 @@
 // function makeSut(isLogged = false) {
 //   return render(
 //     <NavigationContainer>
-//       <SniffedRepositoriesContextProvider>
+//       <GlobalContextProvider>
 //         <StackNavigation isLogged={isLogged} />
-//       </SniffedRepositoriesContextProvider>
+//       </GlobalContextProvider>
 //     </NavigationContainer>,
 //   );
 // }

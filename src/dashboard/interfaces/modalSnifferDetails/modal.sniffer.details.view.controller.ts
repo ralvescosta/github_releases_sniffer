@@ -1,11 +1,11 @@
 import React, {useContext} from 'react';
 
 import {IModalSnifferDetailsViewController} from './imodal.sniffer.details.view.controller';
-import {SniffedRepositoriesContext} from '../../../core/context/sniffed.repositories.context';
+import {GlobalContext} from '../../../core/context/sniffed.repositories.context';
 import {IRemoveSnifferRepoUsecase} from '../../bussiness/usecases/iremove.sniffer.repo.usecase';
 
 export class ModalSnifferDetailsViewController implements IModalSnifferDetailsViewController {
-  private _snifferContext = useContext(SniffedRepositoriesContext);
+  private _snifferContext = useContext(GlobalContext);
 
   constructor(
     public modalControl: boolean,

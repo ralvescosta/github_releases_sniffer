@@ -45,6 +45,12 @@ export const styles = StyleSheet.create({
     width: 30,
     borderRadius: 15,
   },
+  accountFakeAvatar: {
+    height: 30,
+    width: 30,
+    borderRadius: 15,
+    backgroundColor: '#ccc',
+  },
   accountUser: {
     color: secondary,
   },
