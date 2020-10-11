@@ -1,4 +1,5 @@
 import {useState, useRef, useContext} from 'react';
+import {ToastAndroid} from 'react-native';
 import {Keyboard} from 'react-native';
 
 import {GlobalContext} from '../../../core/context/sniffed.repositories.context';
@@ -31,6 +32,7 @@ export class SearchViewController implements ISearchViewController {
     }
 
     if (!this.isNetworkAvailable) {
+      ToastAndroid.show('WITHOUT INTERNET', ToastAndroid.BOTTOM);
       return;
     }
 

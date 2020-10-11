@@ -1,6 +1,7 @@
 import React from 'react';
-import {View, Text, TextInput, ScrollView, TouchableOpacity, ActivityIndicator, Alert} from 'react-native';
+import {View, TextInput, ScrollView, TouchableOpacity, ActivityIndicator, Alert} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import {styles} from './styles';
 
@@ -42,9 +43,10 @@ export const SearchScreen = ({viewController, RepoCard}: Props) => {
           ? viewController.foundRepositories.current.map((repo) => <RepoCard key={repo.id} repository={repo} />)
           : null}
       </ScrollView>
+
       {!viewController.isNetworkAvailable ? (
         <View style={styles.networkInfo}>
-          <Text style={styles.networkInfoText}>WITHOUT INTERNET CONNECTION</Text>
+          <MaterialIcons name="signal-wifi-off" color="#ccc" size={50} />
         </View>
       ) : null}
     </View>
