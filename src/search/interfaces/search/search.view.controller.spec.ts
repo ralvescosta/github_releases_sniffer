@@ -39,6 +39,7 @@ describe('Search View Controller', () => {
 
   it('saveRepoToObserver()', async () => {
     const {sut, searchGithubRepositoryUsecaseSpy} = makeSut();
+    sut.isNetworkAvailable = true;
     jest.spyOn(searchGithubRepositoryUsecaseSpy, 'search');
 
     await sut.searchRepository();

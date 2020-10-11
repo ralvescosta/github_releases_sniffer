@@ -1,7 +1,8 @@
 import React from 'react';
 
 export interface IDashboardViewController {
-  snifferContext: any;
+  globalContext: any;
   userAccount: any;
   setUserAccount: React.Dispatch<React.SetStateAction<any>>;
+  // isNetworkAvailable: boolean;
 }

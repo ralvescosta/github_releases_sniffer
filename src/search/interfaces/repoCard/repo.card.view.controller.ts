@@ -1,7 +1,7 @@
 import {useState, useContext} from 'react';
 import {IRepoCardViewController} from './irepo.card.view.controller';
 
-import {SniffedRepositoriesContext} from '../../../core/context/sniffed.repositories.context';
+import {GlobalContext} from '../../../core/context/sniffed.repositories.context';
 
 import {ResultSearchGithubRepositoryEntity} from '../../bussiness/entities/result.search.github.repository.entity';
 import {ISaveRepositoryToSnifferUsecase} from '../../bussiness/usecases/isave.repositrory.to.sniffer.usecase';
@@ -16,7 +16,7 @@ export class RepoCardViewController implements IRepoCardViewController {
   public loading: boolean;
   public setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 
-  public context = useContext(SniffedRepositoriesContext);
+  public context = useContext(GlobalContext);
 
   constructor(
     repository: ResultSearchGithubRepositoryEntity,

@@ -6,7 +6,8 @@ export const styles = StyleSheet.create({
   repoCard: {
     width: '100%',
     flexDirection: 'row',
-    padding: widthToDP('2%'),
+    paddingVertical: widthToDP('2%'),
+    paddingHorizontal: widthToDP('3.5%'),
     backgroundColor: '#fff',
     elevation: 5,
     borderRadius: 6,

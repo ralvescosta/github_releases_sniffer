@@ -1,7 +1,8 @@
 import {useState, useRef, useContext} from 'react';
+import {ToastAndroid} from 'react-native';
 import {Keyboard} from 'react-native';
 
-import {SniffedRepositoriesContext} from '../../../core/context/sniffed.repositories.context';
+import {GlobalContext} from '../../../core/context/sniffed.repositories.context';
 import {ISearchViewController} from './isearch.view.controller';
 
 import {ISearchGithubRepositoryUsecase} from '../../bussiness/usecases/isearch.github.repository.usecase';
@@ -15,7 +16,8 @@ export class SearchViewController implements ISearchViewController {
 
   public foundRepositories: React.MutableRefObject<ResultSearchGithubRepositoryEntity[]>;
 
-  public context = useContext(SniffedRepositoriesContext);
+  public context = useContext(GlobalContext);
+  public isNetworkAvailable = this.context.isNetworkAvailable;
 
   constructor(private readonly _searchRepositoryUsecase: ISearchGithubRepositoryUsecase) {
     this.repositoryName = useRef('');
@@ -29,11 +31,18 @@ export class SearchViewController implements ISearchViewController {
       throw new Error();
     }
 
+    if (!this.isNetworkAvailable) {
+      ToastAndroid.show('WITHOUT INTERNET', ToastAndroid.BOTTOM);
+      return;
+    }
+
     this.setIsLoading(true);
     Keyboard.dismiss();
 
-    const result = await this._searchRepositoryUsecase.search(this.repositoryName.current, this.context.sniffedRepositories);
-    this.foundRepositories.current = result;
+    try {
+      const result = await this._searchRepositoryUsecase.search(this.repositoryName.current, this.context.sniffedRepositories);
+      this.foundRepositories.current = result;
+    } catch (err) {}
 
     this.setIsLoading(false);
   }

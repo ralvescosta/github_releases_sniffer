@@ -15,14 +15,19 @@ type Props = {
 export const Dashboard = ({viewController, RepoCard}: Props) => {
   return (
     <View style={styles.container}>
-      <Header account={viewController.userAccount} />
+      <Header
+        account={viewController.userAccount}
+        amountOfRepos={viewController.globalContext.sniffedRepositories.length}
+        amountOfAlerts={0}
+        isNetworkAvailable={viewController.globalContext.isNetworkAvailable}
+      />
       <ScrollView style={{width: '100%'}} contentContainerStyle={{paddingBottom: 35, alignItems: 'center'}}>
-        {viewController.snifferContext.sniffedRepositories.length
-          ? viewController.snifferContext.sniffedRepositories.map((item: any) => <RepoCard key={item.id} repository={item} />)
+        {viewController.globalContext.sniffedRepositories.length
+          ? viewController.globalContext.sniffedRepositories.map((item: any) => <RepoCard key={item.id} repository={item} />)
           : null}
       </ScrollView>
     </View>
   );
 };
 
-export default Dashboard;
+export default React.memo(Dashboard);

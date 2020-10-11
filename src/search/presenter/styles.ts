@@ -1,5 +1,7 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
 import {primary} from '../../core/themes/colors';
+import {widthToDP} from '../../core/themes/size';
+const {height} = Dimensions.get('screen');
 
 export const styles = StyleSheet.create({
   container: {
@@ -38,5 +40,17 @@ export const styles = StyleSheet.create({
     padding: 15,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+
+  networkInfo: {
+    position: 'absolute',
+    top: height * 0.4,
+    width: widthToDP('100%'),
+    padding: widthToDP('2%'),
+    alignItems: 'center',
+  },
+  networkInfoText: {
+    color: '#fff',
+    fontWeight: 'bold',
   },
 });

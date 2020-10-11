@@ -1,4 +1,6 @@
 import 'react';
+import mockRNCNetInfo from '@react-native-community/netinfo/jest/netinfo-mock';
+
 import {GetSnifferReposAndAccountUsecaseSpy} from '../__test__/get.sniffer.repos.and.account.usecase.spy';
 import {DashboardViewController} from './dashboard.view.controller';
 
@@ -9,6 +11,7 @@ jest.mock('react', () => ({
   useContext: jest.fn(() => ({setSniffedRepositories: jest.fn(), sniffedRepositories: []})),
   createContext: jest.fn(),
 }));
+jest.mock('@react-native-community/netinfo', () => mockRNCNetInfo);
 
 function makeSut() {
   const getSnifferReposAndAccountUsecaseSpy = new GetSnifferReposAndAccountUsecaseSpy();

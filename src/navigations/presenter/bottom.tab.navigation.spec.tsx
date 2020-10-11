@@ -4,7 +4,7 @@
 
 // import {cleanup, render} from '@testing-library/react-native';
 
-// import {SniffedRepositoriesContextProvider} from '../../core/context/sniffed.repositories.context'
+// import {GlobalContextProvider} from '../../core/context/sniffed.repositories.context'
 // import {BottomTabNavigation} from './bottom.tab.navigation';
 
 // jest.mock('@react-native-community/async-storage', () => ({
@@ -15,9 +15,9 @@
 // function makeSut() {
 //   return render(
 //     <NavigationContainer>
-//       <SniffedRepositoriesContextProvider>
+//       <GlobalContextProvider>
 //         <BottomTabNavigation />
-//       </SniffedRepositoriesContextProvider>
+//       </GlobalContextProvider>
 //     </NavigationContainer>,
 //   );
 // }
