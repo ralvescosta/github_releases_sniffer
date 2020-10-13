@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Repo Card Components Should render correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "borderRadius": 6,
+      "elevation": 5,
+      "flexDirection": "row",
+      "marginTop": 15,
+      "padding": 15,
+      "width": "95%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "maxWidth": "60%",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={Object {}}
+    >
+      <Text
+        numberOfLines={2}
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+        
+      </Text>
+      <Text
+        ellipsizeMode="tail"
+        numberOfLines={2}
+        style={
+          Object {
+            "color": "#777",
+            "marginTop": 4,
+          }
+        }
+      >
+        
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "maxWidth": "40%",
+        "width": "100%",
+      }
+    }
+  >
+    <RCTSwitch
+      accessibilityRole="switch"
+      onChange={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "height": 31,
+          "width": 51,
+        }
+      }
+      value={false}
+    />
+  </View>
+</View>
+`;

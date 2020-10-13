@@ -22,7 +22,7 @@ function makeSut() {
   return render(<Wrapper />);
 }
 
-describe('Repo Card Components', () => {
+describe('Dashboard Repo Card Components', () => {
   it('Should render correctly', () => {
     const sut = makeSut();
 

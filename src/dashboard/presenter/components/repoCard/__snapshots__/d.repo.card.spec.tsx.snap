@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Repo Card Components Should render correctly 1`] = `
+exports[`Dashboard Repo Card Components Should render correctly 1`] = `
 <RNGestureHandlerButton
   collapsable={false}
   onGestureEvent={[Function]}
