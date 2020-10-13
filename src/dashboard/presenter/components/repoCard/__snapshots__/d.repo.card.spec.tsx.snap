@@ -1,0 +1,413 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard Repo Card Components Should render correctly 1`] = `
+<RNGestureHandlerButton
+  collapsable={false}
+  onGestureEvent={[Function]}
+  onGestureHandlerEvent={[Function]}
+  onGestureHandlerStateChange={[Function]}
+  onHandlerStateChange={[Function]}
+  rippleColor={0}
+>
+  <View
+    accessible={true}
+    style={
+      Object {
+        "backgroundColor": "#fff",
+        "borderRadius": 6,
+        "elevation": 5,
+        "flexDirection": "row",
+        "marginTop": 15,
+        "opacity": 1,
+        "paddingHorizontal": 26.5,
+        "paddingVertical": 15,
+        "width": "100%",
+      }
+    }
+  >
+    <Modal
+      animationType="slide"
+      hardwareAccelerated={false}
+      visible={true}
+    >
+      <View
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+              "padding": 22.5,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 34,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "FontAwesome",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "justifyContent": "space-around",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "width": "100%",
+              }
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "",
+                }
+              }
+              style={
+                Object {
+                  "height": 85,
+                  "width": 85,
+                }
+              }
+            />
+            <Text
+              style={
+                Object {
+                  "fontSize": 60,
+                  "fontWeight": "bold",
+                  "marginTop": 15,
+                }
+              }
+            >
+              
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "width": "100%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 36,
+                }
+              }
+            >
+               Latest release: 
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 36,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "elevation": 5,
+                "flexDirection": "row",
+                "height": 50,
+                "justifyContent": "center",
+                "opacity": 1,
+                "width": "100%",
+              }
+            }
+          >
+            <Text>
+              Remove Repository on Sniffer
+            </Text>
+          </View>
+        </View>
+      </View>
+    </Modal>
+    <View
+      style={
+        Object {
+          "maxWidth": "60%",
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        style={Object {}}
+      >
+        <Text
+          numberOfLines={2}
+          style={
+            Object {
+              "fontWeight": "bold",
+            }
+          }
+        >
+          
+        </Text>
+        <Text
+          ellipsizeMode="tail"
+          numberOfLines={3}
+          style={
+            Object {
+              "color": "#777",
+              "marginTop": 4,
+            }
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "marginTop": 15,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "color": "#777",
+              "flexDirection": "row",
+              "marginRight": 7,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#777",
+                  "fontSize": 30,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "FontAwesome",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            numberOfLines={1}
+            style={
+              Object {
+                "fontSize": 25.5,
+                "marginLeft": 3,
+                "maxWidth": 40,
+              }
+            }
+          >
+            10
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "color": "#777",
+              "flexDirection": "row",
+              "marginRight": 7,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#777",
+                  "fontSize": 30,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "FontAwesome",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            numberOfLines={1}
+            style={
+              Object {
+                "fontSize": 25.5,
+                "marginLeft": 3,
+                "maxWidth": 40,
+              }
+            }
+          >
+            10
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "color": "#777",
+              "flexDirection": "row",
+              "marginRight": 7,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#777",
+                  "fontSize": 30,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "FontAwesome",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            numberOfLines={1}
+            style={
+              Object {
+                "fontSize": 25.5,
+                "marginLeft": 3,
+                "maxWidth": 40,
+              }
+            }
+          >
+            10
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "column",
+          "justifyContent": "center",
+          "maxWidth": "40%",
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Last Release: 
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#777",
+            }
+          }
+        >
+          
+        </Text>
+      </View>
+      <Text
+        allowFontScaling={false}
+        style={
+          Array [
+            Object {
+              "color": "#d4d4d4",
+              "fontSize": 60,
+            },
+            undefined,
+            Object {
+              "fontFamily": "FontAwesome",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        
+      </Text>
+    </View>
+  </View>
+</RNGestureHandlerButton>
+`;

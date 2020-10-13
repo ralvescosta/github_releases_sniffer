@@ -1,5 +1,7 @@
 // import React from 'react';
 // import '@react-native-community/async-storage';
+// import mockRNCNetInfo from '@react-native-community/netinfo/jest/netinfo-mock';
+
 // import {NavigationContainer} from '@react-navigation/native';
 
 // import {cleanup, render} from '@testing-library/react-native';
@@ -11,6 +13,7 @@
 //   setItem: jest.fn(),
 //   getItem: jest.fn(),
 // }));
+// jest.mock('@react-native-community/netinfo', () => mockRNCNetInfo);
 
 // function makeSut() {
 //   return render(
