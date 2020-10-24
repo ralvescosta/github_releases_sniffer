@@ -6,7 +6,7 @@ const BottomTab = createMaterialBottomTabNavigator();
 
 import {DashboardModule} from '../../dashboard/dashboard.module';
 import {SearchScreenModule} from '../../search/search.module';
-import {SettingsScreen} from '../../settings/presenter/settings.screen';
+import {SettingsModule} from '../../settings/settings.module';
 
 export const BottomTabNavigation = () => {
   return (
@@ -37,7 +37,7 @@ export const BottomTabNavigation = () => {
 
       <BottomTab.Screen
         name="settings"
-        component={SettingsScreen}
+        component={SettingsModule}
         options={{
           tabBarLabel: 'Settings',
           tabBarIcon: ({color}) => <MaterialIcons name="unfold-more" color={color} size={24} />,
