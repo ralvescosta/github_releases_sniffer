@@ -1,7 +1,7 @@
 - 1: Check NetInfo, if device not access the internet show the alert banner and block all infrastructure use internet
-- 2: Implement Dashboard architecture [em andamento]
+- 2: Implement Dashboard architecture
 - 3: Implement Headless Tasks
-- 4: Implement Settings architecture
+- 4: Implement Settings architecture [work on it]
 - 5: Make a documentation
 - 6: Refactor Methods Name to improve the semantics of the app
 - 7: Integrations Tests
