@@ -8,8 +8,8 @@
     "start": "npx react-native start",
     "log": "npx react-native log-android",
     "test": "jest --runInBand --detectOpenHandles",
-    "test:staged": "yarn test --findRelatedTests src/",
-    "test:cov": "yarn test --coverage",
+    "test:staged": "npm run test --findRelatedTests src/",
+    "test:cov": "npm run test --coverage",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
