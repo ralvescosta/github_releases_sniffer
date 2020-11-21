@@ -1,11 +1,13 @@
 {
   "version": "0.2.0",
   "configurations": [
-		{
-      "name": "RN Debbuger",
+    {
+      "name": "Run Android",
       "cwd": "${workspaceFolder}",
       "type": "reactnative",
-      "request": "attach"
-    },
-  ],
+      "request": "launch",
+      "platform": "android",
+      "enableDebug": true
+    }
+  ]
 }
